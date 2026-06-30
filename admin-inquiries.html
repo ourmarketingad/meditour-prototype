@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditour 관리자 — 고객문의</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{--blue:#3182F6;--blue-bg:#EBF2FF;--ink:#191F28;--gray:#4E5968;--gray2:#8B95A1;--line:#E5E8EB;--bg2:#F9FAFB;--bg3:#F2F4F6;--green:#15B886;--orange:#F59E0B;--red:#E5484D;--purple:#7C5CFC;--purple-bg:#EFEBFF;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Pretendard',-apple-system,sans-serif;color:var(--ink);background:var(--bg2);line-height:1.5;-webkit-font-smoothing:antialiased;}
+  a{text-decoration:none;color:inherit;} .muted2{color:var(--gray2);}
+  .btn{display:inline-flex;align-items:center;justify-content:center;font-weight:600;border-radius:10px;padding:9px 16px;font-size:14px;cursor:pointer;border:none;}
+  .btn.primary{background:var(--blue);color:#fff;} .btn.line{background:#fff;border:1px solid var(--line);color:var(--gray);}
+  .shell{display:grid;grid-template-columns:230px 1fr;min-height:100vh;}
+  .sidebar{background:#fff;border-right:1px solid var(--line);padding:18px 14px;position:sticky;top:0;height:100vh;}
+  .brand{font-size:18px;font-weight:800;letter-spacing:-.5px;padding:8px 10px 4px;} .brand small{display:block;font-size:11px;color:var(--purple);font-weight:700;}
+  .snav{margin-top:18px;display:flex;flex-direction:column;gap:2px;}
+  .snav a{display:flex;align-items:center;gap:10px;padding:11px 12px;border-radius:10px;font-size:14px;font-weight:600;color:var(--gray);}
+  .snav a.on{background:var(--purple-bg);color:var(--purple);} .snav a:hover{background:var(--bg2);} .snav .sec{font-size:11px;color:var(--gray2);font-weight:700;padding:14px 12px 6px;}
+  .main{display:flex;flex-direction:column;}
+  .topbar{background:#fff;border-bottom:1px solid var(--line);height:62px;display:flex;align-items:center;gap:12px;padding:0 26px;position:sticky;top:0;z-index:30;}
+  .topbar .ttl{font-weight:800;font-size:15px;} .topbar .stt{font-size:11px;font-weight:700;background:var(--purple-bg);color:var(--purple);padding:3px 9px;border-radius:8px;}
+  .topbar .right{margin-left:auto;display:flex;align-items:center;gap:16px;} .bell{font-size:18px;} .ava{width:32px;height:32px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;}
+  .content{padding:28px 26px 60px;}
+  h1{font-size:24px;font-weight:800;letter-spacing:-.6px;} .sub{color:var(--gray);font-size:14px;margin:4px 0 18px;}
+  .layout{display:grid;grid-template-columns:340px 1fr;gap:18px;}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;}
+  .ihead{padding:14px 16px;font-weight:800;border-bottom:1px solid var(--line);display:flex;gap:8px;align-items:center;}
+  .ihead .seg{display:flex;gap:6px;margin-left:auto;font-size:12px;} .ihead .seg span{padding:4px 8px;border-radius:7px;background:var(--bg3);color:var(--gray);font-weight:700;cursor:pointer;} .ihead .seg span.on{background:var(--ink);color:#fff;}
+  .iitem{padding:14px 16px;border-bottom:1px solid var(--bg2);cursor:pointer;} .iitem.on{background:var(--blue-bg);}
+  .iitem .t{display:flex;align-items:center;gap:8px;} .iitem .nm{font-weight:700;font-size:14px;} .iitem .st{font-size:11px;font-weight:700;padding:2px 8px;border-radius:7px;margin-left:auto;} .st.new{background:#FFF4E5;color:var(--orange);} .st.done{background:#E6F7F1;color:var(--green);}
+  .iitem .q{font-size:13px;color:var(--gray);margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .iitem .meta{font-size:11px;color:var(--gray2);margin-top:5px;}
+  /* detail */
+  .det{padding:20px;display:flex;flex-direction:column;height:100%;}
+  .det .h{display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:14px;}
+  .det .h .nm{font-weight:800;font-size:16px;} .det .h .sub{font-size:12px;color:var(--gray2);}
+  .det .h .assign{margin-left:auto;font-size:12px;font-weight:700;color:var(--gray);background:var(--bg3);padding:6px 10px;border-radius:8px;}
+  .bubble{background:var(--bg2);border-radius:12px;padding:14px;font-size:14px;color:var(--ink);margin-bottom:12px;}
+  .bubble .who{font-size:12px;color:var(--gray2);font-weight:700;margin-bottom:6px;}
+  .bubble.me{background:var(--blue-bg);}
+  .reply{margin-top:auto;border-top:1px solid var(--line);padding-top:14px;}
+  .reply .f{width:100%;height:90px;border:1px solid var(--line);border-radius:12px;padding:12px;color:var(--gray2);font-size:14px;}
+  .reply .r{display:flex;justify-content:flex-end;gap:8px;margin-top:10px;}
+  @media(max-width:980px){.shell{grid-template-columns:1fr;}.sidebar{display:none;}.layout{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand">＋ Meditour <small>관리자 콘솔</small></div>
+    <nav class="snav">
+      <a href="admin-dashboard.html">🏠 대시보드</a>
+      <div class="sec">관리</div>
+      <a href="admin-members.html">👥 회원 관리</a>
+      <a href="admin-businesses.html">🏥 업체 관리 · 입점 승인</a>
+      <a href="admin-products.html">🧾 상품 관리 · 승인</a>
+      <div class="sec">마케팅</div>
+      <a href="admin-promotions.html">🔗 프로모션</a>
+      <a href="admin-banners.html">🖼 배너 관리</a>
+      <div class="sec">분석 · CS</div>
+      <a href="admin-stats.html">📊 사이트 통계</a>
+      <a class="on">📨 고객문의</a>
+      <a href="index.html">↩ 로그아웃</a>
+    </nav>
+  </aside>
+  <div class="main">
+    <div class="topbar"><span class="ttl">🛡 Meditour Admin</span><span class="stt">최고 관리자</span>
+      <div class="right"><span class="bell">🔔</span><span class="ava">🛡</span></div></div>
+    <div class="content">
+      <h1>고객문의 (1:1)</h1>
+      <p class="sub">회원·업체의 1:1 문의를 응대합니다.</p>
+      <div class="layout">
+        <div class="panel">
+          <div class="ihead">문의 <div class="seg"><span class="on">미답변 5</span><span>전체</span></div></div>
+          <div class="iitem on"><div class="t"><span class="nm">🇨🇳 Li Wei</span><span class="st new">미답변</span></div>
+            <div class="q">예약 변경은 어떻게 하나요?</div><div class="meta">일반 회원 · 10분 전</div></div>
+          <div class="iitem"><div class="t"><span class="nm">🏥 OOO 클리닉</span><span class="st new">미답변</span></div>
+            <div class="q">정산 주기 문의드립니다.</div><div class="meta">업체 회원 · 1시간 전</div></div>
+          <div class="iitem"><div class="t"><span class="nm">🇺🇸 Sarah K.</span><span class="st new">미답변</span></div>
+            <div class="q">환불은 며칠 걸리나요?</div><div class="meta">일반 회원 · 2시간 전</div></div>
+          <div class="iitem"><div class="t"><span class="nm">🇯🇵 Megumi I.</span><span class="st done">답변완료</span></div>
+            <div class="q">통역 언어 확인 부탁드려요.</div><div class="meta">일반 회원 · 어제</div></div>
+        </div>
+        <div class="panel">
+          <div class="det">
+            <div class="h"><div><div class="nm">🇨🇳 Li Wei</div><div class="sub">일반 회원 · 중국 · 예약 ID #20260712-01</div></div>
+              <span class="assign">담당: 미지정 ▾</span></div>
+            <div class="bubble"><div class="who">Li Wei · 10분 전</div>예약한 날짜를 7월 15일로 바꾸고 싶은데 어떻게 하나요? (원문 자동 번역됨)</div>
+            <div class="bubble me"><div class="who">상담원 (작성 중)</div>마이페이지 → 예약 내역에서 해당 예약의 '문의하기'로 업체와 일정 조율이 가능합니다. 도와드릴까요?</div>
+            <div class="reply">
+              <div class="f">답변 입력… (고객 언어로 자동 번역되어 발송)</div>
+              <div class="r"><a class="btn line">답변완료 처리</a><a class="btn primary">전송</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

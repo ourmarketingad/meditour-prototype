@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditour — 홈 와이어프레임</title>
+<style>
+  :root{
+    --line:#c9ced6; --line2:#e3e6ea; --ink:#3a3f47; --sub:#8b929c;
+    --box:#eef0f3; --boxline:#cfd4db; --accent:#5b6b8c; --tag:#dfe3e8;
+    --note:#b08; --noteb:#fbeaf4;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Pretendard','Malgun Gothic',-apple-system,sans-serif;
+       color:var(--ink);background:#f4f5f7;line-height:1.45;font-size:14px;}
+  .frame{max-width:1180px;margin:0 auto;background:#fff;border:1px solid var(--line);}
+  /* annotation label */
+  .ann{font-size:11px;color:#fff;background:var(--note);display:inline-block;
+       padding:2px 8px;border-radius:0 0 6px 0;position:absolute;top:0;left:0;letter-spacing:.2px;}
+  section{position:relative;border-bottom:1px dashed var(--line2);padding:34px 40px;}
+  .secnote{position:absolute;top:6px;right:12px;font-size:11px;color:var(--note);
+           background:var(--noteb);padding:2px 8px;border-radius:10px;}
+  .ph{background:var(--box);border:1px dashed var(--boxline);display:flex;
+      align-items:center;justify-content:center;color:var(--sub);font-size:12px;border-radius:6px;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--ink);
+       border-radius:6px;padding:9px 16px;font-size:13px;background:#fff;}
+  .btn.solid{background:var(--ink);color:#fff;}
+  .tag{display:inline-block;border:1px solid var(--boxline);background:var(--tag);
+       border-radius:14px;padding:4px 12px;font-size:12px;color:var(--ink);margin:0 4px 4px 0;}
+  h2.t{font-size:20px;margin:0 0 4px;}
+  .muted{color:var(--sub);font-size:12px;}
+  .row{display:flex;gap:16px;}
+  .grid{display:grid;gap:16px;}
+  /* header */
+  header{display:flex;align-items:center;gap:18px;padding:14px 40px;border-bottom:1px solid var(--line);position:relative;}
+  .logo{font-weight:800;font-size:18px;letter-spacing:-.5px;}
+  .nav{display:flex;gap:18px;font-size:13px;color:var(--ink);}
+  .nav b{border-bottom:2px solid var(--ink);padding-bottom:3px;}
+  .searchbar{flex:1;height:38px;border:1px solid var(--boxline);border-radius:20px;
+             display:flex;align-items:center;padding:0 14px;color:var(--sub);font-size:12px;background:#fafbfc;}
+  .pill{border:1px solid var(--boxline);border-radius:16px;padding:5px 10px;font-size:12px;color:var(--ink);}
+  .cap{font-size:11px;color:var(--sub);text-transform:uppercase;letter-spacing:1px;}
+  .card{border:1px solid var(--line2);border-radius:8px;overflow:hidden;background:#fff;}
+  .cardpad{padding:12px;}
+  .step{border:1px solid var(--line2);border-radius:8px;padding:16px;}
+  .stepno{width:26px;height:26px;border-radius:50%;border:1px solid var(--ink);
+          display:flex;align-items:center;justify-content:center;font-size:12px;margin-bottom:8px;}
+  .badge{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--boxline);
+         border-radius:6px;padding:6px 10px;font-size:12px;background:#fafbfc;}
+  footer{background:#2c313a;color:#cfd4db;padding:32px 40px;font-size:12px;}
+  footer .row{flex-wrap:wrap;gap:48px;}
+  footer b{color:#fff;display:block;margin-bottom:8px;font-size:13px;}
+  footer a{color:#cfd4db;display:block;margin-bottom:5px;text-decoration:none;}
+  .titlebar{background:#fff;border:1px solid var(--line);max-width:1180px;margin:18px auto 0;
+            padding:14px 20px;border-radius:8px;}
+  .titlebar h1{font-size:16px;margin:0;}
+  .titlebar p{margin:4px 0 0;}
+</style>
+</head>
+<body>
+
+<div class="titlebar">
+  <h1>Meditour Korea — 홈(메인) 와이어프레임 <span class="muted">v0.1 · 공개페이지</span></h1>
+  <p class="muted">분홍 라벨 = 섹션 설명/기획 의도. 회색 박스 = 이미지/콘텐츠 자리. 메디투어 홈 구조.</p>
+</div>
+
+<div class="frame">
+
+  <!-- ============ HEADER / GNB ============ -->
+  <header>
+    <span class="ann">① 헤더 / GNB</span>
+    <span class="logo">＋ Meditour</span>
+    <div class="searchbar">🔍 클리닉·시술·지역 검색 (다국어)</div>
+    <nav class="nav">
+      <b>Home</b><span>Explore</span><span>Deals</span><span>Chat</span><span>My</span>
+    </nav>
+    <span class="pill">🌐 EN ▾</span>
+    <span class="pill">앱 다운로드</span>
+    <span class="btn" style="padding:6px 12px;">로그인</span>
+  </header>
+  <div class="muted" style="padding:6px 40px;background:#fafbfc;border-bottom:1px dashed var(--line2);">
+    언어 전환: English / 中文(简) / 中文(繁) / 日本語 · 로그인 시 로깅 → MAU 집계
+  </div>
+
+  <!-- ============ HERO ============ -->
+  <section>
+    <span class="ann">② 히어로</span>
+    <span class="secnote">"가격보다 신뢰" — 맞춤 추천 진입</span>
+    <div class="row" style="align-items:stretch;">
+      <div style="flex:1.1;display:flex;flex-direction:column;justify-content:center;gap:14px;">
+        <div class="cap">Premium · Verified · Korea</div>
+        <h2 class="t" style="font-size:30px;line-height:1.25;">한국에서 검증된 프리미엄<br>클리닉 &amp; K-뷰티를 예약하세요</h2>
+        <p class="muted" style="font-size:14px;">가장 싼 곳이 정답은 아닙니다. 한국인이 실제로 신뢰하는 곳과 매칭해 드립니다.</p>
+        <div class="row" style="gap:10px;margin-top:4px;">
+          <span class="btn solid">＋ 내 맞춤 추천받기</span>
+          <span class="btn">둘러보기</span>
+        </div>
+      </div>
+      <div class="ph" style="flex:.9;min-height:220px;">메인 비주얼 이미지 / 앱 QR</div>
+    </div>
+    <!-- search + category tabs -->
+    <div style="margin-top:22px;border:1px solid var(--boxline);border-radius:10px;padding:14px;background:#fafbfc;">
+      <div class="row" style="margin-bottom:10px;">
+        <span class="tag" style="background:var(--ink);color:#fff;border-color:var(--ink);">의료</span>
+        <span class="tag">뷰티</span><span class="tag">호텔</span><span class="tag">패키지</span>
+      </div>
+      <div class="row">
+        <div class="ph" style="flex:2;height:42px;">키워드 (시술·클리닉명)</div>
+        <div class="ph" style="flex:1;height:42px;">국가 / 언어</div>
+        <div class="ph" style="flex:1;height:42px;">지역 (강남·신사·압구정)</div>
+        <span class="btn solid" style="height:42px;">검색</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VALUE PROP ============ -->
+  <section style="text-align:center;">
+    <span class="ann">③ 가치 제안</span>
+    <h2 class="t">신뢰할 수 있는 곳과 매칭됩니다</h2>
+    <p class="muted">검색 → 상담 → 예약까지, 흩어진 과정을 한 번에 연결합니다.</p>
+  </section>
+
+  <!-- ============ BRAND VIDEO ============ -->
+  <section>
+    <span class="ann">④ 브랜드 영상</span>
+    <span class="secnote">Watch / Our Story</span>
+    <div class="ph" style="height:300px;">▶ 브랜드 소개 영상 (Our Story)</div>
+  </section>
+
+  <!-- ============ TRUST / VERIFICATION ============ -->
+  <section>
+    <span class="ann">⑤ 신뢰 · 검증</span>
+    <span class="secnote">5단계 검증 시스템</span>
+    <div class="cap">SCREENED BY HUMANS</div>
+    <h2 class="t">사람이 검증하고, 한국인이 신뢰합니다</h2>
+    <p class="muted">외국인만 노리는 곳이 아니라, 현지인이 실제로 찾는 업체를 선별합니다.</p>
+    <div class="row" style="margin-top:16px;flex-wrap:wrap;">
+      <span class="badge">✓ 자격/면허 검증</span>
+      <span class="badge">✓ 전문성 검증</span>
+      <span class="badge">✓ 평판 검증</span>
+      <span class="badge">✓ 현장 실사</span>
+      <span class="badge">✓ 고객 만족도</span>
+    </div>
+    <div class="row" style="margin-top:18px;gap:40px;">
+      <div><div style="font-size:24px;font-weight:800;">5단계</div><div class="muted">스크리닝 프로세스</div></div>
+      <div><div style="font-size:24px;font-weight:800;">1,2xx+</div><div class="muted">검토한 업체 수</div></div>
+      <div style="display:flex;align-items:center;"><span class="btn">선별 기준 보기 →</span></div>
+    </div>
+  </section>
+
+  <!-- ============ RECOMMENDATION PROCESS ============ -->
+  <section>
+    <span class="ann">⑥ 추천 프로세스</span>
+    <h2 class="t">맞춤 추천은 이렇게 진행됩니다</h2>
+    <div class="grid" style="grid-template-columns:repeat(4,1fr);margin-top:16px;">
+      <div class="step"><div class="stepno">1</div><b>니즈 입력</b><p class="muted">시술·예산·일정·언어 선택</p></div>
+      <div class="step"><div class="stepno">2</div><b>AI 매칭</b><p class="muted">검증 업체 중 적합도 분석</p></div>
+      <div class="step"><div class="stepno">3</div><b>실시간 상담</b><p class="muted">AI 번역 채팅으로 문의</p></div>
+      <div class="step"><div class="stepno">4</div><b>예약/견적</b><p class="muted">예약금·견적서로 확정</p></div>
+    </div>
+  </section>
+
+  <!-- ============ VERIFIED LISTINGS ============ -->
+  <section>
+    <span class="ann">⑦ 검증된 업체 리스팅</span>
+    <span class="secnote">의료/뷰티 탭 · 전체보기</span>
+    <div class="row" style="justify-content:space-between;align-items:center;">
+      <div><div class="cap">VERIFIED BY MEDITOUR</div><h2 class="t">검증된 추천 업체</h2></div>
+      <span class="btn">전체 보기 →</span>
+    </div>
+    <div class="row" style="margin:12px 0;">
+      <span class="tag" style="background:var(--ink);color:#fff;border-color:var(--ink);">의료</span>
+      <span class="tag">뷰티</span>
+    </div>
+    <div class="grid" style="grid-template-columns:repeat(4,1fr);">
+      <!-- card x4 -->
+      <div class="card">
+        <div class="ph" style="height:120px;border-radius:0;border:none;border-bottom:1px dashed var(--boxline);">업체 이미지</div>
+        <div class="cardpad">
+          <div class="muted">피부과 · 청담</div>
+          <b>OOO 클리닉</b>
+          <p class="muted" style="margin:6px 0;">한 줄 소개 (최대 125자). 대표 시술·강점 요약.</p>
+          <div><span class="tag" style="font-size:11px;padding:2px 8px;">★ 4.8</span><span class="tag" style="font-size:11px;padding:2px 8px;">🇨🇳 통역</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ph" style="height:120px;border-radius:0;border:none;border-bottom:1px dashed var(--boxline);">업체 이미지</div>
+        <div class="cardpad">
+          <div class="muted">성형외과 · 신사</div>
+          <b>OOO 성형외과</b>
+          <p class="muted" style="margin:6px 0;">한 줄 소개. 전문분야·인증 배지 노출.</p>
+          <div><span class="tag" style="font-size:11px;padding:2px 8px;">★ 4.9</span><span class="tag" style="font-size:11px;padding:2px 8px;">New</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ph" style="height:120px;border-radius:0;border:none;border-bottom:1px dashed var(--boxline);">업체 이미지</div>
+        <div class="cardpad">
+          <div class="muted">피부과 · 강남</div>
+          <b>OOO 의원</b>
+          <p class="muted" style="margin:6px 0;">한 줄 소개. 위치·평점·통역 언어.</p>
+          <div><span class="tag" style="font-size:11px;padding:2px 8px;">★ 4.7</span><span class="tag" style="font-size:11px;padding:2px 8px;">Pick</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ph" style="height:120px;border-radius:0;border:none;border-bottom:1px dashed var(--boxline);">업체 이미지</div>
+        <div class="cardpad">
+          <div class="muted">안과 · 압구정</div>
+          <b>OOO 안과</b>
+          <p class="muted" style="margin:6px 0;">한 줄 소개. 검증 배지·결제수단.</p>
+          <div><span class="tag" style="font-size:11px;padding:2px 8px;">★ 4.8</span><span class="tag" style="font-size:11px;padding:2px 8px;">🇯🇵 통역</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COUNTRY / CATEGORY DIRECTORY ============ -->
+  <section>
+    <span class="ann">⑧ 국가·카테고리 디렉토리</span>
+    <span class="secnote">icloudhospital 참고</span>
+    <h2 class="t">국가별 · 카테고리별로 둘러보기</h2>
+    <p class="muted">30개국+ · 35개 언어+ 대응. 국가/카테고리 카드로 디렉토리 진입.</p>
+    <div class="grid" style="grid-template-columns:repeat(6,1fr);margin-top:14px;">
+      <div class="step" style="text-align:center;padding:12px;"><div style="font-size:20px;">🇰🇷</div><b style="font-size:13px;">한국</b><div class="muted">업체 76K</div></div>
+      <div class="step" style="text-align:center;padding:12px;"><div style="font-size:20px;">🇯🇵</div><b style="font-size:13px;">일본</b><div class="muted">유입 1위</div></div>
+      <div class="step" style="text-align:center;padding:12px;"><div style="font-size:20px;">🇨🇳</div><b style="font-size:13px;">중국</b><div class="muted">유입 2위</div></div>
+      <div class="step" style="text-align:center;padding:12px;"><div style="font-size:20px;">🇹🇼</div><b style="font-size:13px;">대만</b><div class="muted">+550%</div></div>
+      <div class="step" style="text-align:center;padding:12px;"><div style="font-size:20px;">🇺🇸</div><b style="font-size:13px;">미국</b><div class="muted">유입 3위</div></div>
+      <div class="step" style="text-align:center;padding:12px;"><div style="font-size:20px;">🇹🇭</div><b style="font-size:13px;">태국</b><div class="muted">신흥</div></div>
+    </div>
+  </section>
+
+  <!-- ============ DEALS / PROMOTION ============ -->
+  <section>
+    <span class="ann">⑨ 혜택 / 프로모션 (Deals)</span>
+    <span class="secnote">배너 관리에서 On/Off</span>
+    <div class="grid" style="grid-template-columns:repeat(3,1fr);">
+      <div class="ph" style="height:120px;">프로모션 배너 1</div>
+      <div class="ph" style="height:120px;">프로모션 배너 2</div>
+      <div class="ph" style="height:120px;">이벤트 랜딩 진입</div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <span class="ann">⑩ 푸터</span>
+    <div class="row">
+      <div><b>Meditour</b>회사소개<a href="#">파트너(업체) 입점</a><a href="#">고객문의</a></div>
+      <div><b>서비스</b><a href="#">의료</a><a href="#">뷰티</a><a href="#">호텔</a><a href="#">패키지</a></div>
+      <div><b>고객지원</b><a href="#">자주 묻는 질문</a><a href="#">이용 가이드</a><a href="#">1:1 문의</a></div>
+      <div><b>약관/정책</b><a href="#">이용약관</a><a href="#">개인정보처리방침</a></div>
+      <div><b>앱 · SNS</b><a href="#">App Store / Google Play</a><a href="#">Instagram · WeChat · YouTube</a><a href="#">언어: EN · 中 · 日</a></div>
+    </div>
+    <div style="margin-top:20px;border-top:1px solid #444a54;padding-top:14px;color:#9aa1ab;">
+      (주)회사명 · 사업자등록번호 · 주소 · 대표 · 의료광고 심의 안내 등 © 2026 Meditour
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

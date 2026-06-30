@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditour — 예약 상세</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{--blue:#3182F6;--blue-bg:#EBF2FF;--ink:#191F28;--gray:#4E5968;--gray2:#8B95A1;--line:#E5E8EB;--bg2:#F9FAFB;--bg3:#F2F4F6;--green:#15B886;--red:#E5484D;--orange:#F59E0B;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Pretendard',-apple-system,sans-serif;color:var(--ink);background:var(--bg2);line-height:1.5;-webkit-font-smoothing:antialiased;}
+  a{text-decoration:none;color:inherit;} .muted2{color:var(--gray2);} .muted{color:var(--gray);}
+  .top{height:60px;display:flex;align-items:center;gap:12px;padding:0 24px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:40;}
+  .logo{font-size:18px;font-weight:800;} .top a.back{color:var(--gray);font-size:14px;font-weight:600;margin-left:auto;}
+  .wrap{max-width:680px;margin:0 auto;padding:28px 24px 80px;}
+  h1{font-size:24px;font-weight:800;letter-spacing:-.6px;margin-bottom:6px;} .st{display:inline-block;font-size:12px;font-weight:700;padding:4px 10px;border-radius:8px;background:#E7F0FF;color:var(--blue);margin-bottom:16px;}
+  .card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;margin-bottom:16px;} .card h3{font-size:16px;font-weight:800;margin-bottom:14px;}
+  .line{display:flex;justify-content:space-between;font-size:14px;padding:9px 0;border-bottom:1px solid var(--bg2);} .line:last-child{border-bottom:none;} .line span{color:var(--gray);}
+  /* timeline */
+  .tl{position:relative;padding-left:24px;} .tl .it{position:relative;padding:0 0 18px;} .tl .it::before{content:"";position:absolute;left:-18px;top:3px;width:11px;height:11px;border-radius:50%;background:var(--line);} .tl .it.done::before{background:var(--green);} .tl .it.now::before{background:var(--blue);} .tl .it::after{content:"";position:absolute;left:-13px;top:14px;bottom:0;width:2px;background:var(--line);} .tl .it:last-child::after{display:none;} .tl .t{font-weight:700;font-size:14px;} .tl .d{font-size:12px;color:var(--gray2);}
+  .btns{display:flex;gap:10px;} .btns a{flex:1;text-align:center;font-weight:700;border-radius:12px;padding:14px;font-size:15px;} .btns .g{background:var(--bg3);color:var(--ink);} .btns .r{background:#fff;border:1px solid var(--red);color:var(--red);}
+  .notice{background:#FFF7E6;border-radius:12px;padding:12px 14px;font-size:12px;color:#9A6B00;margin-top:12px;}
+  .modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.4);display:none;align-items:center;justify-content:center;z-index:80;} .modal{background:#fff;border-radius:20px;padding:26px;width:380px;} .modal h3{font-size:18px;font-weight:800;margin-bottom:10px;} .modal .cal{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;text-align:center;margin:10px 0;} .modal .cd{padding:8px 0;border-radius:8px;font-size:13px;font-weight:600;background:var(--blue-bg);color:var(--blue);cursor:pointer;} .modal .cd.sel{background:var(--blue);color:#fff;} .modal .mb{display:flex;gap:8px;margin-top:14px;} .modal .mb a{flex:1;text-align:center;border-radius:10px;padding:12px;font-weight:700;} .modal .mb .g{background:var(--bg3);} .modal .mb .p{background:var(--blue);color:#fff;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;font-weight:700;border-radius:10px;padding:10px 16px;font-size:14px;background:var(--bg3);color:var(--ink);}
+</style>
+</head>
+<body>
+  <div class="top"><a class="logo" href="index.html">＋ Meditour</a><a class="back" href="mypage.html">‹ 예약 내역</a></div>
+  <div class="wrap">
+    <span class="st">예약 확정</span>
+    <h1>리프팅 패키지</h1>
+    <p class="muted" style="margin-bottom:18px;">예약번호 #20260710-0142</p>
+
+    <div class="card"><h3>예약 정보</h3>
+      <div class="line"><span>업체</span><b>OOO 클리닉 · 청담</b></div>
+      <div class="line"><span>담당 의사</span><b>김OO 원장</b></div>
+      <div class="line"><span>일시</span><b>2026-07-10(목) 14:00</b></div>
+      <div class="line"><span>예약금</span><b>₩50,000 결제완료</b></div>
+      <div class="line"><span>잔금</span><b>₩450,000 (현장)</b></div>
+    </div>
+
+    <div class="card"><h3>진행 상태</h3>
+      <div class="tl">
+        <div class="it done"><div class="t">예약 신청</div><div class="d">06-29 18:20</div></div>
+        <div class="it done"><div class="t">예약금 결제</div><div class="d">06-29 18:22</div></div>
+        <div class="it now"><div class="t">예약 확정</div><div class="d">업체 확인 완료</div></div>
+        <div class="it"><div class="t">방문</div><div class="d">07-10 예정</div></div>
+        <div class="it"><div class="t">방문 완료 · 후기</div><div class="d">—</div></div>
+      </div>
+    </div>
+
+    <div class="card"><h3>변경 / 취소</h3>
+      <div class="btns"><a class="g" onclick="document.getElementById('m').style.display='flex'">일정 변경</a><a class="r" href="mypage.html">예약 취소</a></div>
+      <div class="notice">⚠️ 방문 24시간 전까지 무료 변경·취소(예약금 환불). 이후 노쇼 시 예약금은 환불되지 않습니다.</div>
+    </div>
+
+    <div class="card"><h3>문의</h3>
+      <a class="btn" href="chat.html" style="width:100%;">💬 업체에 문의 (AI 번역)</a>
+    </div>
+  </div>
+
+  <div class="modal-bg" id="m">
+    <div class="modal"><h3>일정 변경</h3><p class="muted2" style="font-size:13px;">새 날짜를 선택하세요 (7월)</p>
+      <div class="cal"><div class="cd">8</div><div class="cd">9</div><div class="cd sel">11</div><div class="cd">12</div><div class="cd">14</div><div class="cd">15</div><div class="cd">16</div></div>
+      <div class="muted2" style="font-size:12px;">14:00 · 김OO 원장</div>
+      <div class="mb"><a class="g" onclick="document.getElementById('m').style.display='none'">취소</a><a class="p">변경 확정</a></div>
+    </div>
+  </div>
+</body>
+</html>

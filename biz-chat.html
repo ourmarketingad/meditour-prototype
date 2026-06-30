@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditour 파트너 — 문의/채팅</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{--blue:#3182F6;--blue-d:#1B64DA;--ink:#191F28;--gray:#4E5968;--gray2:#8B95A1;
+        --line:#E5E8EB;--bg2:#F9FAFB;--bg3:#F2F4F6;--blue-bg:#EBF2FF;--green:#15B886;--orange:#F59E0B;--red:#E5484D;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Pretendard',-apple-system,sans-serif;color:var(--ink);background:var(--bg2);line-height:1.5;-webkit-font-smoothing:antialiased;}
+  a{text-decoration:none;color:inherit;} .muted2{color:var(--gray2);}
+  .btn{display:inline-flex;align-items:center;justify-content:center;font-weight:600;border-radius:10px;padding:9px 14px;font-size:13px;cursor:pointer;border:none;}
+  .btn.primary{background:var(--blue);color:#fff;} .btn.ghost{background:var(--bg3);color:var(--ink);} .btn.line{background:#fff;border:1px solid var(--line);color:var(--gray);}
+  .shell{display:grid;grid-template-columns:230px 1fr;height:100vh;overflow:hidden;}
+  .sidebar{background:#fff;border-right:1px solid var(--line);padding:18px 14px;}
+  .brand{font-size:18px;font-weight:800;letter-spacing:-.5px;padding:8px 10px 4px;} .brand small{display:block;font-size:11px;color:var(--gray2);font-weight:600;}
+  .snav{margin-top:18px;display:flex;flex-direction:column;gap:2px;}
+  .snav a{display:flex;align-items:center;gap:10px;padding:11px 12px;border-radius:10px;font-size:14px;font-weight:600;color:var(--gray);}
+  .snav a.on{background:var(--blue-bg);color:var(--blue);} .snav a:hover{background:var(--bg2);} .snav .sec{font-size:11px;color:var(--gray2);font-weight:700;padding:14px 12px 6px;}
+  .main{display:flex;flex-direction:column;overflow:hidden;}
+  .topbar{background:#fff;border-bottom:1px solid var(--line);height:62px;display:flex;align-items:center;gap:12px;padding:0 26px;flex:0 0 auto;}
+  .topbar .biz{font-weight:800;font-size:15px;} .topbar .stt{font-size:11px;font-weight:700;background:#E6F7F1;color:var(--green);padding:3px 9px;border-radius:8px;}
+  .topbar .right{margin-left:auto;display:flex;align-items:center;gap:16px;} .bell{font-size:18px;} .ava{width:32px;height:32px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;}
+
+  .inbox{flex:1;display:grid;grid-template-columns:280px 1fr 300px;overflow:hidden;}
+  /* threads */
+  .threads{border-right:1px solid var(--line);background:#fff;overflow-y:auto;}
+  .th-h{padding:16px;font-weight:800;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);}
+  .th-h .seg{display:flex;gap:6px;font-size:12px;}
+  .th-h .seg span{padding:4px 8px;border-radius:7px;background:var(--bg3);color:var(--gray);font-weight:700;cursor:pointer;}
+  .th-h .seg span.on{background:var(--ink);color:#fff;}
+  .thread{display:flex;gap:10px;padding:14px 16px;border-bottom:1px solid var(--bg2);cursor:pointer;}
+  .thread.on{background:var(--blue-bg);}
+  .thread .av{width:40px;height:40px;border-radius:12px;background:var(--bg3);display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+  .thread .nm{font-weight:700;font-size:14px;} .thread .last{font-size:12px;color:var(--gray2);max-width:150px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .thread .meta{margin-left:auto;text-align:right;} .thread .t{font-size:11px;color:var(--gray2);} .thread .badge{background:var(--red);color:#fff;border-radius:10px;font-size:11px;font-weight:700;padding:1px 7px;margin-top:4px;display:inline-block;}
+
+  .conv{display:flex;flex-direction:column;background:var(--bg2);overflow:hidden;}
+  .conv .top{padding:12px 18px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px;}
+  .conv .top .av{width:38px;height:38px;border-radius:11px;background:var(--bg3);display:flex;align-items:center;justify-content:center;}
+  .conv .top .nm{font-weight:700;} .conv .top .sub{font-size:12px;color:var(--gray2);}
+  .ai-banner{background:#FFF7E6;color:#9A6B00;font-size:12px;font-weight:600;text-align:center;padding:7px;}
+  .msgs{flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:14px;}
+  .m{max-width:78%;} .m .bubble{padding:11px 14px;border-radius:16px;font-size:14px;line-height:1.45;}
+  .m .orig{font-size:12px;color:var(--gray2);margin-top:4px;padding:0 4px;}
+  .m.them{align-self:flex-start;} .m.them .bubble{background:#fff;border:1px solid var(--line);border-top-left-radius:4px;}
+  .m.me{align-self:flex-end;} .m.me .bubble{background:var(--blue);color:#fff;border-top-right-radius:4px;} .m.me .orig{text-align:right;}
+  .trans{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--blue);font-weight:700;margin-top:3px;padding:0 4px;}
+  .inputbar{background:#fff;border-top:1px solid var(--line);padding:12px;display:flex;gap:8px;align-items:center;}
+  .inputbar .f{flex:1;height:44px;background:var(--bg2);border-radius:12px;padding:0 14px;display:flex;align-items:center;color:var(--gray2);font-size:14px;}
+  .inputbar .send{width:44px;height:44px;border-radius:12px;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;}
+
+  /* right panel */
+  .rpanel{border-left:1px solid var(--line);background:#fff;overflow-y:auto;padding:18px;}
+  .rpanel h4{font-size:13px;font-weight:800;color:var(--gray2);margin:16px 0 8px;text-transform:uppercase;letter-spacing:.4px;}
+  .rpanel h4:first-child{margin-top:0;}
+  .info{font-size:14px;display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--bg2);}
+  .info span{color:var(--gray2);}
+  .resvbox{border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:8px;}
+  .resvbox .st{font-size:11px;font-weight:700;padding:2px 8px;border-radius:7px;background:#E7F0FF;color:var(--blue);}
+  .note{width:100%;height:90px;border:1px solid var(--line);border-radius:12px;padding:12px;font-size:13px;color:var(--gray2);}
+  .ractions{display:flex;flex-direction:column;gap:8px;margin-top:12px;} .ractions .btn{width:100%;height:42px;}
+  @media(max-width:1100px){.rpanel{display:none;}.inbox{grid-template-columns:260px 1fr;}}
+  @media(max-width:900px){.shell{grid-template-columns:1fr;}.sidebar{display:none;}.threads{display:none;}.inbox{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand">＋ Meditour <small>파트너 콘솔</small></div>
+    <nav class="snav">
+      <a href="biz-dashboard.html">🏠 대시보드</a>
+      <div class="sec">운영</div>
+      <a href="biz-products.html">🧾 상품 관리</a>
+      <a href="biz-reservations.html">📅 예약 관리</a>
+      <a class="on">💬 문의 · 채팅</a>
+      <a href="biz-stats.html">📊 통계</a>
+      <div class="sec">설정</div>
+      <a href="biz-profile.html">🏥 업체 프로필</a>
+      <a href="biz-profile.html">⚙️ 업체 정보 · 계정</a>
+      <a href="index.html">↩ 로그아웃</a>
+    </nav>
+  </aside>
+
+  <div class="main">
+    <div class="topbar"><span class="biz">🏥 OOO 클리닉</span><span class="stt">승인 완료 · 의료</span>
+      <div class="right"><span class="muted2" style="font-size:13px;font-weight:600;">미답변 3</span><span class="bell">🔔</span><span class="ava">👤</span></div></div>
+
+    <div class="inbox">
+      <!-- threads -->
+      <div class="threads">
+        <div class="th-h">문의 <div class="seg"><span class="on">진행중 21</span><span>전체</span></div></div>
+        <div class="thread on"><div class="av">🇨🇳</div><div><div class="nm">Li Wei</div><div class="last">他的客户评价</div></div>
+          <div class="meta"><div class="t">12:37</div><span class="badge">2</span></div></div>
+        <div class="thread"><div class="av">🇻🇳</div><div><div class="nm">Nguyen T.</div><div class="last">Thời gian hồi phục?</div></div>
+          <div class="meta"><div class="t">12:31</div><span class="badge">1</span></div></div>
+        <div class="thread"><div class="av">🇯🇵</div><div><div class="nm">Megumi I.</div><div class="last">予約は可能ですか？</div></div>
+          <div class="meta"><div class="t">11:02</div></div></div>
+        <div class="thread"><div class="av">🇺🇸</div><div><div class="nm">Sarah K.</div><div class="last">price estimate?</div></div>
+          <div class="meta"><div class="t">어제</div></div></div>
+        <div class="thread"><div class="av">🇹🇭</div><div><div class="nm">Sukanya C.</div><div class="last">ราคาเท่าไหร่</div></div>
+          <div class="meta"><div class="t">어제</div></div></div>
+      </div>
+
+      <!-- conversation -->
+      <div class="conv">
+        <div class="top"><div class="av">🇨🇳</div><div><div class="nm">Li Wei · 🇨🇳 중국어</div><div class="sub">여성 · 1986 · 첫 문의</div></div>
+          <a class="btn line" style="margin-left:auto;">고객 차단</a></div>
+        <div class="ai-banner">🌐 고객 메시지는 한국어로, 내 답변은 고객 언어(중국어)로 자동 번역됩니다</div>
+        <div class="msgs">
+          <div class="m them"><div class="bubble">눈 앞트임 상담 받고 싶어요. 회복 기간은 얼마나 걸리나요?</div>
+            <div class="trans">🌐 중국어 → 한국어 번역</div>
+            <div class="orig">我想咨询开眼角，恢复期需要多久？</div></div>
+          <div class="m me"><div class="bubble">보통 1~2주 정도 소요됩니다. 원하시는 날짜를 알려주시면 예약 도와드릴게요.</div>
+            <div class="orig">→ 중국어로 번역되어 전송됨</div></div>
+          <div class="m them"><div class="bubble">7월 12일 오후 2시 가능할까요? 견적도 부탁드려요.</div>
+            <div class="trans">🌐 중국어 → 한국어 번역</div>
+            <div class="orig">7月12日下午2点可以吗？也请给我报价。</div></div>
+        </div>
+        <div class="inputbar"><div class="f">답변 입력… (한국어로 쓰면 중국어로 번역되어 전송)</div><div class="send">➤</div></div>
+      </div>
+
+      <!-- right panel: 고객정보 + 예약 + 상담노트 -->
+      <aside class="rpanel">
+        <h4>고객 정보</h4>
+        <div class="info"><span>국가</span><b>🇨🇳 중국</b></div>
+        <div class="info"><span>언어</span><b>중국어(간체)</b></div>
+        <div class="info"><span>가입</span><b>2026-06-28</b></div>
+
+        <h4>연결된 예약 / 견적</h4>
+        <div class="resvbox"><span class="st">상담 요청</span>
+          <div style="margin-top:8px;font-weight:700;font-size:14px;">눈 앞트임 상담</div>
+          <div class="muted2" style="font-size:12px;">희망: 2026-07-12 14:00</div></div>
+        <div class="ractions">
+          <a class="btn primary">📅 예약 확정</a>
+          <a class="btn line" href="biz-quote.html">🧾 견적서 보내기</a>
+        </div>
+
+        <h4>상담 노트 (내부용)</h4>
+        <div class="note">고객 메모를 남기세요. (고객에게 보이지 않음)</div>
+      </aside>
+    </div>
+  </div>
+</div>
+</body>
+</html>

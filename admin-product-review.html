@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditour 관리자 — 상품 검수</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{--blue:#3182F6;--blue-bg:#EBF2FF;--ink:#191F28;--gray:#4E5968;--gray2:#8B95A1;--line:#E5E8EB;--bg2:#F9FAFB;--bg3:#F2F4F6;--green:#15B886;--orange:#F59E0B;--red:#E5484D;--purple:#7C5CFC;--purple-bg:#EFEBFF;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Pretendard',-apple-system,sans-serif;color:var(--ink);background:var(--bg2);line-height:1.5;-webkit-font-smoothing:antialiased;}
+  a{text-decoration:none;color:inherit;} .muted2{color:var(--gray2);} .muted{color:var(--gray);}
+  .btn{display:inline-flex;align-items:center;justify-content:center;font-weight:600;border-radius:10px;padding:11px 18px;font-size:14px;cursor:pointer;border:none;} .btn.ok{background:var(--green);color:#fff;} .btn.danger{background:#fff;border:1px solid var(--red);color:var(--red);} .btn.warn{background:var(--orange);color:#fff;} .btn.line{background:#fff;border:1px solid var(--line);color:var(--gray);}
+  .ph{background:linear-gradient(135deg,#F2F4F6,#E8EBED);display:flex;align-items:center;justify-content:center;color:var(--gray2);font-size:12px;border-radius:10px;}
+  .shell{display:grid;grid-template-columns:230px 1fr;min-height:100vh;}
+  .sidebar{background:#fff;border-right:1px solid var(--line);padding:18px 14px;position:sticky;top:0;height:100vh;}
+  .brand{font-size:18px;font-weight:800;padding:8px 10px 4px;} .brand small{display:block;font-size:11px;color:var(--purple);font-weight:700;}
+  .snav{margin-top:18px;display:flex;flex-direction:column;gap:2px;} .snav a{display:flex;gap:10px;padding:11px 12px;border-radius:10px;font-size:14px;font-weight:600;color:var(--gray);} .snav a.on{background:var(--purple-bg);color:var(--purple);} .snav .sec{font-size:11px;color:var(--gray2);font-weight:700;padding:14px 12px 6px;}
+  .main{display:flex;flex-direction:column;}
+  .topbar{background:#fff;border-bottom:1px solid var(--line);height:62px;display:flex;align-items:center;gap:12px;padding:0 26px;position:sticky;top:0;z-index:30;} .topbar .ttl{font-weight:800;font-size:15px;} .topbar .right{margin-left:auto;display:flex;gap:16px;align-items:center;} .ava{width:32px;height:32px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;}
+  .content{padding:28px 26px 60px;}
+  .crumb{font-size:13px;color:var(--gray2);margin-bottom:8px;} h1{font-size:24px;font-weight:800;letter-spacing:-.6px;}
+  .layout{display:grid;grid-template-columns:1.3fr 1fr;gap:20px;margin-top:16px;}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;margin-bottom:16px;} .panel h3{font-size:15px;font-weight:800;margin-bottom:12px;}
+  .preview .gal{display:grid;grid-template-columns:2fr 1fr;gap:8px;height:200px;margin-bottom:14px;} .preview .gal .ph{border-radius:10px;}
+  .line{display:flex;justify-content:space-between;font-size:14px;padding:8px 0;border-bottom:1px solid var(--bg2);} .line:last-child{border-bottom:none;} .line span{color:var(--gray);}
+  .ck{display:flex;align-items:flex-start;gap:10px;font-size:14px;padding:10px 0;border-bottom:1px solid var(--bg2);} .ck:last-child{border-bottom:none;} .ck input{accent-color:var(--purple);width:18px;height:18px;margin-top:2px;} .ck .x{font-size:12px;color:var(--gray2);}
+  label{display:block;font-size:13px;font-weight:700;margin:14px 0 6px;} .reason{width:100%;height:90px;border:1px solid var(--line);border-radius:12px;padding:12px;font-size:13px;color:var(--gray2);}
+  .acts{display:flex;flex-direction:column;gap:8px;margin-top:14px;} .acts .btn{width:100%;}
+  .hist{font-size:12px;color:var(--gray2);} .hist .h{padding:6px 0;border-bottom:1px solid var(--bg2);}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand">＋ Meditour <small>관리자 콘솔</small></div>
+    <nav class="snav">
+      <a href="admin-dashboard.html">🏠 대시보드</a>
+      <div class="sec">관리</div>
+      <a href="admin-members.html">👥 회원 관리</a><a href="admin-businesses.html">🏥 업체 관리</a><a class="on" href="admin-products.html">🧾 상품 승인</a>
+      <div class="sec">마케팅</div>
+      <a href="admin-crm.html">🎯 CRM</a><a href="admin-promotions.html">🔗 프로모션</a><a href="admin-banners.html">🖼 배너 관리</a>
+      <div class="sec">분석 · CS</div>
+      <a href="admin-stats.html">📊 사이트 통계</a><a href="admin-inquiries.html">📨 고객문의</a>
+      <a href="index.html">↩ 로그아웃</a>
+    </nav>
+  </aside>
+  <div class="main">
+    <div class="topbar"><span class="ttl">🛡 Meditour Admin</span>
+      <div class="right"><span class="ava">🛡</span></div></div>
+    <div class="content">
+      <div class="crumb"><a href="admin-products.html">상품 승인</a> › 검수</div>
+      <h1>상품 검수</h1>
+      <div class="layout">
+        <div class="preview">
+          <div class="panel"><h3>상품 미리보기</h3>
+            <div class="gal"><div class="ph">대표 이미지</div><div class="ph">전후</div></div>
+            <div class="line"><span>상품명</span><b>보톡스 시술</b></div>
+            <div class="line"><span>업체</span><b>OOO 클리닉 (의료)</b></div>
+            <div class="line"><span>분야</span><b>피부</b></div>
+            <div class="line"><span>가격</span><b>₩200,000~ · 예약금 10%</b></div>
+            <div class="line"><span>예약 슬롯</span><b>주 15슬롯</b></div>
+            <p class="muted" style="font-size:13px;margin-top:10px;">시술 설명 본문(다국어)이 노출됩니다…</p>
+          </div>
+        </div>
+        <div>
+          <div class="panel"><h3>검수 체크리스트</h3>
+            <label class="ck"><input type="checkbox" checked> <span>상품 정보 정확성 <span class="x">가격·소요시간·옵션</span></span></label>
+            <label class="ck"><input type="checkbox" checked> <span>이미지 적합성 <span class="x">의료광고 규정 준수</span></span></label>
+            <label class="ck"><input type="checkbox"> <span>전후 사진 동의 여부 <span class="x">미확인 — 보완 필요</span></span></label>
+            <label class="ck"><input type="checkbox" checked> <span>금지·과장 표현 없음</span></label>
+          </div>
+          <div class="panel"><h3>처리</h3>
+            <label>수정 요청 사유 (반려·수정요청 시)</label>
+            <div class="reason">전후 사진 동의서 누락. 동의된 사례만 등록 가능합니다.</div>
+            <div class="acts">
+              <a class="btn ok" href="admin-products.html">승인</a>
+              <a class="btn warn" href="admin-products.html">수정 요청 (재검수 대기)</a>
+              <a class="btn danger" href="admin-products.html">반려</a>
+            </div>
+            <div class="hist" style="margin-top:14px;">
+              <div class="h">06-29 14:02 · 업체 등록</div>
+              <div class="h">06-29 16:10 · 1차 검수 → 수정 요청</div>
+              <div class="h">06-30 09:30 · 업체 수정 → 재검수 대기</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditour — 예약 2단계 · 휴대폰 인증</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{--blue:#3182F6;--blue-d:#1B64DA;--blue-bg:#EBF2FF;--ink:#191F28;--gray:#4E5968;--gray2:#8B95A1;--line:#E5E8EB;--bg2:#F9FAFB;--bg3:#F2F4F6;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Pretendard',-apple-system,sans-serif;color:var(--ink);background:var(--bg2);line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100vh;}
+  a{text-decoration:none;color:inherit;} .muted2{color:var(--gray2);} .muted{color:var(--gray);}
+  .top{height:60px;display:flex;align-items:center;gap:12px;padding:0 24px;background:#fff;border-bottom:1px solid var(--line);}
+  .top .logo{font-size:18px;font-weight:800;} .top a.back{color:var(--gray);font-size:14px;font-weight:600;}
+  .stage{max-width:760px;margin:0 auto;padding:30px 20px 80px;}
+  .steps{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:28px;}
+  .stp{display:flex;align-items:center;gap:8px;} .stp .c{width:26px;height:26px;border-radius:50%;background:var(--bg3);color:var(--gray2);font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;}
+  .stp.on .c{background:var(--blue);color:#fff;} .stp.done .c{background:var(--ink);color:#fff;}
+  .stp .l{font-size:13px;font-weight:700;color:var(--gray2);} .stp.on .l,.stp.done .l{color:var(--ink);} .stp .bar{width:28px;height:2px;background:var(--line);}
+  .card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px;margin-bottom:16px;max-width:460px;margin-left:auto;margin-right:auto;}
+  .card h3{font-size:19px;font-weight:800;margin-bottom:6px;} .card .d{font-size:14px;color:var(--gray);margin-bottom:18px;}
+  .notice{background:var(--blue-bg);border-radius:12px;padding:14px;font-size:13px;color:#1b4fb0;font-weight:600;margin-bottom:18px;}
+  label{display:block;font-size:13px;font-weight:700;margin:14px 0 6px;}
+  .field{width:100%;height:50px;border:1px solid var(--line);border-radius:12px;padding:0 14px;font-size:14px;color:var(--gray2);display:flex;align-items:center;}
+  .row{display:flex;gap:8px;} .minibtn{flex:0 0 auto;padding:0 16px;height:50px;border:1px solid var(--blue);color:var(--blue);background:#fff;border-radius:12px;font-size:13px;font-weight:700;display:flex;align-items:center;cursor:pointer;}
+  .btn{display:block;width:100%;text-align:center;font-weight:700;border-radius:12px;padding:15px;font-size:16px;border:none;cursor:pointer;background:var(--blue);color:#fff;margin-top:20px;}
+</style>
+</head>
+<body>
+  <div class="top"><a class="logo" href="index.html">＋ Meditour</a><a class="back" href="booking.html">‹ 이전</a></div>
+  <div class="stage">
+    <div class="steps">
+      <div class="stp done"><div class="c">✓</div><div class="l">날짜 선택</div></div><div class="bar"></div>
+      <div class="stp on"><div class="c">2</div><div class="l">휴대폰 인증</div></div><div class="bar"></div>
+      <div class="stp"><div class="c">3</div><div class="l">예약금 결제</div></div><div class="bar"></div>
+      <div class="stp"><div class="c">4</div><div class="l">완료</div></div>
+    </div>
+
+    <div class="card">
+      <h3>휴대폰 인증</h3>
+      <div class="d">예약 확정과 노쇼 방지 연락을 위해 한 번만 인증해요.</div>
+      <div class="notice">📱 가입 때는 생략했던 인증이에요. 예약하는 지금 <b>딱 한 번</b>만 진행하면, 다음 예약부터는 다시 안 해도 됩니다.</div>
+
+      <label>국가 / 휴대폰 번호</label>
+      <div class="row"><div class="field" style="flex:0 0 100px;">＋1 ▾</div><div class="field" style="flex:1;">휴대폰 번호</div>
+        <div class="minibtn">인증번호 발송</div></div>
+      <label>인증번호</label>
+      <div class="field">6자리 인증번호 입력</div>
+
+      <a class="btn" href="booking-pay.html">인증하고 계속</a>
+    </div>
+  </div>
+</body>
+</html>

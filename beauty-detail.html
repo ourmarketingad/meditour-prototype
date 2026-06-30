@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditour — 뷰티 상품 상세</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{--blue:#3182F6;--blue-d:#1B64DA;--blue-bg:#EBF2FF;--ink:#191F28;--gray:#4E5968;--gray2:#8B95A1;--line:#E5E8EB;--bg2:#F9FAFB;--bg3:#F2F4F6;--red:#E5484D;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Pretendard',-apple-system,sans-serif;color:var(--ink);background:#fff;line-height:1.5;-webkit-font-smoothing:antialiased;padding-bottom:84px;}
+  a{text-decoration:none;color:inherit;} .muted{color:var(--gray);} .muted2{color:var(--gray2);}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;font-weight:700;border-radius:12px;padding:14px 24px;font-size:16px;cursor:pointer;border:none;}
+  .btn.primary{background:var(--blue);color:#fff;} .btn.line{background:#fff;border:1px solid var(--blue);color:var(--blue);} .btn.sm{padding:9px 16px;font-size:14px;border-radius:10px;}
+  .ph{background:linear-gradient(135deg,#F2F4F6,#E8EBED);display:flex;align-items:center;justify-content:center;color:var(--gray2);font-size:12px;}
+  .tag{display:inline-block;background:var(--bg3);border-radius:8px;padding:5px 10px;font-size:13px;font-weight:600;color:var(--gray);margin:0 6px 6px 0;}
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+  .nav{display:flex;align-items:center;gap:28px;height:64px;} .logo{font-size:20px;font-weight:800;letter-spacing:-.5px;}
+  .nav .links{display:flex;gap:24px;font-size:15px;font-weight:600;color:var(--gray);margin-left:12px;}
+  .nav .right{margin-left:auto;display:flex;align-items:center;gap:14px;} .lang{font-size:14px;font-weight:600;color:var(--gray);} .cart{font-size:18px;position:relative;} .cart .n{position:absolute;top:-6px;right:-8px;background:var(--red);color:#fff;font-size:10px;font-weight:800;border-radius:10px;padding:1px 5px;}
+  .crumb{font-size:13px;color:var(--gray2);padding:20px 0 14px;}
+  .body2{display:grid;grid-template-columns:1fr 380px;gap:36px;padding-bottom:40px;}
+  .gallery{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .gallery .ph{height:200px;border-radius:14px;} .gallery .big{grid-column:1/3;height:300px;}
+  /* buy box */
+  .buy{position:sticky;top:88px;align-self:start;border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 10px 30px rgba(0,0,0,.05);}
+  .buy .cat{font-size:13px;color:var(--gray2);font-weight:600;} .buy h1{font-size:22px;font-weight:800;margin:4px 0 8px;} .buy .rate{font-size:14px;font-weight:700;} .buy .rate span{color:#FFB400;}
+  .buy .price{font-size:26px;font-weight:800;margin:14px 0;} .buy .price s{font-size:16px;color:var(--gray2);font-weight:600;margin-right:8px;}
+  label{display:block;font-size:13px;font-weight:700;margin:14px 0 8px;}
+  .opts{display:flex;gap:8px;flex-wrap:wrap;} .opt{border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:14px;font-weight:600;color:var(--gray);cursor:pointer;} .opt.on{border-color:var(--blue);background:var(--blue-bg);color:var(--blue);}
+  .qty{display:flex;align-items:center;gap:12px;} .qty b{width:36px;height:36px;border:1px solid var(--line);border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:700;cursor:pointer;}
+  .buybtns{display:flex;gap:10px;margin-top:20px;} .buybtns a{flex:1;}
+  .blk{padding:30px 0;border-top:1px solid var(--line);} .blk h3{font-size:20px;font-weight:800;margin-bottom:14px;}
+  .rev{border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:12px;} .rev .top{display:flex;align-items:center;gap:8px;margin-bottom:6px;} .rev .av{width:30px;height:30px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;} .rev .nm{font-weight:700;font-size:14px;} .rev .stars{color:#FFB400;margin-left:auto;font-size:13px;} .rev p{font-size:14px;color:var(--gray);}
+  .bottombar{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);padding:12px 24px;display:flex;gap:10px;align-items:center;z-index:60;}
+  .bottombar .p{flex:1;font-weight:800;} .bottombar .p small{font-weight:600;color:var(--gray2);font-size:12px;display:block;}
+  @media(max-width:880px){.body2{grid-template-columns:1fr;}.buy{display:none;}.gallery .big{height:200px;}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="logo" href="index.html">＋ Meditour</a>
+  <div class="links"><a href="list.html">둘러보기</a><a href="deals.html">혜택</a><a href="reviews.html">후기</a><a href="partner.html">파트너 입점</a><a href="how.html">이용방법</a></div>
+  <div class="right"><span class="lang">🌐 EN ▾</span><a class="cart" href="cart.html">🛒<span class="n">3</span></a><a class="btn line sm" href="login.html" style="border-color:var(--line);color:var(--ink);">로그인</a></div>
+</div></header>
+
+<div class="wrap">
+  <div class="crumb"><a href="index.html">홈</a> › <a href="list.html">뷰티</a> › 아쿠아필 패키지</div>
+
+  <div class="body2">
+    <!-- LEFT -->
+    <div>
+      <div class="gallery"><div class="ph big">대표 이미지</div><div class="ph">이미지</div><div class="ph">이미지</div></div>
+
+      <div class="blk" style="border-top:none;"><h3>상품 설명</h3>
+        <p class="muted">아쿠아필 패키지 상품 설명이 들어갑니다. 시술 과정·효과·주의사항이 다국어로 제공됩니다.</p>
+        <div style="margin-top:14px;"><span class="tag">모공 케어</span><span class="tag">각질 제거</span><span class="tag">수분</span></div>
+      </div>
+
+      <div class="blk"><h3>업체 정보</h3>
+        <div style="display:flex;gap:12px;align-items:center;">
+          <div class="ph" style="width:52px;height:52px;border-radius:14px;">🏪</div>
+          <div style="flex:1;"><div style="font-weight:700;">OOO 에스테틱 · 신사</div><div class="muted2" style="font-size:13px;">★ 4.7 (640) · 🇨🇳🇯🇵 통역</div></div>
+          <a class="btn line sm" href="detail.html" style="border-color:var(--line);color:var(--gray);">업체 보기</a>
+        </div>
+      </div>
+
+      <div class="blk"><h3>리뷰 <span class="muted2" style="font-size:15px;">640</span></h3>
+        <div class="rev"><div class="top"><div class="av">🇨🇳</div><div class="nm">Li Wei</div><div class="stars">★★★★★</div></div><p>"피부가 매끈해졌어요. 다국어 안내라 편했어요."</p></div>
+        <div class="rev"><div class="top"><div class="av">🇺🇸</div><div class="nm">Emily R.</div><div class="stars">★★★★☆</div></div><p>"Great results, easy booking via app."</p></div>
+      </div>
+    </div>
+
+    <!-- RIGHT: BUY BOX -->
+    <aside class="buy">
+      <div class="cat">뷰티 · 에스테틱</div>
+      <h1>아쿠아필 패키지</h1>
+      <div class="rate"><span>★</span> 4.7 <span class="muted2" style="font-weight:600;font-size:13px;">(640)</span></div>
+      <div class="price"><s>₩150,000</s> ₩120,000</div>
+
+      <label>옵션</label>
+      <div class="opts"><span class="opt on">1회권</span><span class="opt">3회권</span><span class="opt">5회권</span></div>
+      <label>수량</label>
+      <div class="qty"><b>−</b><span>1</span><b>+</b></div>
+
+      <div class="buybtns">
+        <a class="btn line" href="cart.html">장바구니 담기</a>
+        <a class="btn primary" href="order.html">바로 구매</a>
+      </div>
+      <div class="muted2" style="font-size:12px;text-align:center;margin-top:10px;">매장 방문 사용 · 홈케어는 배송 가능 · 적립 +1,200P</div>
+    </aside>
+  </div>
+</div>
+
+<div class="bottombar">
+  <div class="p">₩120,000<small>아쿠아필 · 1회권</small></div>
+  <a class="btn line sm" href="cart.html">장바구니</a>
+  <a class="btn primary sm" href="order.html">바로 구매</a>
+</div>
+</body>
+</html>

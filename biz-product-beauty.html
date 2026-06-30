@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditour 파트너 — 상품 등록 (뷰티)</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{--blue:#3182F6;--blue-bg:#EBF2FF;--ink:#191F28;--gray:#4E5968;--gray2:#8B95A1;--line:#E5E8EB;--bg2:#F9FAFB;--bg3:#F2F4F6;--green:#15B886;--pink:#FF4D8D;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Pretendard',-apple-system,sans-serif;color:var(--ink);background:var(--bg2);line-height:1.5;-webkit-font-smoothing:antialiased;}
+  a{text-decoration:none;color:inherit;} .muted2{color:var(--gray2);}
+  .btn{display:inline-flex;align-items:center;justify-content:center;font-weight:600;border-radius:10px;padding:10px 18px;font-size:14px;cursor:pointer;border:none;} .btn.primary{background:var(--blue);color:#fff;} .btn.ghost{background:var(--bg3);color:var(--ink);} .btn.line{background:#fff;border:1px solid var(--line);color:var(--gray);}
+  .ph{background:linear-gradient(135deg,#F2F4F6,#E8EBED);display:flex;align-items:center;justify-content:center;color:var(--gray2);font-size:12px;border-radius:10px;}
+  .shell{display:grid;grid-template-columns:230px 1fr;min-height:100vh;}
+  .sidebar{background:#fff;border-right:1px solid var(--line);padding:18px 14px;position:sticky;top:0;height:100vh;}
+  .brand{font-size:18px;font-weight:800;padding:8px 10px 4px;} .brand small{display:block;font-size:11px;color:var(--gray2);font-weight:600;}
+  .snav{margin-top:18px;display:flex;flex-direction:column;gap:2px;} .snav a{display:flex;gap:10px;padding:11px 12px;border-radius:10px;font-size:14px;font-weight:600;color:var(--gray);} .snav a.on{background:var(--blue-bg);color:var(--blue);} .snav .sec{font-size:11px;color:var(--gray2);font-weight:700;padding:14px 12px 6px;}
+  .main{display:flex;flex-direction:column;}
+  .topbar{background:#fff;border-bottom:1px solid var(--line);height:62px;display:flex;align-items:center;gap:12px;padding:0 26px;position:sticky;top:0;z-index:30;} .topbar .biz{font-weight:800;font-size:15px;} .topbar .stt{font-size:11px;font-weight:700;background:#E6F7F1;color:var(--green);padding:3px 9px;border-radius:8px;} .topbar .right{margin-left:auto;display:flex;gap:16px;align-items:center;} .ava{width:32px;height:32px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;}
+  .content{padding:28px 26px 60px;max-width:760px;}
+  .crumb{font-size:13px;color:var(--gray2);margin-bottom:8px;} h1{font-size:24px;font-weight:800;letter-spacing:-.6px;}
+  .typetab{display:flex;gap:8px;margin:16px 0 22px;} .typetab a{padding:9px 16px;border-radius:999px;font-size:13px;font-weight:700;background:#fff;border:1px solid var(--line);color:var(--gray);} .typetab a.on{background:var(--pink);color:#fff;border-color:var(--pink);}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;margin-bottom:16px;} .panel h3{font-size:16px;font-weight:800;margin-bottom:4px;} .panel .d{font-size:13px;color:var(--gray2);margin-bottom:14px;}
+  label{display:block;font-size:13px;font-weight:700;margin:14px 0 6px;} .field{width:100%;height:48px;border:1px solid var(--line);border-radius:10px;padding:0 12px;font-size:14px;color:var(--gray2);display:flex;align-items:center;} .area{height:80px;align-items:flex-start;padding-top:12px;}
+  .row{display:flex;gap:10px;}
+  .optrow{display:flex;gap:10px;align-items:center;margin-bottom:8px;} .optrow .field{flex:1;}
+  .imgs{display:flex;gap:8px;} .imgs .ph{width:72px;height:72px;}
+  .sw{width:42px;height:24px;border-radius:999px;background:var(--blue);position:relative;display:inline-block;} .sw::after{content:"";position:absolute;top:3px;left:21px;width:18px;height:18px;border-radius:50%;background:#fff;}
+  .save{display:flex;gap:10px;justify-content:flex-end;} .save .btn{height:48px;padding:0 26px;}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand">＋ Meditour <small>파트너 콘솔</small></div>
+    <nav class="snav">
+      <a href="biz-dashboard.html">🏠 대시보드</a>
+      <div class="sec">운영</div>
+      <a class="on" href="biz-products.html">🧾 상품 관리</a><a href="biz-reservations.html">📅 예약 관리</a><a href="biz-chat.html">💬 문의 · 채팅</a><a href="biz-stats.html">📊 통계</a>
+      <div class="sec">설정</div>
+      <a href="biz-profile.html">🏥 업체 프로필</a><a href="index.html">↩ 로그아웃</a>
+    </nav>
+  </aside>
+  <div class="main">
+    <div class="topbar"><span class="biz">💆 OOO 에스테틱</span><span class="stt">승인 완료 · 뷰티</span>
+      <div class="right"><span class="muted2" style="font-size:13px;font-weight:600;">Plus 플랜</span><span class="ava">👤</span></div></div>
+    <div class="content">
+      <div class="crumb"><a href="biz-products.html">상품 관리</a> › 등록</div>
+      <h1>상품 등록</h1>
+      <div class="typetab"><a href="biz-products.html">🏥 의료</a><a class="on">💆 뷰티</a><a href="biz-product-hotel.html">🏨 호텔</a><a href="biz-product-package.html">🧳 패키지</a></div>
+
+      <div class="panel"><h3>기본 정보</h3><div class="d">뷰티 상품은 커머스형(장바구니·주문)입니다.</div>
+        <label>상품명 (다국어 자동 번역)</label><div class="field">예) 아쿠아필 패키지</div>
+        <label>카테고리</label><div class="field">에스테틱 / 메이크업 컨설팅 / 스킨케어 / 네일 / 헤어 / 왁싱 …</div>
+        <label>상세 설명</label><div class="field area">상품 설명 (다국어)</div>
+      </div>
+
+      <div class="panel"><h3>옵션 · 가격 · 재고</h3><div class="d">회차권 등 옵션별 가격·재고를 설정합니다.</div>
+        <div class="optrow"><div class="field">옵션명 (예: 1회권)</div><div class="field">정가 ₩150,000</div><div class="field">판매가 ₩120,000</div><div class="field" style="flex:0 0 90px;">재고 50</div></div>
+        <div class="optrow"><div class="field">3회권</div><div class="field">₩400,000</div><div class="field">₩330,000</div><div class="field" style="flex:0 0 90px;">재고 30</div></div>
+        <a class="btn line" style="margin-top:4px;">＋ 옵션 추가</a>
+      </div>
+
+      <div class="panel"><h3>수령 · 배송</h3>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;"><div><b>매장 방문 사용 (바우처)</b><div class="muted2" style="font-size:12px;">예약 방문 시 사용</div></div><span class="sw"></span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-top:1px solid var(--bg2);"><div><b>홈케어 상품 해외 배송</b><div class="muted2" style="font-size:12px;">배송 가능 국가·배송비 설정</div></div><span class="sw"></span></div>
+      </div>
+
+      <div class="panel"><h3>이미지 · 이벤트</h3>
+        <label>대표 이미지 (최대 8장)</label><div class="imgs"><div class="ph">＋</div><div class="ph">IMG</div><div class="ph">IMG</div></div>
+        <label>이벤트 / 할인 (선택)</label><div class="field">예) 신규 첫 구매 10%</div>
+      </div>
+
+      <div class="save"><a class="btn ghost" href="biz-products.html">취소</a><a class="btn primary">저장 (승인 요청)</a></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

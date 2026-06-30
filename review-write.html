@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditour — 리뷰 작성</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{--blue:#3182F6;--blue-bg:#EBF2FF;--ink:#191F28;--gray:#4E5968;--gray2:#8B95A1;--line:#E5E8EB;--bg2:#F9FAFB;--bg3:#F2F4F6;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Pretendard',-apple-system,sans-serif;color:var(--ink);background:var(--bg2);line-height:1.5;-webkit-font-smoothing:antialiased;}
+  a{text-decoration:none;color:inherit;} .muted2{color:var(--gray2);}
+  .top{height:60px;display:flex;align-items:center;gap:12px;padding:0 24px;background:#fff;border-bottom:1px solid var(--line);} .logo{font-size:18px;font-weight:800;} .top a.back{color:var(--gray);font-size:14px;font-weight:600;margin-left:auto;}
+  .wrap{max-width:560px;margin:0 auto;padding:30px 24px 100px;}
+  h1{font-size:24px;font-weight:800;letter-spacing:-.6px;margin-bottom:6px;} .sub{color:var(--gray2);font-size:14px;margin-bottom:20px;}
+  .card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;margin-bottom:16px;}
+  .target{display:flex;gap:12px;align-items:center;} .target .ph{width:50px;height:50px;border-radius:12px;background:var(--bg3);display:flex;align-items:center;justify-content:center;} .target .nm{font-weight:700;} .target .op{font-size:12px;color:var(--gray2);}
+  .stars{font-size:38px;letter-spacing:6px;color:#FFB400;text-align:center;margin:8px 0;} .stars .off{color:var(--line);}
+  .rateLabel{text-align:center;font-weight:700;color:var(--gray);}
+  label{display:block;font-size:13px;font-weight:700;margin:16px 0 8px;}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;} .chips .c{border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:600;color:var(--gray);cursor:pointer;} .chips .c.on{background:var(--ink);color:#fff;border-color:var(--ink);}
+  .ta{width:100%;height:120px;border:1px solid var(--line);border-radius:12px;padding:14px;font-size:14px;color:var(--gray2);}
+  .imgs{display:flex;gap:8px;} .imgs .ph{width:76px;height:76px;border-radius:12px;background:var(--bg3);display:flex;align-items:center;justify-content:center;color:var(--gray2);font-size:20px;border:1px dashed var(--line);}
+  .note{font-size:12px;color:var(--gray2);margin-top:8px;}
+  .submit{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);padding:14px 24px;} .submit a{display:block;text-align:center;background:var(--blue);color:#fff;font-weight:700;border-radius:12px;padding:15px;font-size:16px;}
+</style>
+</head>
+<body>
+  <div class="top"><a class="logo" href="index.html">＋ Meditour</a><a class="back" href="mypage.html">‹ 닫기</a></div>
+  <div class="wrap">
+    <h1>리뷰 작성</h1>
+    <p class="sub">방문하신 시술에 대한 후기를 남겨주세요. (작성 시 포인트 적립)</p>
+
+    <div class="card"><div class="target"><div class="ph">🏥</div><div><div class="nm">OOO 클리닉 · 리프팅 패키지</div><div class="op">2026-06-20 방문</div></div></div></div>
+
+    <div class="card">
+      <label style="text-align:center;">전체 만족도</label>
+      <div class="stars">★★★★<span class="off">★</span></div>
+      <div class="rateLabel">아주 만족 (4/5)</div>
+    </div>
+
+    <div class="card">
+      <label>이런 점이 좋았어요 (선택)</label>
+      <div class="chips"><span class="c on">친절한 상담</span><span class="c on">통역 편리</span><span class="c">시설 청결</span><span class="c">효과 만족</span><span class="c">가격 합리</span></div>
+      <label>상세 후기</label>
+      <textarea class="ta" placeholder="시술 경험을 자유롭게 적어주세요. (다국어로 자동 번역되어 노출됩니다)"></textarea>
+      <label>사진 첨부 (전/후, 선택)</label>
+      <div class="imgs"><div class="ph">＋</div><div class="ph">📷</div><div class="ph">📷</div></div>
+      <div class="note">※ 동의 시에만 전후 사진이 공개됩니다. 개인정보가 보이지 않게 처리해 주세요.</div>
+    </div>
+  </div>
+  <div class="submit"><a href="reviews.html">리뷰 등록</a></div>
+</body>
+</html>

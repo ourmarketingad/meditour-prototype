@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditour — 상태 화면 (빈/로딩/에러/404)</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{--blue:#3182F6;--blue-bg:#EBF2FF;--ink:#191F28;--gray:#4E5968;--gray2:#8B95A1;--line:#E5E8EB;--bg2:#F9FAFB;--bg3:#F2F4F6;--red:#E5484D;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Pretendard',-apple-system,sans-serif;color:var(--ink);background:var(--bg2);line-height:1.5;-webkit-font-smoothing:antialiased;}
+  a{text-decoration:none;color:inherit;} .muted2{color:var(--gray2);} .muted{color:var(--gray);}
+  .top{height:60px;display:flex;align-items:center;gap:12px;padding:0 24px;background:#fff;border-bottom:1px solid var(--line);} .logo{font-size:18px;font-weight:800;} .top .t{margin-left:auto;font-size:13px;color:var(--gray2);}
+  .wrap{max-width:1000px;margin:0 auto;padding:28px 24px 80px;}
+  h1{font-size:24px;font-weight:800;letter-spacing:-.6px;margin-bottom:6px;} .sub{color:var(--gray2);font-size:14px;margin-bottom:22px;}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .frame{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;}
+  .flabel{font-size:12px;font-weight:700;color:var(--gray);background:var(--bg2);padding:8px 14px;border-bottom:1px solid var(--line);}
+  .body{padding:40px 24px;min-height:240px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;}
+  .ico{font-size:40px;margin-bottom:14px;opacity:.7;} .ttl{font-size:17px;font-weight:800;} .desc{font-size:14px;color:var(--gray);margin-top:6px;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;font-weight:700;border-radius:10px;padding:11px 20px;font-size:14px;margin-top:16px;background:var(--blue);color:#fff;} .btn.line{background:#fff;border:1px solid var(--line);color:var(--gray);}
+  /* skeleton */
+  .sk{width:100%;}
+  .skrow{display:flex;gap:12px;margin-bottom:14px;align-items:center;}
+  .skbox{background:linear-gradient(90deg,#EEF0F3 25%,#F6F7F9 50%,#EEF0F3 75%);background-size:200% 100%;animation:sh 1.3s infinite;border-radius:10px;}
+  @keyframes sh{0%{background-position:200% 0}100%{background-position:-200% 0}}
+  .spinner{width:40px;height:40px;border-radius:50%;border:4px solid var(--bg3);border-top-color:var(--blue);animation:sp 0.9s linear infinite;} @keyframes sp{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+  <div class="top"><span class="logo">＋ Meditour</span><span class="t">상태 화면 레퍼런스</span></div>
+  <div class="wrap">
+    <h1>상태 화면</h1>
+    <p class="sub">검색 무결과 · 빈 목록 · 로딩(스켈레톤/스피너) · 네트워크 오류 · 404. 실제 개발 시 각 화면에 적용.</p>
+    <div class="grid">
+      <!-- 검색 무결과 -->
+      <div class="frame"><div class="flabel">검색 결과 없음</div>
+        <div class="body"><div class="ico">🔍</div><div class="ttl">검색 결과가 없어요</div>
+          <div class="desc">'강남 치과 영어'에 맞는 업체를 못 찾았어요.<br>필터를 줄이거나 다른 키워드로 검색해보세요.</div>
+          <a class="btn line">필터 초기화</a></div></div>
+      <!-- 빈 목록 -->
+      <div class="frame"><div class="flabel">빈 목록 (예약 없음)</div>
+        <div class="body"><div class="ico">📭</div><div class="ttl">아직 예약이 없어요</div>
+          <div class="desc">검증된 클리닉을 둘러보고 첫 예약을 시작해보세요.</div>
+          <a class="btn">업체 둘러보기</a></div></div>
+      <!-- 로딩 스켈레톤 -->
+      <div class="frame"><div class="flabel">로딩 (스켈레톤)</div>
+        <div class="body" style="display:block;padding:24px;">
+          <div class="sk">
+            <div class="skrow"><div class="skbox" style="width:64px;height:64px;"></div><div style="flex:1;"><div class="skbox" style="height:14px;width:60%;margin-bottom:8px;"></div><div class="skbox" style="height:12px;width:40%;"></div></div></div>
+            <div class="skrow"><div class="skbox" style="width:64px;height:64px;"></div><div style="flex:1;"><div class="skbox" style="height:14px;width:70%;margin-bottom:8px;"></div><div class="skbox" style="height:12px;width:35%;"></div></div></div>
+            <div class="skrow"><div class="skbox" style="width:64px;height:64px;"></div><div style="flex:1;"><div class="skbox" style="height:14px;width:55%;margin-bottom:8px;"></div><div class="skbox" style="height:12px;width:45%;"></div></div></div>
+          </div>
+        </div></div>
+      <!-- 로딩 스피너 -->
+      <div class="frame"><div class="flabel">로딩 (처리 중)</div>
+        <div class="body"><div class="spinner"></div><div class="ttl" style="margin-top:16px;">예약을 처리하고 있어요</div><div class="desc">잠시만 기다려주세요…</div></div></div>
+      <!-- 네트워크 오류 -->
+      <div class="frame"><div class="flabel">네트워크 / 서버 오류</div>
+        <div class="body"><div class="ico">⚠️</div><div class="ttl">일시적인 오류가 발생했어요</div>
+          <div class="desc">네트워크 연결을 확인하고 다시 시도해주세요.</div>
+          <a class="btn">다시 시도</a></div></div>
+      <!-- 404 -->
+      <div class="frame"><div class="flabel">404 · 페이지 없음</div>
+        <div class="body"><div class="ico" style="font-size:48px;font-weight:800;opacity:1;color:var(--blue);">404</div><div class="ttl">페이지를 찾을 수 없어요</div>
+          <div class="desc">주소가 바뀌었거나 삭제된 페이지일 수 있어요.</div>
+          <a class="btn" href="index.html">홈으로</a></div></div>
+    </div>
+  </div>
+</body>
+</html>

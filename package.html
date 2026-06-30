@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditour — 패키지 예약</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{--blue:#3182F6;--blue-bg:#EBF2FF;--ink:#191F28;--gray:#4E5968;--gray2:#8B95A1;--line:#E5E8EB;--bg2:#F9FAFB;--bg3:#F2F4F6;--red:#E5484D;--green:#15B886;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Pretendard',-apple-system,sans-serif;color:var(--ink);background:var(--bg2);line-height:1.5;-webkit-font-smoothing:antialiased;}
+  a{text-decoration:none;color:inherit;} .muted2{color:var(--gray2);} .muted{color:var(--gray);}
+  .top{height:60px;display:flex;align-items:center;gap:12px;padding:0 24px;background:#fff;border-bottom:1px solid var(--line);}
+  .logo{font-size:18px;font-weight:800;} .top a.back{color:var(--gray);font-size:14px;font-weight:600;margin-left:auto;}
+  .wrap{max-width:760px;margin:0 auto;padding:24px 20px 120px;}
+  .gallery{height:220px;border-radius:18px;background:linear-gradient(135deg,#F2F4F6,#E8EBED);display:flex;align-items:center;justify-content:center;color:var(--gray2);margin-bottom:16px;}
+  h1{font-size:24px;font-weight:800;letter-spacing:-.6px;} .sub{color:var(--gray2);font-size:14px;margin-top:4px;}
+  .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;margin:16px 0;}
+  .card h3{font-size:16px;font-weight:800;margin-bottom:12px;}
+  .inc{display:flex;align-items:center;gap:10px;font-size:14px;padding:8px 0;border-bottom:1px solid var(--bg2);} .inc:last-child{border-bottom:none;} .inc .ic{width:30px;height:30px;border-radius:9px;background:var(--blue-bg);display:flex;align-items:center;justify-content:center;}
+  .dep{display:flex;gap:10px;flex-wrap:wrap;} .dp{border:1px solid var(--line);border-radius:12px;padding:12px 16px;text-align:center;cursor:pointer;min-width:120px;} .dp.on{border-color:var(--blue);background:var(--blue-bg);} .dp .d{font-weight:700;} .dp .s{font-size:12px;margin-top:3px;} .dp.full{opacity:.5;} .seat.low{color:var(--red);font-weight:700;} .seat.ok{color:var(--green);font-weight:700;}
+  .qty{display:flex;align-items:center;gap:12px;} .qty b{width:34px;height:34px;border:1px solid var(--line);border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:700;cursor:pointer;}
+  .bar2{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);padding:14px 20px;display:flex;align-items:center;gap:12px;}
+  .bar2 .info{flex:1;} .bar2 .info b{font-size:18px;} .bar2 .info small{display:block;color:var(--gray2);font-size:12px;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;font-weight:700;border-radius:12px;padding:14px 28px;font-size:16px;border:none;cursor:pointer;background:var(--blue);color:#fff;}
+</style>
+</head>
+<body>
+  <div class="top"><a class="logo" href="index.html">＋ Meditour</a><a class="back" href="list.html">‹ 목록</a></div>
+  <div class="wrap">
+    <div class="gallery">패키지 대표 이미지</div>
+    <h1>K-뷰티 메디컬 패키지 · 3박 4일</h1>
+    <div class="sub">★ 4.9 (210) · 시술 + 호텔 + 통역 올인원</div>
+
+    <div class="card"><h3>패키지 구성</h3>
+      <div class="inc"><div class="ic">💉</div><div><b>피부 시술 2회</b><div class="muted2" style="font-size:12px;">제휴 클리닉</div></div></div>
+      <div class="inc"><div class="ic">🏨</div><div><b>4성급 호텔 3박</b><div class="muted2" style="font-size:12px;">조식 포함</div></div></div>
+      <div class="inc"><div class="ic">🗣</div><div><b>전담 통역 동행</b><div class="muted2" style="font-size:12px;">영어·중국어</div></div></div>
+      <div class="inc"><div class="ic">🚐</div><div><b>공항 픽업·샌딩</b></div></div>
+    </div>
+
+    <div class="card"><h3>출발일 선택 · 정원/잔여</h3>
+      <div class="dep">
+        <div class="dp on"><div class="d">7/10(목)</div><div class="s seat low">잔여 2 / 정원 10</div></div>
+        <div class="dp"><div class="d">7/17(목)</div><div class="s seat ok">잔여 6 / 10</div></div>
+        <div class="dp full"><div class="d">7/24(목)</div><div class="s">마감</div></div>
+        <div class="dp"><div class="d">8/01(금)</div><div class="s seat ok">잔여 8 / 10</div></div>
+      </div>
+    </div>
+
+    <div class="card"><h3>인원</h3>
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <div>성인 <span class="muted2" style="font-size:13px;">(1인 ₩1,200,000)</span></div>
+        <div class="qty"><b>−</b><span>2</span><b>+</b></div></div>
+    </div>
+  </div>
+
+  <div class="bar2"><div class="info"><b>₩2,400,000</b><small>2인 · 7/10 출발 · 예약금 10%</small></div>
+    <a class="btn" href="booking-verify.html">다음 (휴대폰 인증)</a></div>
+</body>
+</html>

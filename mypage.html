@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditour — 마이페이지 · 예약 내역</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{--blue:#3182F6;--blue-d:#1B64DA;--ink:#191F28;--gray:#4E5968;--gray2:#8B95A1;
+        --line:#E5E8EB;--bg2:#F9FAFB;--bg3:#F2F4F6;--blue-bg:#EBF2FF;
+        --green:#15B886;--orange:#F59E0B;--red:#E5484D;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Pretendard',-apple-system,sans-serif;color:var(--ink);background:var(--bg2);line-height:1.5;-webkit-font-smoothing:antialiased;}
+  a{text-decoration:none;color:inherit;} .muted{color:var(--gray);} .muted2{color:var(--gray2);}
+  .btn{display:inline-flex;align-items:center;justify-content:center;font-weight:600;border-radius:10px;
+       padding:10px 16px;font-size:14px;cursor:pointer;border:none;transition:.15s;}
+  .btn.primary{background:var(--blue);color:#fff;} .btn.ghost{background:var(--bg3);color:var(--ink);}
+  .btn.line{background:#fff;border:1px solid var(--line);color:var(--gray);}
+  .ph{background:linear-gradient(135deg,#F2F4F6,#E8EBED);display:flex;align-items:center;justify-content:center;color:var(--gray2);font-size:12px;}
+  header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:40;}
+  .nav{max-width:1080px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:20px;height:64px;}
+  .logo{font-size:20px;font-weight:800;letter-spacing:-.5px;}
+  .nav .links{display:flex;gap:24px;font-size:15px;font-weight:600;color:var(--gray);margin-left:12px;}
+  .nav .right{margin-left:auto;display:flex;align-items:center;gap:16px;}
+  .bell{font-size:18px;position:relative;} .bell::after{content:"";position:absolute;top:0;right:-2px;width:7px;height:7px;background:var(--red);border-radius:50%;}
+  .ava{width:34px;height:34px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;}
+
+  .container{max-width:1080px;margin:0 auto;padding:32px 24px 80px;display:grid;grid-template-columns:240px 1fr;gap:32px;}
+  /* sidebar */
+  .side{align-self:start;}
+  .profcard{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;text-align:center;margin-bottom:16px;}
+  .profcard .av{width:60px;height:60px;border-radius:50%;background:var(--bg3);margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:26px;}
+  .profcard .nm{font-weight:800;font-size:17px;} .profcard .em{font-size:13px;color:var(--gray2);}
+  .menu{background:#fff;border:1px solid var(--line);border-radius:18px;padding:8px;}
+  .menu a{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:12px;font-size:15px;font-weight:600;color:var(--gray);}
+  .menu a.on{background:var(--blue-bg);color:var(--blue);} .menu a:hover{background:var(--bg2);}
+
+  /* main */
+  h1{font-size:26px;font-weight:800;letter-spacing:-.6px;margin-bottom:18px;}
+  .tabs{display:flex;gap:8px;margin-bottom:20px;}
+  .tab{padding:9px 16px;border-radius:999px;font-size:14px;font-weight:700;color:var(--gray);background:#fff;border:1px solid var(--line);cursor:pointer;}
+  .tab.on{background:var(--ink);color:#fff;border-color:var(--ink);}
+  .resv{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:14px;display:flex;gap:16px;align-items:center;}
+  .resv .ph{width:84px;height:84px;border-radius:14px;flex:0 0 auto;}
+  .resv .info{flex:1;}
+  .resv .st{display:inline-block;font-size:12px;font-weight:700;padding:3px 10px;border-radius:8px;margin-bottom:6px;}
+  .st.prog{background:#E7F0FF;color:var(--blue);} .st.done{background:#E6F7F1;color:var(--green);} .st.cancel{background:#FBE9EA;color:var(--red);}
+  .resv h4{font-size:17px;font-weight:700;} .resv .meta{font-size:13px;color:var(--gray);margin-top:4px;}
+  .resv .actions{display:flex;flex-direction:column;gap:8px;}
+
+  /* modal */
+  .modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;z-index:80;}
+  .modal{background:#fff;border-radius:20px;padding:28px;width:360px;text-align:center;}
+  .modal h3{font-size:19px;font-weight:800;margin-bottom:8px;}
+  .modal p{font-size:14px;color:var(--gray);}
+  .modal .note{background:var(--bg2);border-radius:12px;padding:12px;font-size:12px;color:var(--gray2);margin:16px 0;}
+  .modal .mbtns{display:flex;gap:8px;} .modal .mbtns .btn{flex:1;height:48px;}
+  .toggle{font-size:12px;color:var(--blue);font-weight:700;cursor:pointer;text-align:center;margin-top:18px;}
+  @media(max-width:880px){.container{grid-template-columns:1fr;}.side{display:none;}}
+</style>
+</head>
+<body>
+
+<header><div class="nav">
+  <a class="logo" href="index.html">＋ Meditour</a>
+  <div class="links"><a href="list.html">둘러보기</a><a href="deals.html">혜택</a><a href="reviews.html">후기</a></div>
+  <div class="right"><span class="lang muted" style="font-size:14px;font-weight:600;">🌐 EN ▾</span>
+    <span class="bell">🔔</span><span class="ava">🙂</span></div>
+</div></header>
+
+<div class="container">
+  <!-- SIDEBAR -->
+  <aside class="side">
+    <div class="profcard"><div class="av">🙂</div><div class="nm">Sarah K.</div><div class="em">sarah@example.com · 🇺🇸</div></div>
+    <div style="background:#EBF2FF;border-radius:14px;padding:14px;margin-bottom:16px;text-align:center;">
+      <div style="font-size:12px;color:#1b4fb0;font-weight:700;">🏅 GOLD 등급 · 포인트</div>
+      <div style="font-size:22px;font-weight:800;margin-top:2px;">2,400 P</div>
+      <div style="font-size:11px;color:var(--gray2);margin-top:2px;">예약 5회 · 다음 등급까지 1회</div>
+    </div>
+    <nav class="menu">
+      <a class="on">📋 예약 내역</a>
+      <a href="orders.html">🛍 주문 내역</a>
+      <a href="chat.html">💬 문의 · 채팅</a>
+      <a href="wishlist.html">❤️ 찜한 업체</a>
+      <a href="points.html">🏅 포인트</a>
+      <a href="coordinator.html">🗣 코디네이터</a>
+      <a href="profile.html">⚙️ 프로필 수정</a>
+      <a href="index.html">↩ 로그아웃</a>
+    </nav>
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+    <h1>예약 내역</h1>
+    <div class="tabs"><span class="tab on">전체</span><span class="tab">진행중</span>
+      <span class="tab">완료</span><span class="tab">취소</span></div>
+
+    <div class="resv">
+      <div class="ph">이미지</div>
+      <div class="info"><span class="st prog">예약 확정</span>
+        <h4>OOO 클리닉 · 리프팅 패키지</h4>
+        <div class="meta">📅 2026-07-12 14:00 · 청담 · 예약금 ₩50,000 결제완료</div></div>
+      <div class="actions"><a class="btn line" href="reservation-detail.html">상세 보기</a>
+        <a class="btn ghost" href="chat.html">문의하기</a>
+        <a class="btn line" onclick="document.getElementById('m').style.display='flex'" style="color:var(--red);">예약 취소</a></div>
+    </div>
+
+    <div class="resv">
+      <div class="ph">이미지</div>
+      <div class="info"><span class="st done">방문 완료</span>
+        <h4>OOO 피부과 · 스킨 레이저</h4>
+        <div class="meta">📅 2026-06-20 11:00 · 강남 · 결제완료</div></div>
+      <div class="actions"><a class="btn line" href="detail.html">상세 보기</a>
+        <a class="btn primary" href="review-write.html">리뷰 작성</a></div>
+    </div>
+
+    <div class="resv">
+      <div class="ph">이미지</div>
+      <div class="info"><span class="st cancel">취소됨</span>
+        <h4>OOO 안과 · 시력교정 상담</h4>
+        <div class="meta">📅 2026-06-05 · 압구정 · 2026-06-01 취소 (예약금 환불완료)</div></div>
+      <div class="actions"><a class="btn line" href="detail.html">상세 보기</a></div>
+    </div>
+    <p class="muted2" style="font-size:12px;margin-top:8px;">※ 취소 내역도 보존됩니다(소프트 삭제). 환불·분쟁 확인에 사용됩니다.</p>
+  </main>
+</div>
+
+<!-- CANCEL CONFIRM MODAL -->
+<div class="modal-bg" id="m" style="display:none;">
+  <div class="modal">
+    <h3>예약을 취소할까요?</h3>
+    <p>OOO 클리닉 · 리프팅 패키지<br>2026-07-12 14:00</p>
+    <div class="note">취소 시 예약금 환불 규정이 적용됩니다. 취소 내역은 마이페이지에 보존됩니다.</div>
+    <div class="mbtns">
+      <button class="btn ghost" onclick="document.getElementById('m').style.display='none'">돌아가기</button>
+      <button class="btn primary" style="background:var(--red);">예약 취소</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

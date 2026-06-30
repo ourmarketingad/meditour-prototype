@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditour — 영수증</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{--blue:#3182F6;--ink:#191F28;--gray:#4E5968;--gray2:#8B95A1;--line:#E5E8EB;--bg2:#F9FAFB;--bg3:#F2F4F6;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Pretendard',-apple-system,sans-serif;color:var(--ink);background:var(--bg2);line-height:1.5;-webkit-font-smoothing:antialiased;}
+  a{text-decoration:none;color:inherit;} .muted2{color:var(--gray2);} .muted{color:var(--gray);}
+  .top{height:60px;display:flex;align-items:center;gap:12px;padding:0 24px;background:#fff;border-bottom:1px solid var(--line);} .logo{font-size:18px;font-weight:800;} .top a.back{color:var(--gray);font-size:14px;font-weight:600;margin-left:auto;}
+  .wrap{max-width:480px;margin:0 auto;padding:28px 24px 60px;}
+  .doc{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px;}
+  .h{text-align:center;border-bottom:1px dashed var(--line);padding-bottom:16px;margin-bottom:16px;} .h .t{font-size:18px;font-weight:800;} .h .s{font-size:12px;color:var(--gray2);margin-top:4px;}
+  .line{display:flex;justify-content:space-between;font-size:13px;padding:6px 0;} .line span{color:var(--gray);}
+  .sec{border-top:1px dashed var(--line);margin-top:14px;padding-top:14px;}
+  .item{display:flex;justify-content:space-between;font-size:14px;padding:6px 0;}
+  .total{display:flex;justify-content:space-between;font-size:18px;font-weight:800;border-top:2px solid var(--ink);margin-top:10px;padding-top:12px;}
+  .pay{font-size:13px;color:var(--gray);margin-top:14px;border-top:1px dashed var(--line);padding-top:14px;}
+  .pay .line b{color:var(--ink);}
+  .stamp{text-align:center;margin-top:18px;color:var(--gray2);font-size:12px;}
+  .dl{display:block;text-align:center;margin-top:16px;background:var(--bg3);border-radius:12px;padding:13px;font-weight:700;}
+</style>
+</head>
+<body>
+  <div class="top"><a class="logo" href="index.html">＋ Meditour</a><a class="back" href="order-detail.html">‹ 주문 상세</a></div>
+  <div class="wrap">
+    <div class="doc">
+      <div class="h"><div class="t">＋ Meditour 결제 영수증</div><div class="s">Payment Receipt · 카드매출전표</div></div>
+      <div class="line"><span>가맹점</span><b>Meditour (대행) · OOO 에스테틱</b></div>
+      <div class="line"><span>주문번호</span><b>#20260629-0091</b></div>
+      <div class="line"><span>결제일시</span><b>2026-06-29 18:31</b></div>
+
+      <div class="sec">
+        <div class="item"><span>아쿠아필 패키지 · 1회권</span><b>₩120,000</b></div>
+        <div class="item"><span>LED 스킨케어 · 3회권</span><b>₩90,000</b></div>
+        <div class="item"><span class="muted">할인</span><b style="color:#E5484D;">−₩30,000</b></div>
+      </div>
+      <div class="total"><span>합계 (VAT 포함)</span><span>₩180,000</span></div>
+
+      <div class="pay">
+        <div class="line"><span>결제수단</span><b>해외카드 (VISA ****1234)</b></div>
+        <div class="line"><span>승인번호</span><b>30021945</b></div>
+        <div class="line"><span>통화</span><b>KRW (₩)</b></div>
+        <div class="line"><span>공급가액 / 부가세</span><b>₩163,636 / ₩16,364</b></div>
+      </div>
+      <div class="stamp">본 영수증은 전자적으로 발행되었습니다. · ㈜회사명 · 사업자 000-00-00000</div>
+    </div>
+    <a class="dl">📄 PDF 다운로드</a>
+  </div>
+</body>
+</html>

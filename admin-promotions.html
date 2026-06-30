@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditour 관리자 — 프로모션</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{--blue:#3182F6;--blue-bg:#EBF2FF;--ink:#191F28;--gray:#4E5968;--gray2:#8B95A1;--line:#E5E8EB;--bg2:#F9FAFB;--bg3:#F2F4F6;--green:#15B886;--orange:#F59E0B;--red:#E5484D;--purple:#7C5CFC;--purple-bg:#EFEBFF;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Pretendard',-apple-system,sans-serif;color:var(--ink);background:var(--bg2);line-height:1.5;-webkit-font-smoothing:antialiased;}
+  a{text-decoration:none;color:inherit;} .muted2{color:var(--gray2);}
+  .btn{display:inline-flex;align-items:center;justify-content:center;font-weight:600;border-radius:10px;padding:8px 14px;font-size:13px;cursor:pointer;border:none;}
+  .btn.primary{background:var(--blue);color:#fff;} .btn.line{background:#fff;border:1px solid var(--line);color:var(--gray);}
+  .shell{display:grid;grid-template-columns:230px 1fr;min-height:100vh;}
+  .sidebar{background:#fff;border-right:1px solid var(--line);padding:18px 14px;position:sticky;top:0;height:100vh;}
+  .brand{font-size:18px;font-weight:800;letter-spacing:-.5px;padding:8px 10px 4px;} .brand small{display:block;font-size:11px;color:var(--purple);font-weight:700;}
+  .snav{margin-top:18px;display:flex;flex-direction:column;gap:2px;}
+  .snav a{display:flex;align-items:center;gap:10px;padding:11px 12px;border-radius:10px;font-size:14px;font-weight:600;color:var(--gray);}
+  .snav a.on{background:var(--purple-bg);color:var(--purple);} .snav a:hover{background:var(--bg2);} .snav .sec{font-size:11px;color:var(--gray2);font-weight:700;padding:14px 12px 6px;}
+  .main{display:flex;flex-direction:column;}
+  .topbar{background:#fff;border-bottom:1px solid var(--line);height:62px;display:flex;align-items:center;gap:12px;padding:0 26px;position:sticky;top:0;z-index:30;}
+  .topbar .ttl{font-weight:800;font-size:15px;} .topbar .stt{font-size:11px;font-weight:700;background:var(--purple-bg);color:var(--purple);padding:3px 9px;border-radius:8px;}
+  .topbar .right{margin-left:auto;display:flex;align-items:center;gap:16px;} .bell{font-size:18px;} .ava{width:32px;height:32px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;}
+  .content{padding:28px 26px 60px;}
+  .htop{display:flex;align-items:center;justify-content:space-between;} h1{font-size:24px;font-weight:800;letter-spacing:-.6px;} .sub{color:var(--gray);font-size:14px;margin:4px 0 18px;}
+  .grid2{display:grid;grid-template-columns:1.4fr 1fr;gap:18px;}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:0;overflow:hidden;} .panel.pad{padding:20px;}
+  .panel h3{font-size:16px;font-weight:800;margin-bottom:14px;}
+  table{width:100%;border-collapse:collapse;font-size:13px;}
+  th{text-align:left;color:var(--gray2);font-weight:700;padding:13px 16px;border-bottom:1px solid var(--line);background:var(--bg2);}
+  td{padding:13px 16px;border-bottom:1px solid var(--bg2);vertical-align:middle;}
+  .lnk{font-family:monospace;font-size:12px;background:var(--bg3);padding:3px 8px;border-radius:7px;color:var(--gray);}
+  .sw{width:40px;height:23px;border-radius:999px;background:var(--blue);position:relative;display:inline-block;} .sw.off{background:var(--bg3);} .sw::after{content:"";position:absolute;top:3px;left:20px;width:17px;height:17px;border-radius:50%;background:#fff;}.sw.off::after{left:3px;}
+  label{display:block;font-size:13px;font-weight:700;margin:14px 0 6px;} .field{width:100%;height:46px;border:1px solid var(--line);border-radius:10px;padding:0 12px;font-size:14px;color:var(--gray2);display:flex;align-items:center;}
+  .chart{height:160px;border:1px solid var(--line);border-radius:12px;position:relative;overflow:hidden;margin-top:10px;}
+  .chart .bars{position:absolute;inset:0;display:flex;align-items:flex-end;gap:5px;padding:10px;} .chart .bar{flex:1;background:var(--purple);border-radius:3px 3px 0 0;opacity:.8;}
+  @media(max-width:980px){.shell{grid-template-columns:1fr;}.sidebar{display:none;}.grid2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand">＋ Meditour <small>관리자 콘솔</small></div>
+    <nav class="snav">
+      <a href="admin-dashboard.html">🏠 대시보드</a>
+      <div class="sec">관리</div>
+      <a href="admin-members.html">👥 회원 관리</a>
+      <a href="admin-businesses.html">🏥 업체 관리 · 입점 승인</a>
+      <a href="admin-products.html">🧾 상품 관리 · 승인</a>
+      <div class="sec">마케팅</div>
+      <a class="on">🔗 프로모션</a>
+      <a href="admin-banners.html">🖼 배너 관리</a>
+      <div class="sec">분석 · CS</div>
+      <a href="admin-stats.html">📊 사이트 통계</a>
+      <a href="admin-inquiries.html">📨 고객문의</a>
+      <a href="index.html">↩ 로그아웃</a>
+    </nav>
+  </aside>
+  <div class="main">
+    <div class="topbar"><span class="ttl">🛡 Meditour Admin</span><span class="stt">최고 관리자</span>
+      <div class="right"><span class="bell">🔔</span><span class="ava">🛡</span></div></div>
+    <div class="content">
+      <div class="htop"><h1>프로모션 · 추적 링크</h1><a class="btn primary">＋ 추적 링크 생성</a></div>
+      <p class="sub">상품·업체별 추적 링크를 만들어 클릭수·접속 시간대를 추적, 마케팅 성과 지표로 활용합니다.</p>
+
+      <div class="grid2">
+        <div class="panel">
+          <table>
+            <tr><th>프로모션</th><th>대상</th><th>추적 링크</th><th>클릭</th><th>전환</th><th>ON</th></tr>
+            <tr><td>여름 K뷰티</td><td>OOO 클리닉</td><td><span class="lnk">/p/abx12</span></td><td>3,210</td><td>142</td><td><span class="sw"></span></td></tr>
+            <tr><td>샤오홍슈 캠페인</td><td>리프팅 패키지</td><td><span class="lnk">/p/xh889</span></td><td>5,840</td><td>318</td><td><span class="sw"></span></td></tr>
+            <tr><td>일본 가을 이벤트</td><td>OOO 안과</td><td><span class="lnk">/p/jp007</span></td><td>1,120</td><td>61</td><td><span class="sw off"></span></td></tr>
+            <tr><td>위챗 미니프로그램</td><td>전체</td><td><span class="lnk">/p/wc222</span></td><td>9,402</td><td>504</td><td><span class="sw"></span></td></tr>
+          </table>
+        </div>
+        <div class="panel pad">
+          <h3>접속 시간대 (샤오홍슈 캠페인)</h3>
+          <div class="chart"><div class="bars">
+            <div class="bar" style="height:20%"></div><div class="bar" style="height:15%"></div><div class="bar" style="height:30%"></div>
+            <div class="bar" style="height:55%"></div><div class="bar" style="height:70%"></div><div class="bar" style="height:60%"></div>
+            <div class="bar" style="height:85%"></div><div class="bar" style="height:95%"></div><div class="bar" style="height:75%"></div>
+            <div class="bar" style="height:50%"></div><div class="bar" style="height:35%"></div><div class="bar" style="height:25%"></div>
+          </div></div>
+          <p class="muted2" style="font-size:12px;margin-top:10px;">오후 6~9시 클릭 집중 → 해당 시간대 광고 집행 최적화</p>
+        </div>
+      </div>
+
+      <div class="panel pad" style="margin-top:18px;">
+        <h3>추적 링크 생성</h3>
+        <label>프로모션명</label><div class="field">예) 가을 일본 이벤트</div>
+        <label>대상 (상품/업체/전체)</label><div class="field">상품·업체 검색 또는 전체</div>
+        <div style="display:flex;gap:10px;"><div style="flex:1;"><label>기간 시작</label><div class="field">2026-07-01</div></div>
+          <div style="flex:1;"><label>기간 종료</label><div class="field">2026-08-31</div></div></div>
+        <div style="margin-top:16px;"><a class="btn primary">링크 생성</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

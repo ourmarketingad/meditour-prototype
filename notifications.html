@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditour — 알림</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{--blue:#3182F6;--blue-bg:#EBF2FF;--ink:#191F28;--gray:#4E5968;--gray2:#8B95A1;--line:#E5E8EB;--bg2:#F9FAFB;--bg3:#F2F4F6;--red:#E5484D;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Pretendard',-apple-system,sans-serif;color:var(--ink);background:var(--bg2);line-height:1.5;-webkit-font-smoothing:antialiased;}
+  a{text-decoration:none;color:inherit;} .muted2{color:var(--gray2);}
+  header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:40;}
+  .nav{max-width:680px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:20px;height:64px;}
+  .logo{font-size:20px;font-weight:800;letter-spacing:-.5px;} .nav .right{margin-left:auto;display:flex;align-items:center;gap:16px;} .ava{width:34px;height:34px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;}
+  .wrap{max-width:680px;margin:0 auto;padding:28px 24px 80px;}
+  .htop{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;} h1{font-size:24px;font-weight:800;letter-spacing:-.6px;} .read{font-size:13px;color:var(--blue);font-weight:700;cursor:pointer;}
+  .tabs{display:flex;gap:8px;margin-bottom:16px;} .tab{padding:7px 14px;border-radius:999px;font-size:13px;font-weight:700;color:var(--gray);background:#fff;border:1px solid var(--line);cursor:pointer;} .tab.on{background:var(--ink);color:#fff;border-color:var(--ink);}
+  .noti{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;gap:12px;margin-bottom:10px;align-items:flex-start;}
+  .noti.unread{background:#F5F9FF;border-color:#D6E6FF;}
+  .noti .ic{width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:18px;flex:0 0 auto;background:var(--blue-bg);}
+  .noti .ti{font-weight:700;font-size:14px;} .noti .ds{font-size:13px;color:var(--gray);margin-top:3px;} .noti .tm{font-size:11px;color:var(--gray2);margin-top:5px;}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--blue);margin-left:auto;flex:0 0 auto;}
+</style>
+</head>
+<body>
+<header><div class="nav"><a class="logo" href="index.html">＋ Meditour</a>
+  <div class="right"><a href="mypage.html"><span class="ava">🙂</span></a></div></div></header>
+<div class="wrap">
+  <div class="htop"><h1>알림</h1><span class="read">모두 읽음</span></div>
+  <div class="tabs"><span class="tab on">전체</span><span class="tab">예약</span><span class="tab">문의</span><span class="tab">혜택</span></div>
+
+  <a class="noti unread" href="mypage.html"><div class="ic">📅</div><div style="flex:1;"><div class="ti">예약이 확정됐어요</div><div class="ds">OOO 클리닉 · 리프팅 패키지 · 7/10(목) 14:00</div><div class="tm">방금</div></div><span class="dot"></span></a>
+  <a class="noti unread" href="chat.html"><div class="ic">💬</div><div style="flex:1;"><div class="ti">새 메시지 · OOO 클리닉</div><div class="ds">견적서를 보내드렸어요 (자동 번역)</div><div class="tm">12분 전</div></div><span class="dot"></span></a>
+  <a class="noti" href="mypage.html"><div class="ic">🔔</div><div style="flex:1;"><div class="ti">[리마인드] 방문 D-1</div><div class="ds">내일 14:00 예약이 있어요. 변경이 필요하면 지금 확인하세요.</div><div class="tm">어제</div></div></a>
+  <a class="noti" href="points.html"><div class="ic">🏅</div><div style="flex:1;"><div class="ti">포인트가 적립됐어요</div><div class="ds">+3,000P 적립 · 현재 2,400P</div><div class="tm">2일 전</div></div></a>
+  <a class="noti" href="deals.html"><div class="ic">🎉</div><div style="flex:1;"><div class="ti">여름 K-뷰티 페스타 시작</div><div class="ds">참여 클리닉 최대 30% 할인</div><div class="tm">3일 전</div></div></a>
+</div>
+</body>
+</html>

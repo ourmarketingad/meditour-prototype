@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditour 관리자 — 사이트 통계</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{--blue:#3182F6;--blue-bg:#EBF2FF;--ink:#191F28;--gray:#4E5968;--gray2:#8B95A1;--line:#E5E8EB;--bg2:#F9FAFB;--bg3:#F2F4F6;--green:#15B886;--orange:#F59E0B;--red:#E5484D;--purple:#7C5CFC;--purple-bg:#EFEBFF;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Pretendard',-apple-system,sans-serif;color:var(--ink);background:var(--bg2);line-height:1.5;-webkit-font-smoothing:antialiased;}
+  a{text-decoration:none;color:inherit;} .muted2{color:var(--gray2);}
+  .shell{display:grid;grid-template-columns:230px 1fr;min-height:100vh;}
+  .sidebar{background:#fff;border-right:1px solid var(--line);padding:18px 14px;position:sticky;top:0;height:100vh;}
+  .brand{font-size:18px;font-weight:800;letter-spacing:-.5px;padding:8px 10px 4px;} .brand small{display:block;font-size:11px;color:var(--purple);font-weight:700;}
+  .snav{margin-top:18px;display:flex;flex-direction:column;gap:2px;}
+  .snav a{display:flex;align-items:center;gap:10px;padding:11px 12px;border-radius:10px;font-size:14px;font-weight:600;color:var(--gray);}
+  .snav a.on{background:var(--purple-bg);color:var(--purple);} .snav a:hover{background:var(--bg2);} .snav .sec{font-size:11px;color:var(--gray2);font-weight:700;padding:14px 12px 6px;}
+  .main{display:flex;flex-direction:column;}
+  .topbar{background:#fff;border-bottom:1px solid var(--line);height:62px;display:flex;align-items:center;gap:12px;padding:0 26px;position:sticky;top:0;z-index:30;}
+  .topbar .ttl{font-weight:800;font-size:15px;} .topbar .stt{font-size:11px;font-weight:700;background:var(--purple-bg);color:var(--purple);padding:3px 9px;border-radius:8px;}
+  .topbar .right{margin-left:auto;display:flex;align-items:center;gap:16px;} .bell{font-size:18px;} .ava{width:32px;height:32px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;}
+  .content{padding:28px 26px 60px;}
+  .htop{display:flex;align-items:center;justify-content:space-between;} h1{font-size:24px;font-weight:800;letter-spacing:-.6px;} .sub{color:var(--gray);font-size:14px;margin:4px 0 18px;}
+  .period{display:flex;gap:6px;} .period span{padding:7px 12px;border-radius:8px;font-size:13px;font-weight:700;background:#fff;border:1px solid var(--line);color:var(--gray);cursor:pointer;} .period span.on{background:var(--ink);color:#fff;border-color:var(--ink);}
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:18px;}
+  .kpi{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;} .kpi .l{font-size:13px;color:var(--gray);font-weight:600;} .kpi .n{font-size:26px;font-weight:800;letter-spacing:-1px;margin-top:6px;} .kpi .d{font-size:12px;margin-top:4px;} .up{color:var(--green);}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;margin-bottom:18px;} .panel h3{font-size:16px;font-weight:800;margin-bottom:14px;}
+  .line{height:210px;border:1px solid var(--line);border-radius:12px;overflow:hidden;} .line svg{width:100%;height:100%;}
+  .country{display:flex;flex-direction:column;gap:12px;} .crow{display:flex;align-items:center;gap:10px;font-size:14px;} .crow .bar{flex:1;height:8px;background:var(--bg3);border-radius:4px;overflow:hidden;} .crow .bar i{display:block;height:100%;background:var(--purple);border-radius:4px;} .crow .v{font-weight:700;width:42px;text-align:right;}
+  .funnel{display:flex;flex-direction:column;gap:8px;} .fr{display:flex;align-items:center;gap:12px;} .fr .lab{width:90px;font-size:13px;color:var(--gray);} .fr .b{height:30px;background:var(--blue);border-radius:8px;display:flex;align-items:center;padding:0 10px;color:#fff;font-weight:700;font-size:13px;} .fr .v{margin-left:auto;font-weight:700;font-size:13px;}
+  .rank{display:flex;flex-direction:column;gap:10px;} .rk{display:flex;align-items:center;gap:12px;font-size:14px;} .rk .no{width:24px;height:24px;border-radius:8px;background:var(--purple-bg);color:var(--purple);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:12px;} .rk .v{margin-left:auto;font-weight:700;}
+  @media(max-width:980px){.shell{grid-template-columns:1fr;}.sidebar{display:none;}.kpis{grid-template-columns:repeat(2,1fr);}.grid2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand">＋ Meditour <small>관리자 콘솔</small></div>
+    <nav class="snav">
+      <a href="admin-dashboard.html">🏠 대시보드</a>
+      <div class="sec">관리</div>
+      <a href="admin-members.html">👥 회원 관리</a>
+      <a href="admin-businesses.html">🏥 업체 관리 · 입점 승인</a>
+      <a href="admin-products.html">🧾 상품 관리 · 승인</a>
+      <div class="sec">마케팅</div>
+      <a href="admin-promotions.html">🔗 프로모션</a>
+      <a href="admin-banners.html">🖼 배너 관리</a>
+      <div class="sec">분석 · CS</div>
+      <a class="on">📊 사이트 통계</a>
+      <a href="admin-inquiries.html">📨 고객문의</a>
+      <a href="index.html">↩ 로그아웃</a>
+    </nav>
+  </aside>
+  <div class="main">
+    <div class="topbar"><span class="ttl">🛡 Meditour Admin</span><span class="stt">최고 관리자</span>
+      <div class="right"><span class="bell">🔔</span><span class="ava">🛡</span></div></div>
+    <div class="content">
+      <div class="htop"><h1>사이트 통계</h1><div class="period"><span>7일</span><span class="on">30일</span><span>90일</span><span>1년</span></div></div>
+      <p class="sub">플랫폼 전체 지표 (로그인 로깅 기반 MAU 포함)</p>
+      <div class="kpis">
+        <div class="kpi"><div class="l">MAU</div><div class="n">38,210</div><div class="d up">▲ +12%</div></div>
+        <div class="kpi"><div class="l">신규 가입</div><div class="n">3,840</div><div class="d up">▲ +15%</div></div>
+        <div class="kpi"><div class="l">총 거래액(GMV)</div><div class="n">₩284M</div><div class="d up">▲ +21%</div></div>
+        <div class="kpi"><div class="l">활성 업체</div><div class="n">402</div><div class="d up">▲ +9</div></div>
+      </div>
+      <div class="panel"><h3>MAU / 방문 추이</h3>
+        <div class="line"><svg viewBox="0 0 400 210" preserveAspectRatio="none">
+          <polyline fill="rgba(124,92,252,.08)" stroke="none" points="0,170 50,160 100,140 150,145 200,110 250,95 300,70 350,55 400,40 400,210 0,210"/>
+          <polyline fill="none" stroke="#7C5CFC" stroke-width="3" points="0,170 50,160 100,140 150,145 200,110 250,95 300,70 350,55 400,40"/>
+        </svg></div>
+      </div>
+      <div class="grid2">
+        <div class="panel"><h3>국가별 유입</h3>
+          <div class="country">
+            <div class="crow">🇨🇳 중국<div class="bar"><i style="width:40%"></i></div><span class="v">40%</span></div>
+            <div class="crow">🇯🇵 일본<div class="bar"><i style="width:30%"></i></div><span class="v">30%</span></div>
+            <div class="crow">🇺🇸 미국<div class="bar"><i style="width:14%"></i></div><span class="v">14%</span></div>
+            <div class="crow">🇹🇼 대만<div class="bar"><i style="width:10%"></i></div><span class="v">10%</span></div>
+            <div class="crow">🌏 기타<div class="bar"><i style="width:6%"></i></div><span class="v">6%</span></div>
+          </div>
+        </div>
+        <div class="panel"><h3>전환 퍼널</h3>
+          <div class="funnel">
+            <div class="fr"><span class="lab">방문</span><div class="b" style="width:100%">100%</div></div>
+            <div class="fr"><span class="lab">상세 조회</span><div class="b" style="width:64%">64%</div></div>
+            <div class="fr"><span class="lab">상담 시작</span><div class="b" style="width:22%">22%</div></div>
+            <div class="fr"><span class="lab">예약 완료</span><div class="b" style="width:8%">8%</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="panel"><h3>국가별 유입 시간대 (히트맵)</h3>
+        <div style="overflow-x:auto;">
+        <table style="border-collapse:collapse;font-size:12px;min-width:560px;">
+          <tr><th style="text-align:left;padding:6px 10px;color:var(--gray2);">국가＼시간</th>
+            <th style="padding:6px;color:var(--gray2);">00</th><th style="padding:6px;color:var(--gray2);">03</th><th style="padding:6px;color:var(--gray2);">06</th><th style="padding:6px;color:var(--gray2);">09</th><th style="padding:6px;color:var(--gray2);">12</th><th style="padding:6px;color:var(--gray2);">15</th><th style="padding:6px;color:var(--gray2);">18</th><th style="padding:6px;color:var(--gray2);">21</th></tr>
+          <tr><td style="padding:6px 10px;font-weight:700;">🇨🇳 중국</td>
+            <td style="background:rgba(124,92,252,.10);height:30px;"></td><td style="background:rgba(124,92,252,.10);"></td><td style="background:rgba(124,92,252,.18);"></td><td style="background:rgba(124,92,252,.40);"></td><td style="background:rgba(124,92,252,.55);"></td><td style="background:rgba(124,92,252,.60);"></td><td style="background:rgba(124,92,252,.90);"></td><td style="background:rgba(124,92,252,.80);"></td></tr>
+          <tr><td style="padding:6px 10px;font-weight:700;">🇯🇵 일본</td>
+            <td style="background:rgba(124,92,252,.10);"></td><td style="background:rgba(124,92,252,.15);"></td><td style="background:rgba(124,92,252,.35);"></td><td style="background:rgba(124,92,252,.55);"></td><td style="background:rgba(124,92,252,.85);"></td><td style="background:rgba(124,92,252,.55);"></td><td style="background:rgba(124,92,252,.45);"></td><td style="background:rgba(124,92,252,.25);"></td></tr>
+          <tr><td style="padding:6px 10px;font-weight:700;">🇺🇸 미국</td>
+            <td style="background:rgba(124,92,252,.85);"></td><td style="background:rgba(124,92,252,.55);"></td><td style="background:rgba(124,92,252,.20);"></td><td style="background:rgba(124,92,252,.12);"></td><td style="background:rgba(124,92,252,.10);"></td><td style="background:rgba(124,92,252,.18);"></td><td style="background:rgba(124,92,252,.45);"></td><td style="background:rgba(124,92,252,.80);"></td></tr>
+          <tr><td style="padding:6px 10px;font-weight:700;">🇹🇼 대만</td>
+            <td style="background:rgba(124,92,252,.10);"></td><td style="background:rgba(124,92,252,.12);"></td><td style="background:rgba(124,92,252,.18);"></td><td style="background:rgba(124,92,252,.40);"></td><td style="background:rgba(124,92,252,.50);"></td><td style="background:rgba(124,92,252,.80);"></td><td style="background:rgba(124,92,252,.88);"></td><td style="background:rgba(124,92,252,.50);"></td></tr>
+        </table></div>
+        <p class="muted2" style="font-size:12px;margin-top:10px;">색이 진할수록 유입 집중. 중화권은 저녁~밤, 미국은 시차로 새벽 유입 → 광고·상담 인력 배치 최적화.</p>
+      </div>
+
+      <div class="grid2">
+        <div class="panel"><h3>카테고리별 거래 비중</h3>
+          <div class="country">
+            <div class="crow">의료<div class="bar"><i style="width:58%"></i></div><span class="v">58%</span></div>
+            <div class="crow">뷰티<div class="bar"><i style="width:24%"></i></div><span class="v">24%</span></div>
+            <div class="crow">호텔<div class="bar"><i style="width:12%"></i></div><span class="v">12%</span></div>
+            <div class="crow">패키지<div class="bar"><i style="width:6%"></i></div><span class="v">6%</span></div>
+          </div>
+        </div>
+        <div class="panel"><h3>인기 업체 TOP 5</h3>
+          <div class="rank">
+            <div class="rk"><span class="no">1</span>OOO 클리닉<span class="v">1,540건</span></div>
+            <div class="rk"><span class="no">2</span>OOO 성형외과<span class="v">980건</span></div>
+            <div class="rk"><span class="no">3</span>OOO 피부과<span class="v">640건</span></div>
+            <div class="rk"><span class="no">4</span>OOO 안과<span class="v">420건</span></div>
+            <div class="rk"><span class="no">5</span>OOO 에스테틱<span class="v">310건</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

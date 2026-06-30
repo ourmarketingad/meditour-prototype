@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditour — 포인트</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{--blue:#3182F6;--blue-bg:#EBF2FF;--ink:#191F28;--gray:#4E5968;--gray2:#8B95A1;--line:#E5E8EB;--bg2:#F9FAFB;--bg3:#F2F4F6;--green:#15B886;--red:#E5484D;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Pretendard',-apple-system,sans-serif;color:var(--ink);background:var(--bg2);line-height:1.5;-webkit-font-smoothing:antialiased;}
+  a{text-decoration:none;color:inherit;} .muted2{color:var(--gray2);}
+  header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:40;}
+  .nav{max-width:1080px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:20px;height:64px;}
+  .logo{font-size:20px;font-weight:800;letter-spacing:-.5px;} .nav .links{display:flex;gap:24px;font-size:15px;font-weight:600;color:var(--gray);margin-left:12px;}
+  .nav .right{margin-left:auto;display:flex;align-items:center;gap:16px;} .bell{font-size:18px;} .ava{width:34px;height:34px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;}
+  .container{max-width:1080px;margin:0 auto;padding:32px 24px 80px;display:grid;grid-template-columns:240px 1fr;gap:32px;} .side{align-self:start;}
+  .profcard{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;text-align:center;margin-bottom:16px;} .profcard .av{width:60px;height:60px;border-radius:50%;background:var(--bg3);margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:26px;} .profcard .nm{font-weight:800;font-size:17px;} .profcard .em{font-size:13px;color:var(--gray2);}
+  .menu{background:#fff;border:1px solid var(--line);border-radius:18px;padding:8px;} .menu a{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:12px;font-size:15px;font-weight:600;color:var(--gray);} .menu a.on{background:var(--blue-bg);color:var(--blue);} .menu a:hover{background:var(--bg2);}
+  h1{font-size:26px;font-weight:800;letter-spacing:-.6px;margin-bottom:18px;}
+  .hero{background:linear-gradient(135deg,#3182F6,#1B64DA);border-radius:20px;padding:26px;color:#fff;margin-bottom:18px;}
+  .hero .g{font-size:13px;font-weight:700;opacity:.9;} .hero .p{font-size:38px;font-weight:800;letter-spacing:-1px;margin:6px 0;} .hero .bar{height:8px;background:rgba(255,255,255,.25);border-radius:4px;margin:12px 0 6px;overflow:hidden;} .hero .bar i{display:block;height:100%;width:80%;background:#fff;border-radius:4px;} .hero small{opacity:.9;font-size:12px;}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;}
+  table{width:100%;border-collapse:collapse;font-size:14px;} th{text-align:left;color:var(--gray2);font-weight:700;padding:12px 16px;border-bottom:1px solid var(--line);background:var(--bg2);} td{padding:13px 16px;border-bottom:1px solid var(--bg2);}
+  .plus{color:var(--green);font-weight:700;} .minus{color:var(--red);font-weight:700;}
+  @media(max-width:880px){.container{grid-template-columns:1fr;}.side{display:none;}}
+</style>
+</head>
+<body>
+<header><div class="nav">
+  <a class="logo" href="index.html">＋ Meditour</a>
+  <div class="links"><a href="list.html">둘러보기</a><a href="deals.html">혜택</a><a href="reviews.html">후기</a></div>
+  <div class="right"><span class="muted2" style="font-size:14px;font-weight:600;">🌐 EN ▾</span><a href="notifications.html"><span class="bell">🔔</span></a><span class="ava">🙂</span></div>
+</div></header>
+<div class="container">
+  <aside class="side">
+    <div class="profcard"><div class="av">🙂</div><div class="nm">Sarah K.</div><div class="em">sarah@example.com · 🇺🇸</div></div>
+    <nav class="menu">
+      <a href="mypage.html">📋 예약 내역</a><a href="orders.html">🛍 주문 내역</a><a href="chat.html">💬 문의 · 채팅</a>
+      <a href="wishlist.html">❤️ 찜한 업체</a><a class="on">🏅 포인트</a><a href="profile.html">⚙️ 프로필 수정</a><a href="index.html">↩ 로그아웃</a>
+    </nav>
+  </aside>
+  <main>
+    <h1>포인트</h1>
+    <div class="hero">
+      <div class="g">🏅 GOLD 등급</div>
+      <div class="p">2,400 P</div>
+      <div class="bar"><i></i></div>
+      <small>다음 등급(PLATINUM)까지 예약 1회 · 누적 5회</small>
+    </div>
+    <div class="panel">
+      <table>
+        <tr><th>내역</th><th>구분</th><th>일자</th><th>포인트</th></tr>
+        <tr><td>아쿠아필 패키지 주문 적립</td><td>적립</td><td>2026-06-29</td><td class="plus">+3,000</td></tr>
+        <tr><td>리프팅 예약 적립</td><td>적립</td><td>2026-06-20</td><td class="plus">+5,000</td></tr>
+        <tr><td>포인트 사용 (스킨 레이저)</td><td>사용</td><td>2026-06-10</td><td class="minus">−10,000</td></tr>
+        <tr><td>가입 축하 포인트</td><td>적립</td><td>2026-06-01</td><td class="plus">+2,000</td></tr>
+      </table>
+    </div>
+    <p class="muted2" style="font-size:12px;margin-top:12px;">※ 예약 횟수·누적 금액에 따라 등급이 오르고 적립률이 높아집니다.</p>
+  </main>
+</div>
+</body>
+</html>

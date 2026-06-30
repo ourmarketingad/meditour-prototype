@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditour — 주문 / 결제 (뷰티)</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{--blue:#3182F6;--blue-bg:#EBF2FF;--ink:#191F28;--gray:#4E5968;--gray2:#8B95A1;--line:#E5E8EB;--bg2:#F9FAFB;--bg3:#F2F4F6;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Pretendard',-apple-system,sans-serif;color:var(--ink);background:var(--bg2);line-height:1.5;-webkit-font-smoothing:antialiased;}
+  a{text-decoration:none;color:inherit;} .muted2{color:var(--gray2);} .muted{color:var(--gray);}
+  .top{height:60px;display:flex;align-items:center;gap:12px;padding:0 24px;background:#fff;border-bottom:1px solid var(--line);}
+  .logo{font-size:18px;font-weight:800;} .top a.back{color:var(--gray);font-size:14px;font-weight:600;margin-left:auto;}
+  .wrap{max-width:760px;margin:0 auto;padding:28px 20px 120px;}
+  h1{font-size:24px;font-weight:800;letter-spacing:-.6px;margin-bottom:18px;}
+  .card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;margin-bottom:14px;}
+  .card h3{font-size:16px;font-weight:800;margin-bottom:14px;}
+  .line{display:flex;justify-content:space-between;font-size:14px;padding:8px 0;border-bottom:1px solid var(--bg2);} .line:last-child{border-bottom:none;} .line span{color:var(--gray);}
+  .line.total{font-size:17px;font-weight:800;border-top:1px solid var(--line);border-bottom:none;margin-top:6px;padding-top:12px;}
+  .opt{display:flex;align-items:center;justify-content:space-between;padding:13px;border:1px solid var(--line);border-radius:12px;margin-bottom:8px;cursor:pointer;} .opt.on{border-color:var(--blue);background:var(--blue-bg);}
+  .pay{display:flex;gap:10px;flex-wrap:wrap;} .pm{border:1px solid var(--line);border-radius:12px;padding:13px 16px;font-size:14px;font-weight:600;color:var(--gray);cursor:pointer;} .pm.on{border-color:var(--blue);background:var(--blue-bg);color:var(--blue);}
+  .field{width:100%;height:48px;border:1px solid var(--line);border-radius:12px;padding:0 14px;font-size:14px;color:var(--gray2);display:flex;align-items:center;}
+  .bar2{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);padding:14px 20px;display:flex;align-items:center;gap:12px;}
+  .bar2 .info{flex:1;} .bar2 .info b{font-size:18px;} .bar2 .info small{display:block;color:var(--gray2);font-size:12px;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;font-weight:700;border-radius:12px;padding:14px 28px;font-size:16px;border:none;cursor:pointer;background:var(--blue);color:#fff;}
+</style>
+</head>
+<body>
+  <div class="top"><a class="logo" href="index.html">＋ Meditour</a><a class="back" href="cart.html">‹ 장바구니</a></div>
+  <div class="wrap">
+    <h1>주문 / 결제</h1>
+
+    <div class="card"><h3>주문 상품 (3)</h3>
+      <div class="line"><span>아쿠아필 패키지 · 1회권 ×1</span><b>₩120,000</b></div>
+      <div class="line"><span>LED 스킨케어 · 3회권 ×1</span><b>₩90,000</b></div>
+      <div class="line"><span>홈케어 앰플 세트 ×2</span><b>₩120,000</b></div>
+    </div>
+
+    <div class="card"><h3>수령 / 사용 방법</h3>
+      <div class="opt on"><div><b>매장 방문 사용</b><div class="muted2" style="font-size:12px;">예약 방문 시 바우처로 사용</div></div><span>✓</span></div>
+      <div class="opt"><div><b>택배 배송 (홈케어 상품)</b><div class="muted2" style="font-size:12px;">해외 배송 가능 상품만</div></div><span></span></div>
+      <div class="field" style="margin-top:8px;">주문자 연락처 (휴대폰 인증된 번호)</div>
+    </div>
+
+    <div class="card"><h3>결제 수단</h3>
+      <div class="pay"><span class="pm on">💳 해외 카드</span><span class="pm">위챗페이</span><span class="pm">알리페이</span><span class="pm">PayPal</span></div>
+    </div>
+
+    <div class="card"><h3>결제 금액</h3>
+      <div class="line"><span>상품 금액</span><b>₩330,000</b></div>
+      <div class="line"><span>할인</span><b style="color:#E5484D">−₩30,000</b></div>
+      <div class="line"><span>적립 예정 포인트</span><b class="muted2">+3,000P</b></div>
+      <div class="line total"><span>최종 결제</span><span>₩300,000</span></div>
+    </div>
+  </div>
+
+  <div class="bar2"><div class="info"><b>₩300,000</b><small>전액 결제 · 뷰티 상품</small></div>
+    <a class="btn" href="order-done.html">결제하기</a></div>
+</body>
+</html>

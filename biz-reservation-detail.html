@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditour 파트너 — 예약 상세</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{--blue:#3182F6;--blue-bg:#EBF2FF;--ink:#191F28;--gray:#4E5968;--gray2:#8B95A1;--line:#E5E8EB;--bg2:#F9FAFB;--bg3:#F2F4F6;--green:#15B886;--orange:#F59E0B;--red:#E5484D;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Pretendard',-apple-system,sans-serif;color:var(--ink);background:var(--bg2);line-height:1.5;-webkit-font-smoothing:antialiased;}
+  a{text-decoration:none;color:inherit;} .muted2{color:var(--gray2);} .muted{color:var(--gray);}
+  .btn{display:inline-flex;align-items:center;justify-content:center;font-weight:600;border-radius:10px;padding:10px 16px;font-size:14px;cursor:pointer;border:none;} .btn.primary{background:var(--blue);color:#fff;} .btn.ghost{background:var(--bg3);color:var(--ink);} .btn.line{background:#fff;border:1px solid var(--line);color:var(--gray);} .btn.ok{background:var(--green);color:#fff;} .btn.danger{background:#fff;border:1px solid var(--red);color:var(--red);}
+  .shell{display:grid;grid-template-columns:230px 1fr;min-height:100vh;}
+  .sidebar{background:#fff;border-right:1px solid var(--line);padding:18px 14px;position:sticky;top:0;height:100vh;}
+  .brand{font-size:18px;font-weight:800;padding:8px 10px 4px;} .brand small{display:block;font-size:11px;color:var(--gray2);font-weight:600;}
+  .snav{margin-top:18px;display:flex;flex-direction:column;gap:2px;} .snav a{display:flex;gap:10px;padding:11px 12px;border-radius:10px;font-size:14px;font-weight:600;color:var(--gray);} .snav a.on{background:var(--blue-bg);color:var(--blue);} .snav .sec{font-size:11px;color:var(--gray2);font-weight:700;padding:14px 12px 6px;}
+  .main{display:flex;flex-direction:column;}
+  .topbar{background:#fff;border-bottom:1px solid var(--line);height:62px;display:flex;align-items:center;gap:12px;padding:0 26px;position:sticky;top:0;z-index:30;} .topbar .biz{font-weight:800;font-size:15px;} .topbar .stt{font-size:11px;font-weight:700;background:#E6F7F1;color:var(--green);padding:3px 9px;border-radius:8px;} .topbar .right{margin-left:auto;display:flex;gap:16px;align-items:center;} .ava{width:32px;height:32px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;}
+  .content{padding:28px 26px 60px;max-width:820px;}
+  .crumb{font-size:13px;color:var(--gray2);margin-bottom:8px;} h1{font-size:24px;font-weight:800;letter-spacing:-.6px;} .stt2{display:inline-block;font-size:12px;font-weight:700;padding:4px 10px;border-radius:8px;background:#E7F0FF;color:var(--blue);margin-left:8px;}
+  .grid{display:grid;grid-template-columns:1.4fr 1fr;gap:18px;margin-top:18px;}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;margin-bottom:16px;} .panel h3{font-size:15px;font-weight:800;margin-bottom:12px;}
+  .line{display:flex;justify-content:space-between;font-size:14px;padding:8px 0;border-bottom:1px solid var(--bg2);} .line:last-child{border-bottom:none;} .line span{color:var(--gray);}
+  .actcol{display:flex;flex-direction:column;gap:8px;} .actcol .btn{width:100%;}
+  .note{width:100%;height:90px;border:1px solid var(--line);border-radius:12px;padding:12px;font-size:13px;color:var(--gray2);}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand">＋ Meditour <small>파트너 콘솔</small></div>
+    <nav class="snav">
+      <a href="biz-dashboard.html">🏠 대시보드</a>
+      <div class="sec">운영</div>
+      <a href="biz-products.html">🧾 상품 관리</a><a class="on" href="biz-reservations.html">📅 예약 관리</a><a href="biz-chat.html">💬 문의 · 채팅</a><a href="biz-stats.html">📊 통계</a>
+      <div class="sec">정산</div>
+      <a href="biz-settlement.html">💰 정산 · 매출</a>
+      <div class="sec">설정</div>
+      <a href="biz-profile.html">🏥 업체 프로필</a><a href="index.html">↩ 로그아웃</a>
+    </nav>
+  </aside>
+  <div class="main">
+    <div class="topbar"><span class="biz">🏥 OOO 클리닉</span><span class="stt">승인 완료 · 의료</span>
+      <div class="right"><span class="ava">👤</span></div></div>
+    <div class="content">
+      <div class="crumb"><a href="biz-reservations.html">예약 관리</a> › 상세</div>
+      <h1>예약 상세 <span class="stt2">확정</span></h1>
+      <div class="grid">
+        <div>
+          <div class="panel"><h3>예약 정보</h3>
+            <div class="line"><span>예약번호</span><b>#20260710-0142</b></div>
+            <div class="line"><span>상품/시술</span><b>리프팅 패키지</b></div>
+            <div class="line"><span>일시</span><b>2026-07-10(목) 14:00</b></div>
+            <div class="line"><span>담당 의사</span><b>김OO 원장</b></div>
+            <div class="line"><span>예약금</span><b>₩50,000 결제완료</b></div>
+            <div class="line"><span>잔금</span><b>₩450,000 (현장)</b></div>
+          </div>
+          <div class="panel"><h3>고객 정보</h3>
+            <div class="line"><span>고객</span><b>🇨🇳 Li Wei</b></div>
+            <div class="line"><span>언어</span><b>중국어(간체)</b></div>
+            <div class="line"><span>연락처</span><b>인증됨 · 채팅 연결</b></div>
+            <div class="line"><span>방문 이력</span><b>2회 (재방문)</b></div>
+          </div>
+          <div class="panel"><h3>내부 메모</h3><div class="note">시술 관련 특이사항·상담 메모 (고객 비공개)</div></div>
+        </div>
+        <div>
+          <div class="panel"><h3>상태 처리</h3>
+            <div class="actcol">
+              <a class="btn ok">✓ 방문 완료 처리</a>
+              <a class="btn line">📅 일정 변경 제안</a>
+              <a class="btn line">🧾 견적서 보내기</a>
+              <a class="btn danger">노쇼 처리 (예약금 정산)</a>
+            </div>
+          </div>
+          <div class="panel"><h3>바로가기</h3>
+            <div class="actcol"><a class="btn ghost" href="biz-chat.html">💬 고객 채팅</a><a class="btn ghost" href="biz-quote.html">🧾 견적 작성</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

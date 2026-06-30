@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditour 관리자 — 배너 관리</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{--blue:#3182F6;--blue-bg:#EBF2FF;--ink:#191F28;--gray:#4E5968;--gray2:#8B95A1;--line:#E5E8EB;--bg2:#F9FAFB;--bg3:#F2F4F6;--green:#15B886;--orange:#F59E0B;--red:#E5484D;--purple:#7C5CFC;--purple-bg:#EFEBFF;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Pretendard',-apple-system,sans-serif;color:var(--ink);background:var(--bg2);line-height:1.5;-webkit-font-smoothing:antialiased;}
+  a{text-decoration:none;color:inherit;} .muted2{color:var(--gray2);}
+  .btn{display:inline-flex;align-items:center;justify-content:center;font-weight:600;border-radius:10px;padding:8px 14px;font-size:13px;cursor:pointer;border:none;}
+  .btn.primary{background:var(--blue);color:#fff;} .btn.line{background:#fff;border:1px solid var(--line);color:var(--gray);}
+  .ph{background:linear-gradient(135deg,#F2F4F6,#E8EBED);display:flex;align-items:center;justify-content:center;color:var(--gray2);font-size:12px;border-radius:10px;}
+  .shell{display:grid;grid-template-columns:230px 1fr;min-height:100vh;}
+  .sidebar{background:#fff;border-right:1px solid var(--line);padding:18px 14px;position:sticky;top:0;height:100vh;}
+  .brand{font-size:18px;font-weight:800;letter-spacing:-.5px;padding:8px 10px 4px;} .brand small{display:block;font-size:11px;color:var(--purple);font-weight:700;}
+  .snav{margin-top:18px;display:flex;flex-direction:column;gap:2px;}
+  .snav a{display:flex;align-items:center;gap:10px;padding:11px 12px;border-radius:10px;font-size:14px;font-weight:600;color:var(--gray);}
+  .snav a.on{background:var(--purple-bg);color:var(--purple);} .snav a:hover{background:var(--bg2);} .snav .sec{font-size:11px;color:var(--gray2);font-weight:700;padding:14px 12px 6px;}
+  .main{display:flex;flex-direction:column;}
+  .topbar{background:#fff;border-bottom:1px solid var(--line);height:62px;display:flex;align-items:center;gap:12px;padding:0 26px;position:sticky;top:0;z-index:30;}
+  .topbar .ttl{font-weight:800;font-size:15px;} .topbar .stt{font-size:11px;font-weight:700;background:var(--purple-bg);color:var(--purple);padding:3px 9px;border-radius:8px;}
+  .topbar .right{margin-left:auto;display:flex;align-items:center;gap:16px;} .bell{font-size:18px;} .ava{width:32px;height:32px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;}
+  .content{padding:28px 26px 60px;}
+  .htop{display:flex;align-items:center;justify-content:space-between;} h1{font-size:24px;font-weight:800;letter-spacing:-.6px;} .sub{color:var(--gray);font-size:14px;margin:4px 0 18px;}
+  .blist{display:flex;flex-direction:column;gap:14px;}
+  .banner{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;display:flex;gap:16px;align-items:center;}
+  .banner .ph{width:200px;height:84px;flex:0 0 auto;}
+  .banner .info{flex:1;} .banner h4{font-size:16px;font-weight:700;}
+  .banner .meta{font-size:13px;color:var(--gray);margin-top:4px;}
+  .pos{font-size:11px;font-weight:700;padding:3px 8px;border-radius:7px;background:var(--blue-bg);color:var(--blue);margin-right:6px;}
+  .sw{width:42px;height:24px;border-radius:999px;background:var(--blue);position:relative;display:inline-block;} .sw.off{background:var(--bg3);} .sw::after{content:"";position:absolute;top:3px;left:21px;width:18px;height:18px;border-radius:50%;background:#fff;}.sw.off::after{left:3px;}
+  .banner .ord{display:flex;flex-direction:column;gap:4px;color:var(--gray2);font-size:16px;text-align:center;}
+  .acts{display:flex;flex-direction:column;gap:8px;}
+  @media(max-width:980px){.shell{grid-template-columns:1fr;}.sidebar{display:none;}.banner{flex-wrap:wrap;}.banner .ph{width:100%;}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand">＋ Meditour <small>관리자 콘솔</small></div>
+    <nav class="snav">
+      <a href="admin-dashboard.html">🏠 대시보드</a>
+      <div class="sec">관리</div>
+      <a href="admin-members.html">👥 회원 관리</a>
+      <a href="admin-businesses.html">🏥 업체 관리 · 입점 승인</a>
+      <a href="admin-products.html">🧾 상품 관리 · 승인</a>
+      <div class="sec">마케팅</div>
+      <a href="admin-promotions.html">🔗 프로모션</a>
+      <a class="on">🖼 배너 관리</a>
+      <div class="sec">분석 · CS</div>
+      <a href="admin-stats.html">📊 사이트 통계</a>
+      <a href="admin-inquiries.html">📨 고객문의</a>
+      <a href="index.html">↩ 로그아웃</a>
+    </nav>
+  </aside>
+  <div class="main">
+    <div class="topbar"><span class="ttl">🛡 Meditour Admin</span><span class="stt">최고 관리자</span>
+      <div class="right"><span class="bell">🔔</span><span class="ava">🛡</span></div></div>
+    <div class="content">
+      <div class="htop"><h1>배너 관리</h1><a class="btn primary">＋ 배너 등록</a></div>
+      <p class="sub">홈·랜딩 배너의 노출 위치·기간·순서·On/Off를 관리합니다. (이벤트 랜딩 On/Off 포함)</p>
+      <div class="blist">
+        <div class="banner"><div class="ord">▲<br>1<br>▼</div><div class="ph">배너 이미지 1</div>
+          <div class="info"><h4>여름 K-뷰티 프로모션</h4>
+            <div class="meta"><span class="pos">홈 상단</span> 2026-07-01 ~ 08-31 · 링크: /event/summer</div></div>
+          <div class="acts"><span class="sw"></span><a class="btn line">수정</a></div></div>
+        <div class="banner"><div class="ord">▲<br>2<br>▼</div><div class="ph">배너 이미지 2</div>
+          <div class="info"><h4>신규 입점 클리닉</h4>
+            <div class="meta"><span class="pos">홈 중단</span> 상시 · 링크: /list?sort=new</div></div>
+          <div class="acts"><span class="sw"></span><a class="btn line">수정</a></div></div>
+        <div class="banner"><div class="ord">▲<br>3<br>▼</div><div class="ph">배너 이미지 3</div>
+          <div class="info"><h4>일본 가을 이벤트 (예약중)</h4>
+            <div class="meta"><span class="pos">이벤트 랜딩</span> 2026-09-01 ~ 10-31 · OFF 상태</div></div>
+          <div class="acts"><span class="sw off"></span><a class="btn line">수정</a></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

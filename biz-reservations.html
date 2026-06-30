@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditour 파트너 — 예약 관리</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{--blue:#3182F6;--blue-d:#1B64DA;--ink:#191F28;--gray:#4E5968;--gray2:#8B95A1;
+        --line:#E5E8EB;--bg2:#F9FAFB;--bg3:#F2F4F6;--blue-bg:#EBF2FF;--green:#15B886;--orange:#F59E0B;--red:#E5484D;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Pretendard',-apple-system,sans-serif;color:var(--ink);background:var(--bg2);line-height:1.5;-webkit-font-smoothing:antialiased;}
+  a{text-decoration:none;color:inherit;} .muted{color:var(--gray);} .muted2{color:var(--gray2);}
+  .btn{display:inline-flex;align-items:center;justify-content:center;font-weight:600;border-radius:10px;padding:8px 14px;font-size:13px;cursor:pointer;border:none;}
+  .btn.primary{background:var(--blue);color:#fff;} .btn.ghost{background:var(--bg3);color:var(--ink);} .btn.line{background:#fff;border:1px solid var(--line);color:var(--gray);}
+  .shell{display:grid;grid-template-columns:230px 1fr;min-height:100vh;}
+  .sidebar{background:#fff;border-right:1px solid var(--line);padding:18px 14px;position:sticky;top:0;height:100vh;}
+  .brand{font-size:18px;font-weight:800;letter-spacing:-.5px;padding:8px 10px 4px;} .brand small{display:block;font-size:11px;color:var(--gray2);font-weight:600;}
+  .snav{margin-top:18px;display:flex;flex-direction:column;gap:2px;}
+  .snav a{display:flex;align-items:center;gap:10px;padding:11px 12px;border-radius:10px;font-size:14px;font-weight:600;color:var(--gray);}
+  .snav a.on{background:var(--blue-bg);color:var(--blue);} .snav a:hover{background:var(--bg2);} .snav .sec{font-size:11px;color:var(--gray2);font-weight:700;padding:14px 12px 6px;}
+  .main{display:flex;flex-direction:column;}
+  .topbar{background:#fff;border-bottom:1px solid var(--line);height:62px;display:flex;align-items:center;gap:12px;padding:0 26px;position:sticky;top:0;z-index:30;}
+  .topbar .biz{font-weight:800;font-size:15px;} .topbar .stt{font-size:11px;font-weight:700;background:#E6F7F1;color:var(--green);padding:3px 9px;border-radius:8px;}
+  .topbar .right{margin-left:auto;display:flex;align-items:center;gap:16px;} .bell{font-size:18px;} .ava{width:32px;height:32px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;}
+  .content{padding:28px 26px 60px;}
+  h1{font-size:24px;font-weight:800;letter-spacing:-.6px;} .sub{color:var(--gray);font-size:14px;margin:4px 0 18px;}
+  .filters{display:flex;gap:8px;margin-bottom:16px;align-items:center;flex-wrap:wrap;}
+  .tab{padding:8px 14px;border-radius:999px;font-size:13px;font-weight:700;color:var(--gray);background:#fff;border:1px solid var(--line);cursor:pointer;}
+  .tab.on{background:var(--ink);color:#fff;border-color:var(--ink);}
+  .fbox{margin-left:auto;display:flex;gap:8px;} .fbox .f{height:38px;border:1px solid var(--line);border-radius:10px;padding:0 12px;font-size:13px;color:var(--gray2);display:flex;align-items:center;background:#fff;}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;}
+  table{width:100%;border-collapse:collapse;font-size:13px;}
+  th{text-align:left;color:var(--gray2);font-weight:700;padding:14px 16px;border-bottom:1px solid var(--line);background:var(--bg2);}
+  td{padding:14px 16px;border-bottom:1px solid var(--bg2);vertical-align:middle;}
+  .cust{display:flex;align-items:center;gap:8px;font-weight:600;}
+  .st{font-size:11px;font-weight:700;padding:3px 9px;border-radius:8px;}
+  .st.new{background:#FFF4E5;color:var(--orange);} .st.ok{background:#E7F0FF;color:var(--blue);} .st.done{background:#E6F7F1;color:var(--green);} .st.cancel{background:#FBE9EA;color:var(--red);}
+  .acts{display:flex;gap:6px;flex-wrap:wrap;}
+  @media(max-width:900px){.shell{grid-template-columns:1fr;}.sidebar{display:none;}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand">＋ Meditour <small>파트너 콘솔</small></div>
+    <nav class="snav">
+      <a href="biz-dashboard.html">🏠 대시보드</a>
+      <div class="sec">운영</div>
+      <a href="biz-products.html">🧾 상품 관리</a>
+      <a class="on">📅 예약 관리</a>
+      <a href="biz-chat.html">💬 문의 · 채팅</a>
+      <a href="biz-stats.html">📊 통계</a>
+      <div class="sec">설정</div>
+      <a href="biz-profile.html">🏥 업체 프로필</a>
+      <a href="biz-profile.html">⚙️ 업체 정보 · 계정</a>
+      <a href="index.html">↩ 로그아웃</a>
+    </nav>
+  </aside>
+
+  <div class="main">
+    <div class="topbar"><span class="biz">🏥 OOO 클리닉</span><span class="stt">승인 완료 · 의료</span>
+      <div class="right"><span class="muted2" style="font-size:13px;font-weight:600;">Enterprise 플랜</span><span class="bell">🔔</span><span class="ava">👤</span></div></div>
+
+    <div class="content">
+      <h1>예약 관리</h1>
+      <p class="sub">신규 예약을 확인·확정하고 견적·예약금을 처리하세요.</p>
+
+      <div class="filters">
+        <span class="tab on">전체</span><span class="tab">신규 2</span><span class="tab">확정</span><span class="tab">완료</span><span class="tab">취소</span><span class="tab">노쇼 1</span>
+        <div class="fbox"><span class="f">📅 기간 선택</span><span class="f">🌐 국가</span><span class="f">🔍 고객 검색</span></div>
+      </div>
+
+      <div class="panel">
+        <table>
+          <tr><th>고객</th><th>상품/시술</th><th>예약 일시</th><th>예약금/결제</th><th>상태</th><th>처리</th></tr>
+          <tr><td><div class="cust">🇨🇳 Li Wei</div></td><td>리프팅 패키지</td><td>2026-07-12 14:00</td>
+            <td>₩50,000 결제완료</td><td><span class="st ok">확정</span></td>
+            <td class="acts"><a class="btn line" href="biz-reservation-detail.html">상세</a><a class="btn ghost">완료 처리</a></td></tr>
+          <tr><td><div class="cust">🇺🇸 Sarah K.</div></td><td>스킨 레이저</td><td>2026-07-13 11:00</td>
+            <td>미결제</td><td><span class="st new">신규</span></td>
+            <td class="acts"><a class="btn primary">예약 확정</a><a class="btn line">견적 전송</a></td></tr>
+          <tr><td><div class="cust">🇯🇵 Megumi I.</div></td><td>맞춤 상담</td><td>2026-07-14 16:00</td>
+            <td>상담 후 견적</td><td><span class="st new">신규</span></td>
+            <td class="acts"><a class="btn primary">예약 확정</a><a class="btn line">채팅</a></td></tr>
+          <tr><td><div class="cust">🇹🇼 Chen W.</div></td><td>보톡스 시술</td><td>2026-07-10 10:30</td>
+            <td>₩20,000 환불완료</td><td><span class="st cancel">취소</span></td>
+            <td class="acts"><a class="btn line">상세</a></td></tr>
+          <tr><td><div class="cust">🇺🇸 John D.</div></td><td>여드름 프로그램</td><td>2026-07-05 13:00</td>
+            <td>₩35,000 결제완료</td><td><span class="st done">방문완료</span></td>
+            <td class="acts"><a class="btn line">상세</a></td></tr>
+          <tr><td><div class="cust">🇹🇼 Wu L.</div></td><td>리프팅 패키지</td><td>2026-07-08 15:00</td>
+            <td>₩50,000 예약금</td><td><span class="st" style="background:#3a2b2b;color:#fff;">노쇼</span></td>
+            <td class="acts"><a class="btn primary">노쇼 확정</a><a class="btn line">예약금 정산</a><a class="btn line">일정 재제안</a></td></tr>
+        </table>
+      </div>
+      <p class="muted2" style="font-size:12px;margin-top:12px;">※ 취소·노쇼 건도 내역 보존(소프트 삭제). 확정·완료·취소·노쇼 시 고객에게 자동 알림. <b>노쇼 확정</b> 시 예약금이 업체에 정산되고, 반복 노쇼 고객은 자동으로 위험 세그먼트로 표시됩니다.</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

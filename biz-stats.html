@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditour 파트너 — 통계</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{--blue:#3182F6;--blue-d:#1B64DA;--ink:#191F28;--gray:#4E5968;--gray2:#8B95A1;
+        --line:#E5E8EB;--bg2:#F9FAFB;--bg3:#F2F4F6;--blue-bg:#EBF2FF;--green:#15B886;--orange:#F59E0B;--red:#E5484D;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Pretendard',-apple-system,sans-serif;color:var(--ink);background:var(--bg2);line-height:1.5;-webkit-font-smoothing:antialiased;}
+  a{text-decoration:none;color:inherit;} .muted2{color:var(--gray2);}
+  .shell{display:grid;grid-template-columns:230px 1fr;min-height:100vh;}
+  .sidebar{background:#fff;border-right:1px solid var(--line);padding:18px 14px;position:sticky;top:0;height:100vh;}
+  .brand{font-size:18px;font-weight:800;letter-spacing:-.5px;padding:8px 10px 4px;} .brand small{display:block;font-size:11px;color:var(--gray2);font-weight:600;}
+  .snav{margin-top:18px;display:flex;flex-direction:column;gap:2px;}
+  .snav a{display:flex;align-items:center;gap:10px;padding:11px 12px;border-radius:10px;font-size:14px;font-weight:600;color:var(--gray);}
+  .snav a.on{background:var(--blue-bg);color:var(--blue);} .snav a:hover{background:var(--bg2);} .snav .sec{font-size:11px;color:var(--gray2);font-weight:700;padding:14px 12px 6px;}
+  .main{display:flex;flex-direction:column;}
+  .topbar{background:#fff;border-bottom:1px solid var(--line);height:62px;display:flex;align-items:center;gap:12px;padding:0 26px;position:sticky;top:0;z-index:30;}
+  .topbar .biz{font-weight:800;font-size:15px;} .topbar .stt{font-size:11px;font-weight:700;background:#E6F7F1;color:var(--green);padding:3px 9px;border-radius:8px;}
+  .topbar .right{margin-left:auto;display:flex;align-items:center;gap:16px;} .bell{font-size:18px;} .ava{width:32px;height:32px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;}
+  .content{padding:28px 26px 60px;}
+  .htop{display:flex;align-items:center;justify-content:space-between;} h1{font-size:24px;font-weight:800;letter-spacing:-.6px;}
+  .period{display:flex;gap:6px;} .period span{padding:7px 12px;border-radius:8px;font-size:13px;font-weight:700;background:#fff;border:1px solid var(--line);color:var(--gray);cursor:pointer;} .period span.on{background:var(--ink);color:#fff;border-color:var(--ink);}
+  .sub{color:var(--gray);font-size:14px;margin:4px 0 18px;}
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:18px;}
+  .kpi{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;}
+  .kpi .l{font-size:13px;color:var(--gray);font-weight:600;} .kpi .n{font-size:26px;font-weight:800;letter-spacing:-1px;margin-top:6px;} .kpi .d{font-size:12px;margin-top:4px;} .up{color:var(--green);} .down{color:var(--red);}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;margin-bottom:18px;}
+  .panel h3{font-size:16px;font-weight:800;margin-bottom:14px;}
+  .chart{height:220px;border:1px solid var(--line);border-radius:12px;position:relative;overflow:hidden;background:repeating-linear-gradient(90deg,#fff,#fff 48px,#F8FAFC 48px,#F8FAFC 50px);}
+  .chart .bars{position:absolute;inset:0;display:flex;align-items:flex-end;gap:10px;padding:14px;}
+  .chart .bar{flex:1;background:var(--blue);border-radius:5px 5px 0 0;opacity:.85;}
+  .line{height:220px;border:1px solid var(--line);border-radius:12px;position:relative;overflow:hidden;}
+  .line svg{width:100%;height:100%;}
+  .country{display:flex;flex-direction:column;gap:12px;}
+  .crow{display:flex;align-items:center;gap:10px;font-size:14px;} .crow .bar{flex:1;height:8px;background:var(--bg3);border-radius:4px;overflow:hidden;} .crow .bar i{display:block;height:100%;background:var(--blue);border-radius:4px;} .crow .v{font-weight:700;width:42px;text-align:right;}
+  .rank{display:flex;flex-direction:column;gap:10px;} .rk{display:flex;align-items:center;gap:12px;font-size:14px;} .rk .no{width:24px;height:24px;border-radius:8px;background:var(--blue-bg);color:var(--blue);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:12px;} .rk .v{margin-left:auto;font-weight:700;}
+  @media(max-width:900px){.shell{grid-template-columns:1fr;}.sidebar{display:none;}.kpis{grid-template-columns:repeat(2,1fr);}.grid2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand">＋ Meditour <small>파트너 콘솔</small></div>
+    <nav class="snav">
+      <a href="biz-dashboard.html">🏠 대시보드</a>
+      <div class="sec">운영</div>
+      <a href="biz-products.html">🧾 상품 관리</a>
+      <a href="biz-reservations.html">📅 예약 관리</a>
+      <a href="biz-chat.html">💬 문의 · 채팅</a>
+      <a class="on">📊 통계</a>
+      <div class="sec">설정</div>
+      <a href="biz-profile.html">🏥 업체 프로필</a>
+      <a href="biz-profile.html">⚙️ 업체 정보 · 계정</a>
+      <a href="index.html">↩ 로그아웃</a>
+    </nav>
+  </aside>
+
+  <div class="main">
+    <div class="topbar"><span class="biz">🏥 OOO 클리닉</span><span class="stt">승인 완료 · 의료</span>
+      <div class="right"><span class="muted2" style="font-size:13px;font-weight:600;">Enterprise 플랜</span><span class="bell">🔔</span><span class="ava">👤</span></div></div>
+
+    <div class="content">
+      <div class="htop"><h1>통계</h1>
+        <div class="period"><span>7일</span><span class="on">30일</span><span>90일</span><span>1년</span></div></div>
+      <p class="sub">예약·매출·유입 지표를 확인하세요. (최근 30일)</p>
+
+      <div class="kpis">
+        <div class="kpi"><div class="l">총 예약</div><div class="n">184</div><div class="d up">▲ +18%</div></div>
+        <div class="kpi"><div class="l">매출</div><div class="n">₩12.4M</div><div class="d up">▲ +22%</div></div>
+        <div class="kpi"><div class="l">상세 → 예약 전환율</div><div class="n">6.8%</div><div class="d up">▲ +1.2%p</div></div>
+        <div class="kpi"><div class="l">취소율</div><div class="n">4.1%</div><div class="d down">▼ -0.6%p</div></div>
+      </div>
+
+      <div class="panel"><h3>일자별 예약 추이</h3>
+        <div class="chart"><div class="bars">
+          <div class="bar" style="height:35%"></div><div class="bar" style="height:50%"></div><div class="bar" style="height:42%"></div>
+          <div class="bar" style="height:65%"></div><div class="bar" style="height:58%"></div><div class="bar" style="height:80%"></div>
+          <div class="bar" style="height:72%"></div><div class="bar" style="height:90%"></div><div class="bar" style="height:60%"></div>
+          <div class="bar" style="height:78%"></div><div class="bar" style="height:95%"></div><div class="bar" style="height:70%"></div>
+        </div></div>
+      </div>
+
+      <div class="grid2">
+        <div class="panel"><h3>매출 추이</h3>
+          <div class="line"><svg viewBox="0 0 400 200" preserveAspectRatio="none">
+            <polyline fill="none" stroke="#3182F6" stroke-width="3" points="0,160 50,140 100,150 150,110 200,120 250,80 300,90 350,50 400,40"/>
+            <polyline fill="rgba(49,130,246,.08)" stroke="none" points="0,160 50,140 100,150 150,110 200,120 250,80 300,90 350,50 400,40 400,200 0,200"/>
+          </svg></div>
+        </div>
+        <div class="panel"><h3>국가별 유입</h3>
+          <div class="country">
+            <div class="crow">🇨🇳 중국<div class="bar"><i style="width:42%"></i></div><span class="v">42%</span></div>
+            <div class="crow">🇯🇵 일본<div class="bar"><i style="width:28%"></i></div><span class="v">28%</span></div>
+            <div class="crow">🇺🇸 미국<div class="bar"><i style="width:16%"></i></div><span class="v">16%</span></div>
+            <div class="crow">🇹🇼 대만<div class="bar"><i style="width:9%"></i></div><span class="v">9%</span></div>
+            <div class="crow">🌏 기타<div class="bar"><i style="width:5%"></i></div><span class="v">5%</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel"><h3>인기 시술 TOP 5</h3>
+        <div class="rank">
+          <div class="rk"><span class="no">1</span>리프팅 패키지<span class="v">62건</span></div>
+          <div class="rk"><span class="no">2</span>스킨 레이저<span class="v">48건</span></div>
+          <div class="rk"><span class="no">3</span>보톡스 시술<span class="v">31건</span></div>
+          <div class="rk"><span class="no">4</span>여드름 프로그램<span class="v">25건</span></div>
+          <div class="rk"><span class="no">5</span>맞춤 상담<span class="v">18건</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

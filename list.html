@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditour — 상품/업체 목록</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{--blue:#3182F6;--blue-d:#1B64DA;--ink:#191F28;--gray:#4E5968;--gray2:#8B95A1;
+        --line:#E5E8EB;--bg:#fff;--bg2:#F9FAFB;--bg3:#F2F4F6;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Pretendard',-apple-system,sans-serif;color:var(--ink);background:#fff;line-height:1.5;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+  a{text-decoration:none;color:inherit;}
+  .muted{color:var(--gray);} .muted2{color:var(--gray2);}
+  .btn{display:inline-flex;align-items:center;justify-content:center;font-weight:600;border-radius:12px;
+       padding:14px 24px;font-size:16px;cursor:pointer;border:none;transition:.15s;}
+  .btn.primary{background:var(--blue);color:#fff;} .btn.primary:hover{background:var(--blue-d);}
+  .btn.ghost{background:var(--bg3);color:var(--ink);}
+  .btn.sm{padding:9px 16px;font-size:14px;border-radius:10px;}
+  .chip{display:inline-flex;align-items:center;gap:6px;background:var(--bg3);border-radius:999px;
+        padding:8px 16px;font-size:14px;font-weight:600;color:var(--gray);cursor:pointer;}
+  .chip.on{background:var(--ink);color:#fff;}
+  .ph{background:linear-gradient(135deg,#F2F4F6,#E8EBED);display:flex;align-items:center;justify-content:center;color:var(--gray2);font-size:12px;}
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+  .nav{display:flex;align-items:center;gap:28px;height:64px;}
+  .logo{font-size:20px;font-weight:800;letter-spacing:-.5px;}
+  .nav .links{display:flex;gap:24px;font-size:15px;font-weight:600;color:var(--gray);margin-left:12px;}
+  .nav .right{margin-left:auto;display:flex;align-items:center;gap:12px;}
+  .lang{font-size:14px;font-weight:600;color:var(--gray);}
+
+  .topbar{padding:28px 0 8px;}
+  .crumb{font-size:13px;color:var(--gray2);margin-bottom:8px;}
+  .topbar h1{font-size:28px;font-weight:800;letter-spacing:-.8px;}
+  .topbar .cnt{color:var(--gray);font-size:15px;margin-top:4px;}
+
+  .layout{display:grid;grid-template-columns:248px 1fr;gap:32px;padding:24px 0 80px;}
+  /* filter rail */
+  .filters{position:sticky;top:84px;align-self:start;border:1px solid var(--line);border-radius:18px;padding:20px;}
+  .fgroup{padding:14px 0;border-bottom:1px solid var(--line);}
+  .fgroup:last-child{border-bottom:none;}
+  .fgroup h4{font-size:14px;font-weight:700;margin-bottom:12px;}
+  .opt{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--gray);margin-bottom:9px;}
+  .opt input{accent-color:var(--blue);width:16px;height:16px;}
+  .range{height:6px;background:var(--bg3);border-radius:3px;position:relative;margin:14px 4px;}
+  .range::after{content:"";position:absolute;left:15%;right:35%;top:0;bottom:0;background:var(--blue);border-radius:3px;}
+  .reset{font-size:13px;color:var(--blue);font-weight:600;cursor:pointer;}
+
+  /* results */
+  .sortbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;}
+  .sortchips{display:flex;gap:8px;}
+  .results{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .rc{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff;transition:.15s;display:block;}
+  .rc:hover{box-shadow:0 8px 24px rgba(0,0,0,.06);transform:translateY(-2px);}
+  .rc .thumb{height:150px;position:relative;}
+  .rc .pick{position:absolute;top:10px;left:10px;background:var(--blue);color:#fff;font-size:11px;font-weight:700;padding:3px 9px;border-radius:8px;}
+  .rc .body{padding:15px;}
+  .rc .cat{font-size:12px;color:var(--gray2);font-weight:600;}
+  .rc h4{font-size:17px;font-weight:700;margin:4px 0 6px;}
+  .rc .desc{font-size:13px;color:var(--gray);height:36px;overflow:hidden;}
+  .rc .meta{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0;}
+  .rc .t{background:var(--bg3);border-radius:8px;padding:3px 8px;font-size:12px;font-weight:600;color:var(--gray);}
+  .rc .price{font-size:13px;color:var(--gray2);} .rc .price b{font-size:17px;color:var(--ink);}
+
+  .pager{display:flex;justify-content:center;gap:8px;margin-top:40px;}
+  .pg{width:38px;height:38px;border-radius:10px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-weight:600;color:var(--gray);}
+  .pg.on{background:var(--ink);color:#fff;border-color:var(--ink);}
+  @media(max-width:880px){.layout{grid-template-columns:1fr;}.filters{display:none;}.results{grid-template-columns:repeat(2,1fr);}}
+</style>
+</head>
+<body>
+
+<header><div class="wrap nav">
+  <a class="logo" href="index.html">＋ Meditour</a>
+  <div class="links"><a href="list.html">둘러보기</a><a href="deals.html">혜택</a><a href="reviews.html">후기</a><a href="partner.html">파트너 입점</a><a href="how.html">이용방법</a></div>
+  <div class="right"><span class="lang">🌐 EN ▾</span><a href="cart.html" style="font-size:18px;">🛒</a><a class="btn ghost sm" href="login.html">로그인</a><a class="btn primary sm">앱 다운로드</a></div>
+</div></header>
+
+<div class="wrap">
+  <div class="topbar">
+    <div class="crumb"><a href="index.html">홈</a> › 둘러보기 › 강남</div>
+    <h1>둘러보기 · 강남 지역</h1>
+    <div class="cnt">검증된 업체·상품 <b>192</b>곳</div>
+    <div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;" id="cattabs">
+      <a class="chip on" onclick="filt('all',this)">전체</a><a class="chip" onclick="filt('med',this)">🏥 의료</a><a class="chip" onclick="filt('beauty',this)">💆 뷰티</a><a class="chip" onclick="filt('hotel',this)">🏨 호텔</a><a class="chip" onclick="filt('pkg',this)">🧳 패키지</a>
+    </div>
+  </div>
+
+  <div class="layout">
+    <!-- FILTER RAIL -->
+    <aside class="filters">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+        <h4 style="font-size:16px;">필터</h4><span class="reset">초기화</span></div>
+      <div class="fgroup"><h4>카테고리</h4>
+        <label class="opt"><input type="checkbox" checked> 의료</label>
+        <label class="opt"><input type="checkbox"> 뷰티</label>
+        <label class="opt"><input type="checkbox"> 호텔</label>
+        <label class="opt"><input type="checkbox"> 패키지</label></div>
+      <div class="fgroup"><h4>진료/시술 분야</h4>
+        <label class="opt"><input type="checkbox"> 피부과</label>
+        <label class="opt"><input type="checkbox"> 성형외과</label>
+        <label class="opt"><input type="checkbox"> 치과</label>
+        <label class="opt"><input type="checkbox"> 안과</label></div>
+      <div class="fgroup"><h4>지역</h4>
+        <label class="opt"><input type="checkbox" checked> 강남</label>
+        <label class="opt"><input type="checkbox"> 신사</label>
+        <label class="opt"><input type="checkbox"> 압구정</label></div>
+      <div class="fgroup"><h4>통역 가능 언어</h4>
+        <label class="opt"><input type="checkbox"> 🇬🇧 영어</label>
+        <label class="opt"><input type="checkbox"> 🇨🇳 중국어</label>
+        <label class="opt"><input type="checkbox"> 🇯🇵 일본어</label></div>
+      <div class="fgroup"><h4>가격대</h4><div class="range"></div>
+        <div class="muted2" style="font-size:12px;">₩100,000 ~ ₩2,000,000</div></div>
+      <div class="fgroup"><h4>기타</h4>
+        <label class="opt"><input type="checkbox" checked> 검증 업체만</label>
+        <label class="opt"><input type="checkbox"> 평점 4.5 이상</label></div>
+    </aside>
+
+    <!-- RESULTS -->
+    <div>
+      <div class="sortbar">
+        <div class="sortchips"><span class="chip on">추천순</span><span class="chip">인기순</span>
+          <span class="chip">최신순</span><span class="chip">가격순</span></div>
+        <span class="muted2" style="font-size:14px;">⬚ 격자 · ☰ 리스트</span>
+      </div>
+
+      <div class="results">
+        <!-- 의료 -->
+        <a class="rc" data-cat="med" href="detail.html"><div class="ph thumb"><span class="pick">🏥 의료</span>업체 이미지</div>
+          <div class="body"><div class="cat">피부과 · 청담</div><h4>OOO 클리닉</h4>
+            <div class="desc">대표 시술·강점을 요약한 한 줄 소개가 들어갑니다.</div>
+            <div class="meta"><span class="t">★ 4.8 (1,210)</span><span class="t">🇨🇳 통역</span></div>
+            <div class="price">시술가 <b>₩300,000~</b> · 예약</div></div></a>
+        <a class="rc" data-cat="med" href="detail.html"><div class="ph thumb"><span class="pick">🏥 의료</span>업체 이미지</div>
+          <div class="body"><div class="cat">성형외과 · 신사</div><h4>OOO 성형외과</h4>
+            <div class="desc">전문분야·인증 배지가 노출되는 한 줄 소개.</div>
+            <div class="meta"><span class="t">★ 4.9 (980)</span><span class="t">New</span></div>
+            <div class="price">상담 후 견적 · 예약</div></div></a>
+        <!-- 뷰티 -->
+        <a class="rc" data-cat="beauty" href="beauty-detail.html"><div class="ph thumb"><span class="pick" style="background:#FF4D8D;">💆 뷰티</span>상품 이미지</div>
+          <div class="body"><div class="cat">에스테틱 · 신사</div><h4>아쿠아필 패키지</h4>
+            <div class="desc">장바구니에 담아 주문하는 뷰티 상품.</div>
+            <div class="meta"><span class="t">★ 4.7 (640)</span><span class="t">🛒 주문</span></div>
+            <div class="price"><b>₩120,000</b> <span class="muted2" style="text-decoration:line-through;">₩150,000</span></div></div></a>
+        <a class="rc" data-cat="beauty" href="beauty-detail.html"><div class="ph thumb"><span class="pick" style="background:#FF4D8D;">💆 뷰티</span>상품 이미지</div>
+          <div class="body"><div class="cat">메이크업 컨설팅 · 청담</div><h4>1:1 K-메이크업 컨설팅</h4>
+            <div class="desc">전문가 1:1 메이크업 레슨·컨설팅.</div>
+            <div class="meta"><span class="t">★ 4.9 (320)</span><span class="t">🛒 주문</span></div>
+            <div class="price"><b>₩80,000</b></div></div></a>
+        <!-- 호텔 -->
+        <a class="rc" data-cat="hotel" href="hotel.html"><div class="ph thumb"><span class="pick" style="background:#7C5CFC;">🏨 호텔</span>호텔 이미지</div>
+          <div class="body"><div class="cat">4성급 · 강남</div><h4>OOO 호텔</h4>
+            <div class="desc">날짜·객실 선택, 박단위 예약.</div>
+            <div class="meta"><span class="t">★ 4.7 (820)</span><span class="t">📅 박단위</span></div>
+            <div class="price"><b>₩200,000~</b> / 박</div></div></a>
+        <!-- 패키지 -->
+        <a class="rc" data-cat="pkg" href="package.html"><div class="ph thumb"><span class="pick" style="background:#15B886;">🧳 패키지</span>패키지 이미지</div>
+          <div class="body"><div class="cat">시술+호텔+통역 · 3박4일</div><h4>K-뷰티 메디컬 패키지</h4>
+            <div class="desc">출발일·정원 선택, 올인원 예약.</div>
+            <div class="meta"><span class="t">★ 4.9 (210)</span><span class="t">🗓 출발일</span></div>
+            <div class="price"><b>₩1,200,000~</b> / 인</div></div></a>
+      </div>
+
+      <div class="pager"><span class="pg">‹</span><span class="pg on">1</span><span class="pg">2</span>
+        <span class="pg">3</span><span class="pg">4</span><span class="pg">›</span></div>
+    </div>
+  </div>
+</div>
+<script>
+function filt(cat, el){
+  document.querySelectorAll('#cattabs .chip').forEach(c=>c.classList.remove('on'));
+  el.classList.add('on');
+  document.querySelectorAll('.results .rc').forEach(card=>{
+    card.style.display = (cat==='all' || card.dataset.cat===cat) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>

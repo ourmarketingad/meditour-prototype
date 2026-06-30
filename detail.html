@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditour — 상세 / 업체 프로필</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{--blue:#3182F6;--blue-d:#1B64DA;--ink:#191F28;--gray:#4E5968;--gray2:#8B95A1;
+        --line:#E5E8EB;--bg:#fff;--bg2:#F9FAFB;--bg3:#F2F4F6;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Pretendard',-apple-system,sans-serif;color:var(--ink);background:#fff;line-height:1.5;-webkit-font-smoothing:antialiased;padding-bottom:84px;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  a{text-decoration:none;color:inherit;}
+  .muted{color:var(--gray);} .muted2{color:var(--gray2);}
+  .btn{display:inline-flex;align-items:center;justify-content:center;font-weight:600;border-radius:12px;
+       padding:14px 24px;font-size:16px;cursor:pointer;border:none;transition:.15s;}
+  .btn.primary{background:var(--blue);color:#fff;} .btn.primary:hover{background:var(--blue-d);}
+  .btn.ghost{background:var(--bg3);color:var(--ink);} .btn.line{background:#fff;border:1px solid var(--blue);color:var(--blue);}
+  .btn.sm{padding:9px 16px;font-size:14px;border-radius:10px;}
+  .ph{background:linear-gradient(135deg,#F2F4F6,#E8EBED);display:flex;align-items:center;justify-content:center;color:var(--gray2);font-size:12px;}
+  .tag{display:inline-block;background:var(--bg3);border-radius:8px;padding:5px 10px;font-size:13px;font-weight:600;color:var(--gray);margin:0 6px 6px 0;}
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+  .nav{display:flex;align-items:center;gap:28px;height:64px;}
+  .logo{font-size:20px;font-weight:800;letter-spacing:-.5px;}
+  .nav .links{display:flex;gap:24px;font-size:15px;font-weight:600;color:var(--gray);margin-left:12px;}
+  .nav .right{margin-left:auto;display:flex;align-items:center;gap:12px;}
+  .lang{font-size:14px;font-weight:600;color:var(--gray);}
+
+  .crumb{font-size:13px;color:var(--gray2);padding:20px 0 14px;}
+  /* gallery */
+  .gallery{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:8px;height:360px;border-radius:20px;overflow:hidden;}
+  .gallery .ph{border-radius:0;}
+  .gallery .big{grid-row:1/3;}
+  /* profile header */
+  .phead{display:flex;gap:18px;align-items:flex-start;margin:24px 0 8px;}
+  .phead .logo2{width:64px;height:64px;border-radius:16px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:24px;flex:0 0 auto;}
+  .phead h1{font-size:28px;font-weight:800;letter-spacing:-.8px;}
+  .phead .sub{color:var(--gray2);font-size:14px;margin-top:2px;}
+  .phead .rate{margin-top:8px;font-size:15px;font-weight:700;}
+  .phead .rate span{color:#FFB400;}
+  .badges{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 6px;}
+  .badge{border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-size:13px;font-weight:600;display:flex;gap:6px;align-items:center;}
+
+  /* layout content + sticky booking */
+  .body2{display:grid;grid-template-columns:1fr 320px;gap:40px;padding:20px 0 60px;}
+  /* tabs */
+  .tabs{position:sticky;top:64px;background:#fff;display:flex;gap:24px;border-bottom:1px solid var(--line);z-index:20;}
+  .tabs a{padding:16px 0;font-size:15px;font-weight:700;color:var(--gray2);border-bottom:2px solid transparent;}
+  .tabs a.on{color:var(--ink);border-bottom-color:var(--ink);}
+  .blk{padding:32px 0;border-bottom:1px solid var(--line);}
+  .blk h3{font-size:20px;font-weight:800;margin-bottom:14px;}
+  /* procedure cards */
+  .proc{display:flex;gap:14px;border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:12px;align-items:center;}
+  .proc .ph{width:96px;height:72px;border-radius:12px;flex:0 0 auto;}
+  .proc .info{flex:1;} .proc h4{font-size:16px;font-weight:700;}
+  .proc .d{font-size:13px;color:var(--gray);margin-top:3px;}
+  .proc .pr{text-align:right;} .proc .pr b{font-size:17px;} .proc .pr .t{font-size:12px;color:var(--gray2);}
+  /* before after */
+  .ba{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+  .ba .pair{display:flex;gap:6px;} .ba .ph{height:110px;border-radius:12px;flex:1;}
+  /* reviews */
+  .rev{border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:12px;}
+  .rev .top{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+  .rev .av{width:34px;height:34px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;}
+  .rev .nm{font-weight:700;font-size:14px;} .rev .sub{font-size:12px;color:var(--gray2);}
+  .rev .stars{color:#FFB400;font-size:14px;margin-left:auto;}
+  .rev p{font-size:14px;color:var(--gray);}
+  /* videos */
+  .vids{display:flex;gap:14px;overflow-x:auto;}
+  .vid{flex:0 0 150px;} .vid .ph{height:260px;border-radius:14px;position:relative;}
+  .vid .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:26px;}
+  .vid .cap{font-size:12px;font-weight:600;margin-top:6px;}
+
+  /* sticky booking */
+  .book{position:sticky;top:96px;align-self:start;border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 10px 30px rgba(0,0,0,.05);}
+  .book .price{font-size:14px;color:var(--gray2);} .book .price b{font-size:24px;color:var(--ink);display:block;}
+  .book .field{background:var(--bg2);border-radius:12px;padding:13px;color:var(--gray2);font-size:14px;margin:10px 0;}
+  .book .note{font-size:12px;color:var(--gray2);text-align:center;margin-top:8px;}
+
+  /* bottom fixed bar (mobile-like) */
+  .bottombar{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);
+             padding:12px 24px;display:flex;gap:10px;align-items:center;z-index:60;}
+  .bottombar .p{flex:1;font-weight:800;} .bottombar .p small{font-weight:600;color:var(--gray2);font-size:12px;display:block;}
+
+  @media(max-width:880px){.body2{grid-template-columns:1fr;}.book{display:none;}.gallery{grid-template-columns:1fr;grid-template-rows:none;height:auto;}.gallery .ph{height:200px;}.gallery .big{grid-row:auto;}}
+</style>
+</head>
+<body>
+
+<header><div class="wrap nav">
+  <a class="logo" href="index.html">＋ Meditour</a>
+  <div class="links"><a href="list.html">둘러보기</a><a href="deals.html">혜택</a><a href="reviews.html">후기</a><a href="partner.html">파트너 입점</a><a href="how.html">이용방법</a></div>
+  <div class="right"><span class="lang">🌐 EN ▾</span><a href="cart.html" style="font-size:18px;">🛒</a><a class="btn ghost sm" href="login.html">로그인</a><a class="btn primary sm">앱 다운로드</a></div>
+</div></header>
+
+<div class="wrap">
+  <div class="crumb"><a href="index.html">홈</a> › <a href="list.html">의료 · 강남</a> › OOO 클리닉</div>
+
+  <!-- GALLERY -->
+  <div class="gallery">
+    <div class="ph big">대표 이미지</div><div class="ph">이미지</div><div class="ph">이미지</div>
+    <div class="ph">이미지</div><div class="ph">＋ 사진 더보기</div>
+  </div>
+
+  <!-- PROFILE HEADER -->
+  <div class="phead">
+    <div class="logo2">🏥</div>
+    <div style="flex:1;">
+      <h1>OOO 클리닉</h1>
+      <div class="sub">예시성형외과 · 艺施整形外科 · Yessi Clinic</div>
+      <div class="rate"><span>★</span> 4.8 <span class="muted2" style="font-weight:600;font-size:13px;">(리뷰 1,210)</span> · 피부과 · 청담</div>
+      <div class="badges">
+        <span class="badge">✓ 검증 클리닉 (5단계)</span>
+        <span class="badge">👩‍⚕️ 전문의 3인</span>
+        <span class="badge">🇨🇳🇬🇧🇯🇵 통역 가능</span>
+        <span class="badge">💳 해외카드·위챗페이</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT + BOOKING -->
+  <div class="body2">
+    <!-- LEFT -->
+    <div>
+      <div class="tabs">
+        <a class="on">소개</a><a>시술·상품</a><a>리뷰</a><a>영상</a><a>공지</a>
+      </div>
+
+      <!-- 소개 -->
+      <div class="blk"><h3>클리닉 소개</h3>
+        <p class="muted">업체 소개 본문이 들어갑니다. 다국어로 자동 제공되며, 대표 강점·진료 철학·시설 안내 등이 표시됩니다.</p>
+        <div style="margin-top:16px;">
+          <span class="tag">Nose Surgery</span><span class="tag">Eye Surgery</span>
+          <span class="tag">Skin / Laser</span><span class="tag">Facial Lifting</span><span class="tag">Anti-aging</span>
+        </div>
+        <div class="ph" style="height:200px;border-radius:14px;margin-top:18px;">위치 지도 (강남구 청담동)</div>
+      </div>
+
+      <!-- 대표 원장 · 전문의 -->
+      <div class="blk"><h3>대표 원장 · 전문의</h3>
+        <div style="display:flex;gap:16px;align-items:center;border:1px solid var(--line);border-radius:16px;padding:16px;">
+          <div class="ph" style="width:72px;height:72px;border-radius:50%;flex:0 0 auto;">원장</div>
+          <div style="flex:1;">
+            <div style="font-weight:700;font-size:16px;">김OO 원장 <span class="muted2" style="font-size:13px;">· 피부과 전문의</span></div>
+            <div style="margin-top:8px;"><span class="tag">레이저</span><span class="tag">안티에이징</span><span class="tag">리프팅</span></div>
+          </div>
+          <a class="btn line" style="flex:0 0 auto;">▶ 유튜브 채널</a>
+        </div>
+        <p class="muted2" style="font-size:12px;margin-top:8px;">전문의별 전문분야·유튜브 연결 — 콘텐츠로 신뢰를 높입니다.</p>
+      </div>
+
+      <!-- 시술·상품 -->
+      <div class="blk"><h3>시술 · 상품</h3>
+        <a class="proc" href="med-procedure.html" style="text-decoration:none;color:inherit;"><div class="ph">이미지</div><div class="info"><h4>리프팅 패키지</h4>
+          <div class="d">소요 약 60분 · 상담 포함 · 의사 선택</div></div>
+          <div class="pr"><b>₩500,000~</b><div class="t">예약금 10%</div></div></a>
+        <div class="proc"><div class="ph">이미지</div><div class="info"><h4>스킨 레이저</h4>
+          <div class="d">소요 약 30분</div></div>
+          <div class="pr"><b>₩150,000~</b><div class="t">즉시 예약</div></div></div>
+        <div class="proc"><div class="ph">이미지</div><div class="info"><h4>맞춤 시술 상담</h4>
+          <div class="d">전문의 1:1</div></div>
+          <div class="pr"><b>견적 문의</b><div class="t">상담 후 결정</div></div></div>
+      </div>
+
+      <!-- 전후 사진 -->
+      <div class="blk"><h3>시술 전후</h3>
+        <div class="ba">
+          <div class="pair"><div class="ph">Before</div><div class="ph">After</div></div>
+          <div class="pair"><div class="ph">Before</div><div class="ph">After</div></div>
+          <div class="pair"><div class="ph">Before</div><div class="ph">After</div></div>
+        </div>
+        <p class="muted2" style="font-size:12px;margin-top:10px;">※ 동의된 사례만 노출 · 플랜별 등록 장수 제한</p>
+      </div>
+
+      <!-- 리뷰 -->
+      <div class="blk"><h3>리뷰 <span class="muted2" style="font-size:15px;">1,210</span></h3>
+        <div class="rev"><div class="top"><div class="av">🇺🇸</div><div><div class="nm">Sarah K.</div><div class="sub">미국 · 피부과</div></div><div class="stars">★★★★★</div></div>
+          <p>"영어 상담이 정말 편했고 결과도 만족스러워요. 다시 방문할게요."</p></div>
+        <div class="rev"><div class="top"><div class="av">🇨🇳</div><div><div class="nm">Li Wei</div><div class="sub">중국 · 성형외과</div></div><div class="stars">★★★★★</div></div>
+          <p>"中文咨询很方便，医生很专业。"</p></div>
+        <div class="rev"><div class="top"><div class="av">🇯🇵</div><div><div class="nm">Megumi I.</div><div class="sub">일본 · 안과</div></div><div class="stars">★★★★☆</div></div>
+          <p>"日本語のサポートが助かりました。"</p></div>
+        <a class="btn ghost sm" style="margin-top:6px;">리뷰 더 보기 →</a>
+      </div>
+
+      <!-- 영상 -->
+      <div class="blk" style="border-bottom:none;"><h3>영상</h3>
+        <div class="vids">
+          <div class="vid"><div class="ph"><span class="play">▶</span></div><div class="cap">클리닉 투어</div></div>
+          <div class="vid"><div class="ph"><span class="play">▶</span></div><div class="cap">시술 브이로그</div></div>
+          <div class="vid"><div class="ph"><span class="play">▶</span></div><div class="cap">전문의 인터뷰</div></div>
+          <div class="vid"><div class="ph"><span class="play">▶</span></div><div class="cap">환자 체험기</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: BOOKING -->
+    <aside class="book">
+      <div class="price">시술가 <b>₩500,000~</b></div>
+      <div class="field">📅 날짜 선택</div>
+      <div class="field">🕒 시간 선택</div>
+      <div class="field">🧾 시술/상품 선택</div>
+      <a class="btn primary" style="width:100%;margin-top:6px;" href="booking.html">예약하기</a>
+      <a class="btn line" style="width:100%;margin-top:8px;" href="login.html">💬 상담하기 (AI 번역)</a>
+      <a class="btn line" style="width:100%;margin-top:8px;" href="call.html">📞 AI 전화 상담 (다국어 음성)</a>
+      <div class="note">예약·상담은 로그인이 필요합니다 · 전화는 AI 음성으로 24시간 응대</div>
+    </aside>
+  </div>
+</div>
+
+<!-- BOTTOM FIXED BAR -->
+<div class="bottombar">
+  <div class="p">₩500,000~<small>시술가 · 예약금 10%</small></div>
+  <a class="btn line sm" href="login.html">💬 상담</a>
+  <a class="btn primary sm" href="booking.html">예약하기</a>
+</div>
+
+</body>
+</html>

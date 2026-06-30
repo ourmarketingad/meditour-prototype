@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditour — 시술 상세</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{--blue:#3182F6;--blue-bg:#EBF2FF;--ink:#191F28;--gray:#4E5968;--gray2:#8B95A1;--line:#E5E8EB;--bg2:#F9FAFB;--bg3:#F2F4F6;--red:#E5484D;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Pretendard',-apple-system,sans-serif;color:var(--ink);background:#fff;line-height:1.5;-webkit-font-smoothing:antialiased;padding-bottom:84px;}
+  a{text-decoration:none;color:inherit;} .muted{color:var(--gray);} .muted2{color:var(--gray2);}
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;font-weight:700;border-radius:12px;padding:14px 24px;font-size:16px;cursor:pointer;border:none;background:var(--blue);color:#fff;} .btn.sm{padding:9px 16px;font-size:14px;border-radius:10px;} .btn.line{background:#fff;border:1px solid var(--line);color:var(--gray);}
+  .ph{background:linear-gradient(135deg,#F2F4F6,#E8EBED);display:flex;align-items:center;justify-content:center;color:var(--gray2);font-size:12px;}
+  .tag{display:inline-block;background:var(--bg3);border-radius:8px;padding:4px 10px;font-size:12px;font-weight:600;color:var(--gray);margin:0 6px 6px 0;}
+  .top{height:60px;display:flex;align-items:center;gap:12px;padding:0 24px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:40;}
+  .logo{font-size:18px;font-weight:800;} .top a.back{color:var(--gray);font-size:14px;font-weight:600;margin-left:auto;}
+  .crumb{font-size:13px;color:var(--gray2);padding:18px 0 12px;}
+  .hd{display:flex;gap:20px;} .hd .ph{width:220px;height:160px;border-radius:16px;flex:0 0 auto;}
+  .hd h1{font-size:26px;font-weight:800;letter-spacing:-.6px;} .hd .price{font-size:24px;font-weight:800;margin-top:10px;} .hd .price s{font-size:15px;color:var(--gray2);font-weight:600;margin-right:8px;}
+  .blk{padding:26px 0;border-top:1px solid var(--line);margin-top:20px;} .blk h3{font-size:19px;font-weight:800;margin-bottom:14px;}
+  .docs{display:flex;gap:12px;flex-wrap:wrap;}
+  .doc{border:1px solid var(--line);border-radius:14px;padding:14px;width:calc(50% - 6px);display:flex;gap:12px;align-items:center;cursor:pointer;} .doc.on{border-color:var(--blue);background:var(--blue-bg);}
+  .doc .av{width:50px;height:50px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:22px;flex:0 0 auto;} .doc .nm{font-weight:700;} .doc .sp{font-size:12px;color:var(--gray2);}
+  .cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;text-align:center;max-width:460px;}
+  .cal .h{font-size:12px;color:var(--gray2);} .cd{padding:9px 0;border-radius:9px;font-size:13px;font-weight:600;cursor:pointer;background:var(--blue-bg);color:var(--blue);} .cd.off{background:var(--bg3);color:var(--gray2);} .cd.sel{background:var(--blue);color:#fff;} .e{visibility:hidden;}
+  .slots{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;} .slot{border:1px solid var(--line);border-radius:10px;padding:9px 16px;font-size:14px;font-weight:600;color:var(--gray);cursor:pointer;} .slot.on{border-color:var(--blue);background:var(--blue-bg);color:var(--blue);} .slot.off{background:var(--bg3);color:var(--gray2);text-decoration:line-through;}
+  .bottombar{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);padding:12px 24px;display:flex;gap:10px;align-items:center;z-index:60;} .bottombar .p{flex:1;font-weight:800;} .bottombar .p small{display:block;font-weight:600;color:var(--gray2);font-size:12px;}
+</style>
+</head>
+<body>
+  <div class="top"><a class="logo" href="index.html">＋ Meditour</a><a class="back" href="detail.html">‹ 업체로</a></div>
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">홈</a> › <a href="detail.html">OOO 클리닉</a> › 리프팅 패키지</div>
+    <div class="hd">
+      <div class="ph">시술 이미지</div>
+      <div><div class="tag">피부 · 리프팅</div><h1>리프팅 패키지</h1>
+        <div class="muted" style="margin-top:6px;">소요 약 60분 · 상담 포함 · 다국어 안내</div>
+        <div class="price"><s>₩600,000</s> ₩500,000</div></div>
+    </div>
+
+    <div class="blk"><h3>시술 설명</h3>
+      <p class="muted">시술 과정·효과·회복기간·주의사항이 다국어로 제공됩니다. 전후 사진과 함께 기대 결과를 안내합니다.</p>
+      <div style="margin-top:12px;"><span class="tag">탄력</span><span class="tag">윤곽</span><span class="tag">즉시 효과</span></div>
+    </div>
+
+    <div class="blk"><h3>담당 의사 선택</h3>
+      <div class="docs">
+        <div class="doc on"><div class="av">👨‍⚕️</div><div><div class="nm">김OO 원장</div><div class="sp">리프팅·안티에이징 · ★4.9</div></div></div>
+        <div class="doc"><div class="av">👩‍⚕️</div><div><div class="nm">이OO 원장</div><div class="sp">레이저·스킨 · ★4.8</div></div></div>
+      </div>
+    </div>
+
+    <div class="blk"><h3>예약 날짜 · 김OO 원장 슬롯 · 7월</h3>
+      <div class="cal">
+        <div class="h">일</div><div class="h">월</div><div class="h">화</div><div class="h">수</div><div class="h">목</div><div class="h">금</div><div class="h">토</div>
+        <div class="e"></div><div class="e"></div>
+        <div class="cd">1</div><div class="cd">2</div><div class="cd off">3</div><div class="cd">4</div><div class="cd off">5</div><div class="cd">6</div><div class="cd">7</div>
+        <div class="cd">8</div><div class="cd off">9</div><div class="cd sel">10</div><div class="cd">11</div><div class="cd">12</div><div class="cd off">13</div><div class="cd">14</div>
+      </div>
+      <div style="font-weight:700;margin-top:16px;">7월 10일 가능 시간</div>
+      <div class="slots"><span class="slot off">10:00</span><span class="slot">11:00</span><span class="slot on">14:00</span><span class="slot">15:00</span><span class="slot">16:00</span><span class="slot off">17:00</span></div>
+    </div>
+  </div>
+
+  <div class="bottombar"><div class="p">₩500,000<small>김OO 원장 · 7/10(목) 14:00</small></div>
+    <a class="btn line sm" href="login.html">💬 상담</a><a class="btn sm" href="booking.html">예약하기</a></div>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditour — 마이페이지 · 문의/채팅</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{--blue:#3182F6;--blue-d:#1B64DA;--ink:#191F28;--gray:#4E5968;--gray2:#8B95A1;
+        --line:#E5E8EB;--bg2:#F9FAFB;--bg3:#F2F4F6;--blue-bg:#EBF2FF;--red:#E5484D;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Pretendard',-apple-system,sans-serif;color:var(--ink);background:var(--bg2);line-height:1.5;-webkit-font-smoothing:antialiased;}
+  a{text-decoration:none;color:inherit;} .muted2{color:var(--gray2);}
+  .btn{display:inline-flex;align-items:center;justify-content:center;font-weight:600;border-radius:10px;padding:10px 16px;font-size:14px;cursor:pointer;border:none;}
+  .btn.primary{background:var(--blue);color:#fff;} .btn.ghost{background:var(--bg3);color:var(--ink);}
+  header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:40;}
+  .nav{max-width:1080px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:20px;height:64px;}
+  .logo{font-size:20px;font-weight:800;letter-spacing:-.5px;}
+  .nav .links{display:flex;gap:24px;font-size:15px;font-weight:600;color:var(--gray);margin-left:12px;}
+  .nav .right{margin-left:auto;display:flex;align-items:center;gap:16px;}
+  .bell{font-size:18px;} .ava{width:34px;height:34px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;}
+
+  .container{max-width:1080px;margin:0 auto;padding:32px 24px 40px;display:grid;grid-template-columns:240px 1fr;gap:32px;}
+  .side{align-self:start;}
+  .profcard{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;text-align:center;margin-bottom:16px;}
+  .profcard .av{width:60px;height:60px;border-radius:50%;background:var(--bg3);margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:26px;}
+  .profcard .nm{font-weight:800;font-size:17px;} .profcard .em{font-size:13px;color:var(--gray2);}
+  .menu{background:#fff;border:1px solid var(--line);border-radius:18px;padding:8px;}
+  .menu a{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:12px;font-size:15px;font-weight:600;color:var(--gray);}
+  .menu a.on{background:var(--blue-bg);color:var(--blue);} .menu a:hover{background:var(--bg2);}
+
+  /* chat */
+  .chat{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;display:grid;grid-template-columns:260px 1fr;height:620px;}
+  .threads{border-right:1px solid var(--line);overflow-y:auto;}
+  .threads .h{padding:16px;font-weight:800;font-size:16px;border-bottom:1px solid var(--line);}
+  .thread{display:flex;gap:10px;padding:14px 16px;border-bottom:1px solid var(--bg2);cursor:pointer;}
+  .thread.on{background:var(--blue-bg);}
+  .thread .av{width:40px;height:40px;border-radius:12px;background:var(--bg3);display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+  .thread .nm{font-weight:700;font-size:14px;} .thread .last{font-size:12px;color:var(--gray2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:150px;}
+  .thread .t{margin-left:auto;font-size:11px;color:var(--gray2);}
+  .thread .badge{background:var(--red);color:#fff;border-radius:10px;font-size:11px;font-weight:700;padding:1px 7px;margin-top:4px;display:inline-block;}
+
+  .conv{display:flex;flex-direction:column;}
+  .conv .top{padding:14px 18px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px;}
+  .conv .top .av{width:38px;height:38px;border-radius:11px;background:var(--bg3);display:flex;align-items:center;justify-content:center;}
+  .conv .top .nm{font-weight:700;} .conv .top .sub{font-size:12px;color:var(--gray2);}
+  .ai-banner{background:#FFF7E6;color:#9A6B00;font-size:12px;font-weight:600;text-align:center;padding:7px;}
+  .msgs{flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:14px;background:var(--bg2);}
+  .m{max-width:74%;}
+  .m .bubble{padding:11px 14px;border-radius:16px;font-size:14px;line-height:1.45;}
+  .m .orig{font-size:12px;color:var(--gray2);margin-top:4px;padding:0 4px;}
+  .m.them{align-self:flex-start;} .m.them .bubble{background:#fff;border:1px solid var(--line);border-top-left-radius:4px;}
+  .m.me{align-self:flex-end;} .m.me .bubble{background:var(--blue);color:#fff;border-top-right-radius:4px;}
+  .m.me .orig{text-align:right;}
+  .trans{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--blue);font-weight:700;margin-top:3px;padding:0 4px;}
+  .inputbar{border-top:1px solid var(--line);padding:12px;display:flex;gap:8px;align-items:center;}
+  .inputbar .f{flex:1;height:44px;background:var(--bg2);border-radius:12px;padding:0 14px;display:flex;align-items:center;color:var(--gray2);font-size:14px;}
+  .inputbar .send{width:44px;height:44px;border-radius:12px;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;}
+  @media(max-width:880px){.container{grid-template-columns:1fr;}.side{display:none;}.chat{grid-template-columns:1fr;}.threads{display:none;}}
+</style>
+</head>
+<body>
+
+<header><div class="nav">
+  <a class="logo" href="index.html">＋ Meditour</a>
+  <div class="links"><a href="list.html">둘러보기</a><a href="deals.html">혜택</a><a href="reviews.html">후기</a></div>
+  <div class="right"><span class="muted2" style="font-size:14px;font-weight:600;">🌐 EN ▾</span>
+    <span class="bell">🔔</span><span class="ava">🙂</span></div>
+</div></header>
+
+<div class="container">
+  <aside class="side">
+    <div class="profcard"><div class="av">🙂</div><div class="nm">Sarah K.</div><div class="em">sarah@example.com · 🇺🇸</div></div>
+    <nav class="menu">
+      <a href="mypage.html">📋 예약 내역</a>
+      <a href="orders.html">🛍 주문 내역</a>
+      <a class="on">💬 문의 · 채팅</a>
+      <a href="wishlist.html">❤️ 찜한 업체</a>
+      <a href="points.html">🏅 포인트</a>
+      <a href="profile.html">⚙️ 프로필 수정</a>
+      <a href="index.html">↩ 로그아웃</a>
+    </nav>
+  </aside>
+
+  <main>
+    <div class="chat">
+      <!-- THREADS -->
+      <div class="threads">
+        <div class="h">문의</div>
+        <div class="thread on"><div class="av">🏥</div>
+          <div><div class="nm">OOO 클리닉</div><div class="last">예약 일정 확인 도와드릴게요</div><span class="badge">2</span></div>
+          <div class="t">방금</div></div>
+        <div class="thread"><div class="av">🏥</div>
+          <div><div class="nm">OOO 피부과</div><div class="last">견적서를 보내드렸어요</div></div>
+          <div class="t">어제</div></div>
+        <div class="thread"><div class="av">🏥</div>
+          <div><div class="nm">OOO 안과</div><div class="last">상담 감사합니다</div></div>
+          <div class="t">6/01</div></div>
+      </div>
+
+      <!-- CONVERSATION -->
+      <div class="conv">
+        <div class="top"><div class="av">🏥</div>
+          <div><div class="nm">OOO 클리닉</div><div class="sub">청담 · 평균 응답 15분</div></div>
+          <a class="btn ghost" style="margin-left:auto;" href="detail.html">업체 보기</a></div>
+        <div class="ai-banner">🌐 메시지는 자동으로 상대 언어로 번역되어 전달됩니다 (AI 실시간 번역)</div>
+
+        <div class="msgs">
+          <div class="m them"><div class="bubble">안녕하세요! 무엇을 도와드릴까요?</div>
+            <div class="trans">🌐 번역됨 · 원문 보기</div>
+            <div class="orig">Hello! How can I help you?</div></div>
+
+          <div class="m me"><div class="bubble">I'd like to book a consultation on July 12 at 2 PM.</div>
+            <div class="orig">전송 시 한국어로 번역되어 전달됩니다</div></div>
+
+          <div class="m them"><div class="bubble">7월 12일 오후 2시 예약 가능합니다. 예약금 10%가 필요해요.</div>
+            <div class="trans">🌐 번역됨 · 원문 보기</div>
+            <div class="orig">July 12, 2 PM is available. A 10% deposit is required.</div></div>
+
+          <div class="m me"><div class="bubble">Great, can you also send a price estimate?</div></div>
+
+          <div class="m them"><div class="bubble">견적서를 보내드릴게요. <a href="quote.html" style="color:#3182F6;font-weight:700;">📎 견적서 보기</a></div>
+            <div class="trans">🌐 번역됨 · 원문 보기</div>
+            <div class="orig">I'll send you an estimate. 📎 quote.pdf</div></div>
+        </div>
+
+        <div class="inputbar">
+          <div class="f">메시지를 입력하세요… (자동 번역)</div>
+          <div class="send">➤</div>
+        </div>
+      </div>
+    </div>
+    <p class="muted2" style="font-size:12px;margin-top:12px;">※ 문의 방식은 채팅식. 양방향 AI 번역으로 언어가 달라도 바로 소통됩니다.</p>
+  </main>
+</div>
+
+</body>
+</html>

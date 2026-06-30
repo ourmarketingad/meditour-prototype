@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditour — 찜한 업체</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{--blue:#3182F6;--blue-bg:#EBF2FF;--ink:#191F28;--gray:#4E5968;--gray2:#8B95A1;--line:#E5E8EB;--bg2:#F9FAFB;--bg3:#F2F4F6;--red:#E5484D;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Pretendard',-apple-system,sans-serif;color:var(--ink);background:var(--bg2);line-height:1.5;-webkit-font-smoothing:antialiased;}
+  a{text-decoration:none;color:inherit;} .muted2{color:var(--gray2);}
+  .ph{background:linear-gradient(135deg,#F2F4F6,#E8EBED);display:flex;align-items:center;justify-content:center;color:var(--gray2);font-size:12px;}
+  header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:40;}
+  .nav{max-width:1080px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:20px;height:64px;}
+  .logo{font-size:20px;font-weight:800;letter-spacing:-.5px;} .nav .links{display:flex;gap:24px;font-size:15px;font-weight:600;color:var(--gray);margin-left:12px;}
+  .nav .right{margin-left:auto;display:flex;align-items:center;gap:16px;} .bell{font-size:18px;} .ava{width:34px;height:34px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;}
+  .container{max-width:1080px;margin:0 auto;padding:32px 24px 80px;display:grid;grid-template-columns:240px 1fr;gap:32px;} .side{align-self:start;}
+  .profcard{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;text-align:center;margin-bottom:16px;} .profcard .av{width:60px;height:60px;border-radius:50%;background:var(--bg3);margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:26px;} .profcard .nm{font-weight:800;font-size:17px;} .profcard .em{font-size:13px;color:var(--gray2);}
+  .menu{background:#fff;border:1px solid var(--line);border-radius:18px;padding:8px;} .menu a{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:12px;font-size:15px;font-weight:600;color:var(--gray);} .menu a.on{background:var(--blue-bg);color:var(--blue);} .menu a:hover{background:var(--bg2);}
+  h1{font-size:26px;font-weight:800;letter-spacing:-.6px;margin-bottom:18px;}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;}
+  .card .thumb{height:130px;position:relative;} .card .heart{position:absolute;top:10px;right:10px;background:#fff;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:16px;}
+  .card .body{padding:14px;} .card .cat{font-size:12px;color:var(--gray2);font-weight:600;} .card h4{font-size:16px;font-weight:700;margin:3px 0 8px;} .card .meta{display:flex;gap:6px;} .card .t{background:var(--bg3);border-radius:8px;padding:3px 8px;font-size:12px;font-weight:600;color:var(--gray);}
+  @media(max-width:880px){.container{grid-template-columns:1fr;}.side{display:none;}.grid{grid-template-columns:repeat(2,1fr);}}
+</style>
+</head>
+<body>
+<header><div class="nav">
+  <a class="logo" href="index.html">＋ Meditour</a>
+  <div class="links"><a href="list.html">둘러보기</a><a href="deals.html">혜택</a><a href="reviews.html">후기</a></div>
+  <div class="right"><span class="muted2" style="font-size:14px;font-weight:600;">🌐 EN ▾</span><a href="notifications.html"><span class="bell">🔔</span></a><span class="ava">🙂</span></div>
+</div></header>
+<div class="container">
+  <aside class="side">
+    <div class="profcard"><div class="av">🙂</div><div class="nm">Sarah K.</div><div class="em">sarah@example.com · 🇺🇸</div></div>
+    <nav class="menu">
+      <a href="mypage.html">📋 예약 내역</a><a href="orders.html">🛍 주문 내역</a><a href="chat.html">💬 문의 · 채팅</a>
+      <a class="on">❤️ 찜한 업체</a><a href="points.html">🏅 포인트</a><a href="profile.html">⚙️ 프로필 수정</a><a href="index.html">↩ 로그아웃</a>
+    </nav>
+  </aside>
+  <main>
+    <h1>찜한 업체 <span class="muted2" style="font-size:15px;">6</span></h1>
+    <div class="grid">
+      <a class="card" href="detail.html"><div class="ph thumb">이미지<span class="heart">❤️</span></div><div class="body"><div class="cat">피부과 · 청담</div><h4>OOO 클리닉</h4><div class="meta"><span class="t">★ 4.8</span><span class="t">🇨🇳 통역</span></div></div></a>
+      <a class="card" href="detail.html"><div class="ph thumb">이미지<span class="heart">❤️</span></div><div class="body"><div class="cat">성형외과 · 신사</div><h4>OOO 성형외과</h4><div class="meta"><span class="t">★ 4.9</span></div></div></a>
+      <a class="card" href="detail.html"><div class="ph thumb">이미지<span class="heart">❤️</span></div><div class="body"><div class="cat">뷰티 · 강남</div><h4>OOO 에스테틱</h4><div class="meta"><span class="t">★ 4.7</span><span class="t">🇯🇵 통역</span></div></div></a>
+      <a class="card" href="hotel.html"><div class="ph thumb">이미지<span class="heart">❤️</span></div><div class="body"><div class="cat">호텔 · 강남</div><h4>OOO 호텔</h4><div class="meta"><span class="t">★ 4.7</span></div></div></a>
+      <a class="card" href="detail.html"><div class="ph thumb">이미지<span class="heart">❤️</span></div><div class="body"><div class="cat">안과 · 압구정</div><h4>OOO 안과</h4><div class="meta"><span class="t">★ 4.8</span></div></div></a>
+      <a class="card" href="package.html"><div class="ph thumb">이미지<span class="heart">❤️</span></div><div class="body"><div class="cat">패키지</div><h4>K-뷰티 패키지</h4><div class="meta"><span class="t">★ 4.9</span></div></div></a>
+    </div>
+  </main>
+</div>
+</body>
+</html>

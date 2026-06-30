@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditour — 파트너 입점 신청</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{--blue:#3182F6;--blue-d:#1B64DA;--ink:#191F28;--gray:#4E5968;--gray2:#8B95A1;
+        --line:#E5E8EB;--bg2:#F9FAFB;--bg3:#F2F4F6;--blue-bg:#EBF2FF;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Pretendard',-apple-system,sans-serif;color:var(--ink);background:var(--bg2);
+       line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column;}
+  a{text-decoration:none;color:inherit;} .muted2{color:var(--gray2);}
+  .top{height:64px;display:flex;align-items:center;justify-content:center;}
+  .logo{font-size:20px;font-weight:800;letter-spacing:-.5px;}
+  .stage{flex:1;display:flex;align-items:flex-start;justify-content:center;padding:30px 20px 60px;}
+  .card{width:100%;max-width:560px;background:#fff;border:1px solid var(--line);border-radius:24px;padding:36px 36px;}
+  h1{font-size:28px;font-weight:800;letter-spacing:-.6px;}
+  .sub{color:var(--gray);font-size:15px;margin:10px 0 8px;}
+  .notice{background:var(--blue-bg);border-radius:14px;padding:14px 16px;font-size:13px;
+          color:#1b4fb0;font-weight:600;margin:18px 0 6px;}
+  label{display:block;font-size:13px;font-weight:700;margin:18px 0 6px;}
+  .field{width:100%;height:50px;border:1px solid var(--line);border-radius:12px;padding:0 14px;
+         font-size:14px;color:var(--gray2);display:flex;align-items:center;background:#fff;}
+  .row{display:flex;gap:8px;}
+  .seg{display:flex;gap:8px;flex-wrap:wrap;}
+  .seg .o{border:1px solid var(--line);border-radius:10px;padding:11px 16px;font-size:14px;font-weight:600;color:var(--gray);cursor:pointer;}
+  .seg .o.on{border-color:var(--blue);color:var(--blue);background:var(--blue-bg);}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;}
+  .chips .c{border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:600;color:var(--gray);cursor:pointer;}
+  .chips .c.on{background:var(--ink);color:#fff;border-color:var(--ink);}
+  .upload{border:1px dashed var(--line);border-radius:12px;padding:20px;text-align:center;color:var(--gray2);font-size:13px;background:var(--bg2);}
+  .ck{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--gray);margin-top:18px;}
+  .ck input{accent-color:var(--blue);width:18px;height:18px;}
+  .btn{width:100%;height:54px;border:none;border-radius:12px;background:var(--blue);color:#fff;
+       font-size:16px;font-weight:700;cursor:pointer;margin-top:24px;}
+  .btn:hover{background:var(--blue-d);}
+  .foot{text-align:center;margin-top:16px;font-size:14px;color:var(--gray);}
+  .foot a{color:var(--blue);font-weight:700;}
+  .flow{display:flex;gap:8px;align-items:center;font-size:12px;color:var(--gray2);margin-top:14px;flex-wrap:wrap;}
+  .flow b{color:var(--ink);}
+</style>
+</head>
+<body>
+  <div class="top"><a class="logo" href="index.html">＋ Meditour</a></div>
+  <div class="stage">
+    <div class="card">
+      <h1>파트너 입점 신청</h1>
+      <p class="sub">외국인 환자 유치를 검색부터 예약까지 한 번에. 신청 후 관리자 승인을 거쳐 계정이 활성화됩니다.</p>
+      <div class="flow">신청 <b>→</b> 관리자 검토·승인 <b>→</b> 계정 활성화 <b>→</b> 상품 등록</div>
+
+      <div class="notice">입력하신 기본 정보는 업체 로그인 계정 생성에 사용됩니다. 승인 결과는 담당자 이메일로 안내됩니다.</div>
+
+      <label>업체명 / Business name</label>
+      <div class="field">예) OOO 클리닉</div>
+
+      <label>사업자등록번호</label>
+      <div class="field">000-00-00000</div>
+
+      <label>업체 타입 (등록한 타입의 상품만 등록 가능)</label>
+      <div class="seg"><span class="o on">의료</span><span class="o">뷰티</span><span class="o">호텔</span><span class="o">패키지</span></div>
+
+      <label>대표자명 / 주소(지역)</label>
+      <div class="row"><div class="field" style="flex:1;">대표자명</div><div class="field" style="flex:1.4;">주소 (예: 서울 강남구 청담동)</div></div>
+
+      <label>대표 연락처</label>
+      <div class="field">대표 전화번호</div>
+
+      <label>담당자 정보</label>
+      <div class="row"><div class="field" style="flex:1;">담당자명</div><div class="field" style="flex:1;">담당자 연락처</div></div>
+      <div class="field" style="margin-top:8px;">담당자 이메일 (승인 안내 수신)</div>
+
+      <label>통역 가능 언어 (복수 선택)</label>
+      <div class="chips"><span class="c on">🇬🇧 영어</span><span class="c on">🇨🇳 중국어</span>
+        <span class="c">🇯🇵 일본어</span><span class="c">🇹🇭 태국어</span><span class="c">기타</span></div>
+
+      <label>로그인 계정 (승인 후 사용)</label>
+      <div class="field">로그인 이메일</div>
+      <div class="field" style="margin-top:8px;">비밀번호</div>
+
+      <label>사업자등록증 / 의료기관 인증 서류</label>
+      <div class="upload">📎 파일 첨부 (PDF·JPG) — 검증 자료</div>
+
+      <label class="ck"><input type="checkbox"> [필수] 입점 이용약관 및 개인정보 수집·이용에 동의합니다.</label>
+
+      <button class="btn">입점 신청하기</button>
+      <div class="foot">이미 파트너 계정이 있으신가요? <a href="biz-dashboard.html">업체 로그인</a></div>
+    </div>
+  </div>
+</body>
+</html>

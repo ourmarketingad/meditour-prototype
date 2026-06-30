@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditour — 혜택</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{--blue:#3182F6;--blue-d:#1B64DA;--blue-bg:#EBF2FF;--ink:#191F28;--gray:#4E5968;--gray2:#8B95A1;--line:#E5E8EB;--bg2:#F9FAFB;--bg3:#F2F4F6;--red:#E5484D;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Pretendard',-apple-system,sans-serif;color:var(--ink);background:#fff;line-height:1.5;-webkit-font-smoothing:antialiased;}
+  a{text-decoration:none;color:inherit;} .muted{color:var(--gray);} .muted2{color:var(--gray2);}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;font-weight:600;border-radius:12px;padding:14px 24px;font-size:16px;cursor:pointer;border:none;}
+  .btn.primary{background:var(--blue);color:#fff;} .btn.ghost{background:var(--bg3);color:var(--ink);} .btn.sm{padding:9px 16px;font-size:14px;border-radius:10px;}
+  .ph{background:linear-gradient(135deg,#F2F4F6,#E8EBED);display:flex;align-items:center;justify-content:center;color:var(--gray2);font-size:13px;}
+  .chip{display:inline-flex;align-items:center;background:var(--bg3);border-radius:999px;padding:8px 16px;font-size:14px;font-weight:600;color:var(--gray);cursor:pointer;} .chip.on{background:var(--ink);color:#fff;}
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+  .nav{display:flex;align-items:center;gap:28px;height:64px;}
+  .logo{font-size:20px;font-weight:800;letter-spacing:-.5px;}
+  .nav .links{display:flex;gap:24px;font-size:15px;font-weight:600;color:var(--gray);margin-left:12px;} .nav .links a.on{color:var(--ink);}
+  .nav .right{margin-left:auto;display:flex;align-items:center;gap:12px;} .lang{font-size:14px;font-weight:600;color:var(--gray);}
+  .hero{padding:64px 0 28px;text-align:center;background:linear-gradient(180deg,#FFF4F4,#fff);}
+  .hero h1{font-size:42px;font-weight:800;letter-spacing:-1.2px;} .hero p{color:var(--gray);font-size:17px;margin-top:12px;}
+  .filters{display:flex;gap:8px;justify-content:center;margin:26px 0 36px;flex-wrap:wrap;}
+  /* featured event */
+  .feature{border-radius:24px;overflow:hidden;border:1px solid var(--line);display:grid;grid-template-columns:1.2fr 1fr;margin-bottom:32px;}
+  .feature .txt{padding:40px;display:flex;flex-direction:column;justify-content:center;gap:10px;}
+  .feature .tagn{color:var(--red);font-weight:800;font-size:14px;} .feature h2{font-size:30px;font-weight:800;letter-spacing:-1px;}
+  .feature .ph{min-height:240px;}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding-bottom:80px;}
+  .deal{border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:.15s;display:block;}
+  .deal:hover{box-shadow:0 8px 24px rgba(0,0,0,.06);transform:translateY(-2px);}
+  .deal .thumb{height:150px;position:relative;} .deal .off{position:absolute;top:10px;left:10px;background:var(--red);color:#fff;font-size:12px;font-weight:800;padding:4px 10px;border-radius:8px;}
+  .deal .body{padding:16px;} .deal .cat{font-size:12px;color:var(--gray2);font-weight:600;} .deal h4{font-size:17px;font-weight:700;margin:4px 0 6px;}
+  .deal .meta{font-size:13px;color:var(--gray);} .deal .period{font-size:12px;color:var(--gray2);margin-top:8px;}
+  @media(max-width:880px){.feature{grid-template-columns:1fr;}.grid{grid-template-columns:repeat(2,1fr);}.hero h1{font-size:32px;}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="logo" href="index.html">＋ Meditour</a>
+  <div class="links"><a href="list.html">둘러보기</a><a class="on" href="deals.html">혜택</a><a href="reviews.html">후기</a><a href="partner.html">파트너 입점</a><a href="how.html">이용방법</a></div>
+  <div class="right"><span class="lang">🌐 EN ▾</span><a class="btn ghost sm" href="login.html">로그인</a><a class="btn primary sm">앱 다운로드</a></div>
+</div></header>
+
+<div class="hero"><div class="wrap">
+  <h1>지금 받을 수 있는 혜택</h1>
+  <p>이벤트·할인·신규 입점 프로모션을 한 곳에서.</p>
+</div></div>
+
+<div class="wrap">
+  <div class="filters"><span class="chip on">전체</span><span class="chip">의료</span><span class="chip">뷰티</span><span class="chip">호텔</span><span class="chip">패키지</span></div>
+
+  <!-- featured event landing -->
+  <div class="feature">
+    <div class="txt"><span class="tagn">🎉 LAUNCH EVENT</span>
+      <h2>여름 K-뷰티 페스타<br>최대 30% 할인</h2>
+      <p class="muted">기간: 2026.07.01 ~ 08.31 · 참여 클리닉 전용 혜택</p>
+      <div><a class="btn primary" href="event.html">이벤트 자세히 보기 →</a></div></div>
+    <div class="ph">이벤트 메인 이미지</div>
+  </div>
+
+  <div class="grid">
+    <a class="deal" href="detail.html"><div class="ph thumb"><span class="off">-20%</span>이미지</div>
+      <div class="body"><div class="cat">의료 · 피부과</div><h4>리프팅 패키지 여름 특가</h4>
+        <div class="meta">₩500,000 → <b>₩400,000</b></div><div class="period">~ 2026.08.31</div></div></a>
+    <a class="deal" href="cart.html"><div class="ph thumb"><span class="off">신규</span>이미지</div>
+      <div class="body"><div class="cat">뷰티 · 에스테틱</div><h4>신규 입점 기념 첫 방문 혜택</h4>
+        <div class="meta">첫 예약 시 <b>10% 추가 할인</b></div><div class="period">상시</div></div></a>
+    <a class="deal" href="hotel.html"><div class="ph thumb"><span class="off">-25%</span>이미지</div>
+      <div class="body"><div class="cat">호텔 · 패키지</div><h4>시술+호텔 2박 패키지</h4>
+        <div class="meta">₩800,000 → <b>₩600,000</b></div><div class="period">~ 2026.09.30</div></div></a>
+    <a class="deal" href="detail.html"><div class="ph thumb"><span class="off">-15%</span>이미지</div>
+      <div class="body"><div class="cat">의료 · 안과</div><h4>시력교정 가을 이벤트</h4>
+        <div class="meta">상담 후 견적 · <b>15% 할인</b></div><div class="period">2026.09 ~ 10</div></div></a>
+    <a class="deal" href="detail.html"><div class="ph thumb"><span class="off">1+1</span>이미지</div>
+      <div class="body"><div class="cat">뷰티 · 스킨케어</div><h4>아쿠아필 1+1</h4>
+        <div class="meta">동반 방문 시 <b>1+1</b></div><div class="period">~ 2026.08.15</div></div></a>
+    <a class="deal" href="detail.html"><div class="ph thumb"><span class="off">중화권</span>이미지</div>
+      <div class="body"><div class="cat">의료 · 성형외과</div><h4>중국·대만 고객 전용 혜택</h4>
+        <div class="meta">위챗 예약 시 <b>사은품 증정</b></div><div class="period">상시</div></div></a>
+  </div>
+</div>
+</body>
+</html>

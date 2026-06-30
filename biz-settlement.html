@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditour 파트너 — 정산 · 매출</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{--blue:#3182F6;--blue-bg:#EBF2FF;--ink:#191F28;--gray:#4E5968;--gray2:#8B95A1;--line:#E5E8EB;--bg2:#F9FAFB;--bg3:#F2F4F6;--green:#15B886;--orange:#F59E0B;--red:#E5484D;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Pretendard',-apple-system,sans-serif;color:var(--ink);background:var(--bg2);line-height:1.5;-webkit-font-smoothing:antialiased;}
+  a{text-decoration:none;color:inherit;} .muted2{color:var(--gray2);}
+  .btn{display:inline-flex;align-items:center;justify-content:center;font-weight:600;border-radius:10px;padding:10px 18px;font-size:14px;cursor:pointer;border:none;} .btn.primary{background:var(--blue);color:#fff;} .btn.line{background:#fff;border:1px solid var(--line);color:var(--gray);}
+  .shell{display:grid;grid-template-columns:230px 1fr;min-height:100vh;}
+  .sidebar{background:#fff;border-right:1px solid var(--line);padding:18px 14px;position:sticky;top:0;height:100vh;}
+  .brand{font-size:18px;font-weight:800;padding:8px 10px 4px;} .brand small{display:block;font-size:11px;color:var(--gray2);font-weight:600;}
+  .snav{margin-top:18px;display:flex;flex-direction:column;gap:2px;} .snav a{display:flex;gap:10px;padding:11px 12px;border-radius:10px;font-size:14px;font-weight:600;color:var(--gray);} .snav a.on{background:var(--blue-bg);color:var(--blue);} .snav .sec{font-size:11px;color:var(--gray2);font-weight:700;padding:14px 12px 6px;}
+  .main{display:flex;flex-direction:column;}
+  .topbar{background:#fff;border-bottom:1px solid var(--line);height:62px;display:flex;align-items:center;gap:12px;padding:0 26px;position:sticky;top:0;z-index:30;} .topbar .biz{font-weight:800;font-size:15px;} .topbar .right{margin-left:auto;display:flex;gap:16px;align-items:center;} .ava{width:32px;height:32px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;}
+  .content{padding:28px 26px 60px;}
+  h1{font-size:24px;font-weight:800;letter-spacing:-.6px;} .sub{color:var(--gray);font-size:14px;margin:4px 0 18px;}
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:18px;}
+  .c{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;} .c .l{font-size:13px;color:var(--gray);font-weight:600;} .c .n{font-size:24px;font-weight:800;letter-spacing:-.5px;margin-top:6px;} .c.hl{background:var(--ink);color:#fff;} .c.hl .l{color:#cfd4db;}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;}
+  .ph{padding:18px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);} .ph h3{font-size:16px;font-weight:800;}
+  table{width:100%;border-collapse:collapse;font-size:13px;} th{text-align:left;color:var(--gray2);font-weight:700;padding:12px 16px;border-bottom:1px solid var(--line);background:var(--bg2);} th.r,td.r{text-align:right;} td{padding:13px 16px;border-bottom:1px solid var(--bg2);}
+  .st{font-size:11px;font-weight:700;padding:3px 9px;border-radius:8px;} .st.done{background:#E6F7F1;color:var(--green);} .st.wait{background:#FFF4E5;color:var(--orange);}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand">＋ Meditour <small>파트너 콘솔</small></div>
+    <nav class="snav">
+      <a href="biz-dashboard.html">🏠 대시보드</a>
+      <div class="sec">운영</div>
+      <a href="biz-products.html">🧾 상품 관리</a><a href="biz-reservations.html">📅 예약 관리</a><a href="biz-chat.html">💬 문의 · 채팅</a><a href="biz-stats.html">📊 통계</a>
+      <div class="sec">정산</div>
+      <a class="on">💰 정산 · 매출</a>
+      <div class="sec">설정</div>
+      <a href="biz-profile.html">🏥 업체 프로필</a><a href="index.html">↩ 로그아웃</a>
+    </nav>
+  </aside>
+  <div class="main">
+    <div class="topbar"><span class="biz">🏥 OOO 클리닉</span>
+      <div class="right"><span class="ava">👤</span></div></div>
+    <div class="content">
+      <h1>정산 · 매출</h1>
+      <p class="sub">예약금·주문 결제 기준. 플랫폼 수수료 차감 후 정산됩니다. (2026-06)</p>
+      <div class="cards">
+        <div class="c"><div class="l">이번 달 매출</div><div class="n">₩12.4M</div></div>
+        <div class="c"><div class="l">플랫폼 수수료</div><div class="n">−₩1.24M</div></div>
+        <div class="c hl"><div class="l">정산 예정액</div><div class="n">₩11.16M</div></div>
+        <div class="c"><div class="l">출금 가능</div><div class="n">₩8.2M</div></div>
+      </div>
+      <div class="panel">
+        <div class="ph"><h3>정산 내역</h3><a class="btn primary">출금 신청</a></div>
+        <table>
+          <tr><th>건</th><th>유형</th><th>일자</th><th class="r">결제액</th><th class="r">수수료</th><th class="r">정산액</th><th>상태</th></tr>
+          <tr><td>리프팅 패키지 · Li Wei</td><td>예약금</td><td>06-29</td><td class="r">₩50,000</td><td class="r">−₩5,000</td><td class="r">₩45,000</td><td><span class="st wait">정산 대기</span></td></tr>
+          <tr><td>스킨 레이저 · Sarah K.</td><td>예약</td><td>06-20</td><td class="r">₩150,000</td><td class="r">−₩15,000</td><td class="r">₩135,000</td><td><span class="st done">정산 완료</span></td></tr>
+          <tr><td>아쿠아필 · Emily R.</td><td>주문</td><td>06-18</td><td class="r">₩120,000</td><td class="r">−₩12,000</td><td class="r">₩108,000</td><td><span class="st done">정산 완료</span></td></tr>
+          <tr><td>리프팅 · Wu L.</td><td>노쇼 예약금</td><td>06-08</td><td class="r">₩50,000</td><td class="r">−₩5,000</td><td class="r">₩45,000</td><td><span class="st done">정산 완료</span></td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

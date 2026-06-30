@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditour 관리자 — 권한 등급</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{--blue:#3182F6;--blue-bg:#EBF2FF;--ink:#191F28;--gray:#4E5968;--gray2:#8B95A1;--line:#E5E8EB;--bg2:#F9FAFB;--bg3:#F2F4F6;--green:#15B886;--red:#E5484D;--purple:#7C5CFC;--purple-bg:#EFEBFF;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Pretendard',-apple-system,sans-serif;color:var(--ink);background:var(--bg2);line-height:1.5;-webkit-font-smoothing:antialiased;}
+  a{text-decoration:none;color:inherit;} .muted2{color:var(--gray2);}
+  .btn{display:inline-flex;align-items:center;justify-content:center;font-weight:600;border-radius:10px;padding:10px 16px;font-size:14px;cursor:pointer;border:none;} .btn.purple{background:var(--purple);color:#fff;} .btn.line{background:#fff;border:1px solid var(--line);color:var(--gray);}
+  .shell{display:grid;grid-template-columns:230px 1fr;min-height:100vh;}
+  .sidebar{background:#fff;border-right:1px solid var(--line);padding:18px 14px;position:sticky;top:0;height:100vh;}
+  .brand{font-size:18px;font-weight:800;padding:8px 10px 4px;} .brand small{display:block;font-size:11px;color:var(--purple);font-weight:700;}
+  .snav{margin-top:18px;display:flex;flex-direction:column;gap:2px;} .snav a{display:flex;gap:10px;padding:11px 12px;border-radius:10px;font-size:14px;font-weight:600;color:var(--gray);} .snav a.on{background:var(--purple-bg);color:var(--purple);} .snav .sec{font-size:11px;color:var(--gray2);font-weight:700;padding:14px 12px 6px;}
+  .main{display:flex;flex-direction:column;}
+  .topbar{background:#fff;border-bottom:1px solid var(--line);height:62px;display:flex;align-items:center;gap:12px;padding:0 26px;position:sticky;top:0;z-index:30;} .topbar .ttl{font-weight:800;font-size:15px;} .topbar .right{margin-left:auto;display:flex;gap:16px;align-items:center;} .ava{width:32px;height:32px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;}
+  .content{padding:28px 26px 60px;}
+  h1{font-size:24px;font-weight:800;letter-spacing:-.6px;} .sub{color:var(--gray);font-size:14px;margin:4px 0 18px;}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;margin-bottom:18px;} .panel h3{font-size:16px;font-weight:800;margin-bottom:14px;}
+  table{width:100%;border-collapse:collapse;font-size:13px;} th{text-align:left;color:var(--gray2);font-weight:700;padding:12px 10px;border-bottom:1px solid var(--line);} td{padding:12px 10px;border-bottom:1px solid var(--bg2);} th.c,td.c{text-align:center;}
+  .perm td.c{font-size:16px;} .yes{color:var(--green);} .no{color:var(--line);}
+  .roletag{font-size:11px;font-weight:700;padding:3px 9px;border-radius:8px;} .r-super{background:var(--purple-bg);color:var(--purple);} .r-sales{background:#FFF4E5;color:#F59E0B;} .r-cs{background:#E7F0FF;color:var(--blue);} .r-audit{background:#E6F7F1;color:var(--green);}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand">＋ Meditour <small>관리자 콘솔</small></div>
+    <nav class="snav">
+      <a href="admin-dashboard.html">🏠 대시보드</a>
+      <div class="sec">관리</div>
+      <a href="admin-members.html">👥 회원 관리</a><a href="admin-businesses.html">🏥 업체 관리</a><a href="admin-products.html">🧾 상품 승인</a>
+      <div class="sec">마케팅</div>
+      <a href="admin-crm.html">🎯 CRM</a><a href="admin-promotions.html">🔗 프로모션</a><a href="admin-banners.html">🖼 배너 관리</a>
+      <div class="sec">분석 · CS · 설정</div>
+      <a href="admin-stats.html">📊 사이트 통계</a><a href="admin-inquiries.html">📨 고객문의</a>
+      <a class="on">🔐 권한 등급</a>
+      <a href="index.html">↩ 로그아웃</a>
+    </nav>
+  </aside>
+  <div class="main">
+    <div class="topbar"><span class="ttl">🛡 Meditour Admin</span>
+      <div class="right"><span class="ava">🛡</span></div></div>
+    <div class="content">
+      <h1>관리자 권한 등급</h1>
+      <p class="sub">의사결정 레벨에 따라 민감 항목(매출·업체 관리 등) 접근을 제한합니다.</p>
+
+      <div class="panel"><h3>등급별 권한 매트릭스</h3>
+        <table class="perm">
+          <tr><th>기능</th><th class="c">최고관리자</th><th class="c">매출관리자</th><th class="c">CS관리자</th><th class="c">업체심사자</th></tr>
+          <tr><td>회원 관리</td><td class="c yes">●</td><td class="c no">●</td><td class="c yes">●</td><td class="c no">●</td></tr>
+          <tr><td>업체 입점 승인</td><td class="c yes">●</td><td class="c no">●</td><td class="c no">●</td><td class="c yes">●</td></tr>
+          <tr><td>상품 검수</td><td class="c yes">●</td><td class="c no">●</td><td class="c no">●</td><td class="c yes">●</td></tr>
+          <tr><td>매출 · 정산</td><td class="c yes">●</td><td class="c yes">●</td><td class="c no">●</td><td class="c no">●</td></tr>
+          <tr><td>프로모션 · 배너</td><td class="c yes">●</td><td class="c yes">●</td><td class="c no">●</td><td class="c no">●</td></tr>
+          <tr><td>고객문의 응대</td><td class="c yes">●</td><td class="c no">●</td><td class="c yes">●</td><td class="c no">●</td></tr>
+          <tr><td>관리자 계정·권한</td><td class="c yes">●</td><td class="c no">●</td><td class="c no">●</td><td class="c no">●</td></tr>
+        </table>
+        <p class="muted2" style="font-size:12px;margin-top:10px;">● 진한 색 = 허용 / 옅은 색 = 제한. 등급은 추가·편집 가능합니다.</p>
+      </div>
+
+      <div class="panel"><h3>관리자 계정</h3>
+        <table>
+          <tr><th>이름</th><th>이메일</th><th>등급</th><th>최근 접속</th><th>관리</th></tr>
+          <tr><td>박관리</td><td>admin@meditour</td><td><span class="roletag r-super">최고관리자</span></td><td>방금</td><td><a class="muted2" style="color:var(--blue);font-weight:700;">편집</a></td></tr>
+          <tr><td>김매출</td><td>sales@meditour</td><td><span class="roletag r-sales">매출관리자</span></td><td>1시간 전</td><td><a class="muted2" style="color:var(--blue);font-weight:700;">편집</a></td></tr>
+          <tr><td>이상담</td><td>cs@meditour</td><td><span class="roletag r-cs">CS관리자</span></td><td>어제</td><td><a class="muted2" style="color:var(--blue);font-weight:700;">편집</a></td></tr>
+          <tr><td>최심사</td><td>audit@meditour</td><td><span class="roletag r-audit">업체심사자</span></td><td>2일 전</td><td><a class="muted2" style="color:var(--blue);font-weight:700;">편집</a></td></tr>
+        </table>
+        <a class="btn purple" style="margin-top:14px;">＋ 관리자 초대</a>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

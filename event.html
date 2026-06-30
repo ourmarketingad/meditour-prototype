@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditour — 이벤트 랜딩</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{--blue:#3182F6;--blue-d:#1B64DA;--blue-bg:#EBF2FF;--ink:#191F28;--gray:#4E5968;--gray2:#8B95A1;--line:#E5E8EB;--bg2:#F9FAFB;--bg3:#F2F4F6;--pink:#FF4D8D;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Pretendard',-apple-system,sans-serif;color:var(--ink);background:#fff;line-height:1.5;-webkit-font-smoothing:antialiased;}
+  a{text-decoration:none;color:inherit;} .muted{color:var(--gray);} .muted2{color:var(--gray2);}
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;font-weight:700;border-radius:12px;padding:15px 28px;font-size:16px;cursor:pointer;border:none;background:#fff;color:var(--pink);}
+  .btn.sm{padding:9px 16px;font-size:14px;border-radius:10px;}
+  .ph{background:linear-gradient(135deg,#F2F4F6,#E8EBED);display:flex;align-items:center;justify-content:center;color:var(--gray2);font-size:13px;}
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+  .nav{display:flex;align-items:center;gap:28px;height:60px;max-width:920px;margin:0 auto;padding:0 24px;}
+  .logo{font-size:20px;font-weight:800;} .nav .right{margin-left:auto;}
+  /* hero */
+  .hero{background:linear-gradient(135deg,#FF4D8D,#FF7AA8);color:#fff;text-align:center;padding:72px 24px;}
+  .hero .badge{display:inline-block;background:rgba(255,255,255,.2);border-radius:999px;padding:7px 16px;font-size:13px;font-weight:700;margin-bottom:18px;}
+  .hero h1{font-size:46px;font-weight:800;letter-spacing:-1.5px;line-height:1.2;} .hero p{font-size:18px;opacity:.95;margin:16px 0 12px;}
+  .hero .period{font-size:14px;opacity:.9;margin-bottom:26px;}
+  .sec{padding:60px 0;} .sec h2{font-size:30px;font-weight:800;letter-spacing:-1px;text-align:center;margin-bottom:30px;}
+  .benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .b{background:var(--bg2);border-radius:18px;padding:26px;text-align:center;} .b .ic{font-size:32px;} .b h3{font-size:18px;font-weight:800;margin:10px 0 6px;} .b p{font-size:14px;color:var(--gray);}
+  .clinics{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  .card{border:1px solid var(--line);border-radius:16px;overflow:hidden;} .card .t{height:110px;position:relative;} .card .off{position:absolute;top:8px;left:8px;background:var(--pink);color:#fff;font-size:11px;font-weight:800;padding:3px 9px;border-radius:7px;} .card .bd{padding:12px;} .card .c{font-size:12px;color:var(--gray2);} .card h4{font-size:15px;font-weight:700;margin-top:3px;}
+  .cta{background:var(--bg2);text-align:center;padding:56px 24px;} .cta h2{font-size:30px;font-weight:800;letter-spacing:-1px;} .cta p{color:var(--gray);margin:12px 0 22px;} .cta .btn{background:var(--pink);color:#fff;}
+  @media(max-width:780px){.hero h1{font-size:32px;}.benefits,.clinics{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+<header><div class="nav"><a class="logo" href="index.html">＋ Meditour</a>
+  <div class="right"><a class="btn sm" style="background:var(--bg3);color:var(--ink);" href="deals.html">혜택 전체</a></div></div></header>
+
+<div class="hero">
+  <div class="badge">🎉 LAUNCH FESTA · 2026.07.01 ~ 08.31</div>
+  <h1>여름 K-뷰티 페스타<br>최대 30% 할인</h1>
+  <p>검증된 클리닉에서, 여름 시즌 한정 혜택으로 시작하세요.</p>
+  <div class="period">기간: 2026.07.01 ~ 08.31 · 참여 클리닉 한정</div>
+  <a class="btn" href="list.html">지금 참여 업체 보기 →</a>
+</div>
+
+<div class="sec"><div class="wrap">
+  <h2>이벤트 혜택</h2>
+  <div class="benefits">
+    <div class="b"><div class="ic">💰</div><h3>최대 30% 할인</h3><p>참여 클리닉 시술 특가</p></div>
+    <div class="b"><div class="ic">🎁</div><h3>첫 예약 사은품</h3><p>위챗 예약 시 추가 증정</p></div>
+    <div class="b"><div class="ic">🏅</div><h3>2배 포인트</h3><p>이벤트 기간 적립 2배</p></div>
+  </div>
+</div></div>
+
+<div class="sec" style="padding-top:0;"><div class="wrap">
+  <h2>참여 업체</h2>
+  <div class="clinics">
+    <a class="card" href="detail.html"><div class="ph t"><span class="off">-30%</span>이미지</div><div class="bd"><div class="c">피부과 · 청담</div><h4>OOO 클리닉</h4></div></a>
+    <a class="card" href="detail.html"><div class="ph t"><span class="off">-20%</span>이미지</div><div class="bd"><div class="c">성형외과 · 신사</div><h4>OOO 성형외과</h4></div></a>
+    <a class="card" href="detail.html"><div class="ph t"><span class="off">-25%</span>이미지</div><div class="bd"><div class="c">뷰티 · 강남</div><h4>OOO 에스테틱</h4></div></a>
+    <a class="card" href="detail.html"><div class="ph t"><span class="off">1+1</span>이미지</div><div class="bd"><div class="c">피부과 · 강남</div><h4>OOO 더마</h4></div></a>
+  </div>
+</div></div>
+
+<div class="cta">
+  <h2>지금 시작하면 더 받습니다</h2>
+  <p>이벤트는 8월 31일 종료 · 조기 마감될 수 있어요</p>
+  <a class="btn" href="list.html">참여 업체 둘러보기 →</a>
+</div>
+</body>
+</html>

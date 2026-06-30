@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditour — 호텔 예약</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{--blue:#3182F6;--blue-bg:#EBF2FF;--ink:#191F28;--gray:#4E5968;--gray2:#8B95A1;--line:#E5E8EB;--bg2:#F9FAFB;--bg3:#F2F4F6;--red:#E5484D;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Pretendard',-apple-system,sans-serif;color:var(--ink);background:var(--bg2);line-height:1.5;-webkit-font-smoothing:antialiased;}
+  a{text-decoration:none;color:inherit;} .muted2{color:var(--gray2);} .muted{color:var(--gray);}
+  .top{height:60px;display:flex;align-items:center;gap:12px;padding:0 24px;background:#fff;border-bottom:1px solid var(--line);}
+  .logo{font-size:18px;font-weight:800;} .top a.back{color:var(--gray);font-size:14px;font-weight:600;margin-left:auto;}
+  .wrap{max-width:840px;margin:0 auto;padding:24px 20px 120px;}
+  .gallery{height:240px;border-radius:18px;background:linear-gradient(135deg,#F2F4F6,#E8EBED);display:flex;align-items:center;justify-content:center;color:var(--gray2);margin-bottom:16px;}
+  h1{font-size:24px;font-weight:800;letter-spacing:-.6px;} .sub{color:var(--gray2);font-size:14px;margin-top:4px;}
+  .search{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;display:flex;gap:10px;margin:16px 0;}
+  .search .f{flex:1;background:var(--bg2);border-radius:12px;padding:12px 14px;font-size:13px;color:var(--gray);} .search .f b{display:block;font-size:11px;color:var(--gray2);}
+  h3{font-size:17px;font-weight:800;margin:22px 0 12px;}
+  .room{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;display:flex;gap:16px;margin-bottom:12px;align-items:center;}
+  .room .ph{width:120px;height:90px;border-radius:12px;background:var(--bg3);display:flex;align-items:center;justify-content:center;color:var(--gray2);font-size:12px;flex:0 0 auto;}
+  .room .nm{font-weight:700;font-size:16px;} .room .opt{font-size:13px;color:var(--gray);margin-top:4px;}
+  .stock{font-size:12px;font-weight:700;margin-top:6px;} .stock.low{color:var(--red);} .stock.ok{color:#15B886;}
+  .room .right{margin-left:auto;text-align:right;} .room .pr{font-size:18px;font-weight:800;} .room .per{font-size:12px;color:var(--gray2);}
+  .room .sel{margin-top:8px;display:inline-flex;border:1px solid var(--blue);color:var(--blue);background:var(--blue-bg);border-radius:10px;padding:8px 16px;font-size:13px;font-weight:700;cursor:pointer;}
+  .room.on{border-color:var(--blue);box-shadow:0 0 0 2px var(--blue-bg);}
+  .cal{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;}
+  .cgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;text-align:center;}
+  .cgrid .h{font-size:12px;color:var(--gray2);} .cd{padding:8px 0;border-radius:8px;font-size:12px;font-weight:600;}
+  .cd .n{font-size:13px;} .cd .s{font-size:10px;} .cd.avail{background:var(--blue-bg);color:var(--blue);} .cd.full{background:var(--bg3);color:var(--gray2);} .cd.sel{background:var(--blue);color:#fff;}
+  .bar2{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);padding:14px 20px;display:flex;align-items:center;gap:12px;}
+  .bar2 .info{flex:1;} .bar2 .info b{font-size:18px;} .bar2 .info small{display:block;color:var(--gray2);font-size:12px;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;font-weight:700;border-radius:12px;padding:14px 28px;font-size:16px;border:none;cursor:pointer;background:var(--blue);color:#fff;}
+</style>
+</head>
+<body>
+  <div class="top"><a class="logo" href="index.html">＋ Meditour</a><a class="back" href="list.html">‹ 목록</a></div>
+  <div class="wrap">
+    <div class="gallery">호텔 대표 이미지</div>
+    <h1>OOO 호텔 · 강남</h1>
+    <div class="sub">★ 4.7 (820) · 의료관광 제휴 · 🇨🇳🇬🇧🇯🇵 응대</div>
+
+    <!-- 검색/날짜 위젯 (accor식) -->
+    <div class="search">
+      <div class="f"><b>체크인</b>2026-07-10 (목)</div>
+      <div class="f"><b>체크아웃</b>2026-07-12 (토) · 2박</div>
+      <div class="f"><b>객실 / 인원</b>객실 1 · 성인 2</div>
+    </div>
+
+    <h3>객실 선택 · 박단위 재고</h3>
+    <div class="room on"><div class="ph">디럭스룸</div>
+      <div><div class="nm">디럭스 더블</div><div class="opt">28㎡ · 조식 포함 · 무료 취소</div>
+        <div class="stock low">잔여 2실 (7/10~12)</div></div>
+      <div class="right"><div class="pr">₩200,000</div><div class="per">/ 박 · 2박 ₩400,000</div><div class="sel">선택됨 ✓</div></div></div>
+    <div class="room"><div class="ph">스위트</div>
+      <div><div class="nm">주니어 스위트</div><div class="opt">45㎡ · 조식 포함 · 픽업 서비스</div>
+        <div class="stock ok">잔여 5실</div></div>
+      <div class="right"><div class="pr">₩350,000</div><div class="per">/ 박</div><div class="sel">선택</div></div></div>
+    <div class="room"><div class="ph">스탠다드</div>
+      <div><div class="nm">스탠다드 트윈</div><div class="opt">22㎡ · 조식 별도</div>
+        <div class="stock" style="color:var(--gray2)">마감 (7/11)</div></div>
+      <div class="right"><div class="pr">₩150,000</div><div class="per">/ 박</div><div class="sel" style="opacity:.4;cursor:not-allowed;">마감</div></div></div>
+
+    <h3>날짜별 잔여 객실 (디럭스 더블)</h3>
+    <div class="cal"><div class="cgrid">
+      <div class="h">일</div><div class="h">월</div><div class="h">화</div><div class="h">수</div><div class="h">목</div><div class="h">금</div><div class="h">토</div>
+      <div></div><div></div>
+      <div class="cd avail"><div class="n">1</div><div class="s">5실</div></div>
+      <div class="cd avail"><div class="n">2</div><div class="s">3실</div></div>
+      <div class="cd full"><div class="n">3</div><div class="s">마감</div></div>
+      <div class="cd avail"><div class="n">4</div><div class="s">4실</div></div>
+      <div class="cd avail"><div class="n">5</div><div class="s">2실</div></div>
+      <div class="cd avail"><div class="n">6</div><div class="s">6실</div></div>
+      <div class="cd avail"><div class="n">7</div><div class="s">3실</div></div>
+      <div class="cd avail"><div class="n">8</div><div class="s">5실</div></div>
+      <div class="cd avail"><div class="n">9</div><div class="s">1실</div></div>
+      <div class="cd sel"><div class="n">10</div><div class="s">체크인</div></div>
+      <div class="cd sel"><div class="n">11</div><div class="s">숙박</div></div>
+      <div class="cd sel"><div class="n">12</div><div class="s">체크아웃</div></div>
+    </div></div>
+  </div>
+
+  <div class="bar2"><div class="info"><b>₩400,000</b><small>디럭스 더블 · 2박 · 예약금 10%</small></div>
+    <a class="btn" href="booking-verify.html">다음 (휴대폰 인증)</a></div>
+</body>
+</html>

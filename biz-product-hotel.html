@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditour 파트너 — 상품 등록 (호텔)</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{--blue:#3182F6;--blue-bg:#EBF2FF;--ink:#191F28;--gray:#4E5968;--gray2:#8B95A1;--line:#E5E8EB;--bg2:#F9FAFB;--bg3:#F2F4F6;--green:#15B886;--purple:#7C5CFC;--red:#E5484D;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Pretendard',-apple-system,sans-serif;color:var(--ink);background:var(--bg2);line-height:1.5;-webkit-font-smoothing:antialiased;}
+  a{text-decoration:none;color:inherit;} .muted2{color:var(--gray2);}
+  .btn{display:inline-flex;align-items:center;justify-content:center;font-weight:600;border-radius:10px;padding:10px 18px;font-size:14px;cursor:pointer;border:none;} .btn.primary{background:var(--blue);color:#fff;} .btn.ghost{background:var(--bg3);color:var(--ink);} .btn.line{background:#fff;border:1px solid var(--line);color:var(--gray);}
+  .ph{background:linear-gradient(135deg,#F2F4F6,#E8EBED);display:flex;align-items:center;justify-content:center;color:var(--gray2);font-size:12px;border-radius:10px;}
+  .shell{display:grid;grid-template-columns:230px 1fr;min-height:100vh;}
+  .sidebar{background:#fff;border-right:1px solid var(--line);padding:18px 14px;position:sticky;top:0;height:100vh;}
+  .brand{font-size:18px;font-weight:800;padding:8px 10px 4px;} .brand small{display:block;font-size:11px;color:var(--gray2);font-weight:600;}
+  .snav{margin-top:18px;display:flex;flex-direction:column;gap:2px;} .snav a{display:flex;gap:10px;padding:11px 12px;border-radius:10px;font-size:14px;font-weight:600;color:var(--gray);} .snav a.on{background:var(--blue-bg);color:var(--blue);} .snav .sec{font-size:11px;color:var(--gray2);font-weight:700;padding:14px 12px 6px;}
+  .main{display:flex;flex-direction:column;}
+  .topbar{background:#fff;border-bottom:1px solid var(--line);height:62px;display:flex;align-items:center;gap:12px;padding:0 26px;position:sticky;top:0;z-index:30;} .topbar .biz{font-weight:800;font-size:15px;} .topbar .stt{font-size:11px;font-weight:700;background:#E6F7F1;color:var(--green);padding:3px 9px;border-radius:8px;} .topbar .right{margin-left:auto;display:flex;gap:16px;align-items:center;} .ava{width:32px;height:32px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;}
+  .content{padding:28px 26px 60px;max-width:760px;}
+  .crumb{font-size:13px;color:var(--gray2);margin-bottom:8px;} h1{font-size:24px;font-weight:800;letter-spacing:-.6px;}
+  .typetab{display:flex;gap:8px;margin:16px 0 22px;} .typetab a{padding:9px 16px;border-radius:999px;font-size:13px;font-weight:700;background:#fff;border:1px solid var(--line);color:var(--gray);} .typetab a.on{background:var(--purple);color:#fff;border-color:var(--purple);}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;margin-bottom:16px;} .panel h3{font-size:16px;font-weight:800;margin-bottom:4px;} .panel .d{font-size:13px;color:var(--gray2);margin-bottom:14px;}
+  label{display:block;font-size:13px;font-weight:700;margin:14px 0 6px;} .field{width:100%;height:48px;border:1px solid var(--line);border-radius:10px;padding:0 12px;font-size:14px;color:var(--gray2);display:flex;align-items:center;} .area{height:80px;align-items:flex-start;padding-top:12px;}
+  .row{display:flex;gap:10px;}
+  .roomcard{border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:10px;}
+  .roomcard .rh{display:flex;align-items:center;gap:10px;margin-bottom:10px;} .roomcard .rh b{font-size:15px;} .roomcard .rh .del{margin-left:auto;color:var(--gray2);font-size:13px;}
+  .cal{border:1px solid var(--line);border-radius:12px;padding:12px;margin-top:8px;}
+  .cgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;text-align:center;} .cgrid .h{font-size:11px;color:var(--gray2);} .cd{padding:6px 0;border-radius:7px;font-size:11px;} .cd .n{font-weight:700;} .cd.av{background:var(--blue-bg);color:var(--blue);} .cd.full{background:var(--bg3);color:var(--gray2);}
+  .save{display:flex;gap:10px;justify-content:flex-end;} .save .btn{height:48px;padding:0 26px;}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand">＋ Meditour <small>파트너 콘솔</small></div>
+    <nav class="snav">
+      <a href="biz-dashboard.html">🏠 대시보드</a>
+      <div class="sec">운영</div>
+      <a class="on" href="biz-products.html">🧾 상품 관리</a><a href="biz-reservations.html">📅 예약 관리</a><a href="biz-chat.html">💬 문의 · 채팅</a><a href="biz-stats.html">📊 통계</a>
+      <div class="sec">설정</div>
+      <a href="biz-profile.html">🏥 업체 프로필</a><a href="index.html">↩ 로그아웃</a>
+    </nav>
+  </aside>
+  <div class="main">
+    <div class="topbar"><span class="biz">🏨 OOO 호텔</span><span class="stt">승인 완료 · 호텔</span>
+      <div class="right"><span class="muted2" style="font-size:13px;font-weight:600;">Plus 플랜</span><span class="ava">👤</span></div></div>
+    <div class="content">
+      <div class="crumb"><a href="biz-products.html">상품 관리</a> › 등록</div>
+      <h1>상품 등록</h1>
+      <div class="typetab"><a href="biz-products.html">🏥 의료</a><a href="biz-product-beauty.html">💆 뷰티</a><a class="on">🏨 호텔</a><a href="biz-product-package.html">🧳 패키지</a></div>
+
+      <div class="panel"><h3>호텔 기본 정보</h3><div class="d">호텔은 객실(룸타입)별로 박단위 재고를 관리합니다.</div>
+        <label>호텔명</label><div class="field">예) OOO 호텔</div>
+        <label>등급 / 위치</label><div class="row"><div class="field">4성급</div><div class="field">서울 강남구 …</div></div>
+        <label>어메니티</label><div class="field">조식 · 피트니스 · 픽업 · Wi-Fi …</div>
+      </div>
+
+      <div class="panel"><h3>객실(룸타입) · 박단위 재고</h3><div class="d">룸타입별로 가격과 날짜별 잔여 객실 수를 설정합니다.</div>
+        <div class="roomcard">
+          <div class="rh"><div class="ph" style="width:40px;height:40px;">룸</div><b>디럭스 더블</b><span class="muted2" style="font-size:12px;">28㎡ · 조식</span><span class="del">삭제</span></div>
+          <div class="row"><div class="field">박당 ₩200,000</div><div class="field" style="flex:0 0 130px;">총 객실 8실</div></div>
+          <div class="cal"><div style="font-size:12px;font-weight:700;margin-bottom:8px;">날짜별 잔여 · 2026.07</div>
+            <div class="cgrid">
+              <div class="h">일</div><div class="h">월</div><div class="h">화</div><div class="h">수</div><div class="h">목</div><div class="h">금</div><div class="h">토</div>
+              <div></div><div></div>
+              <div class="cd av"><div class="n">1</div>5</div><div class="cd av"><div class="n">2</div>3</div><div class="cd full"><div class="n">3</div>0</div><div class="cd av"><div class="n">4</div>4</div><div class="cd av"><div class="n">5</div>2</div><div class="cd av"><div class="n">6</div>6</div><div class="cd av"><div class="n">7</div>3</div>
+            </div></div>
+        </div>
+        <div class="roomcard">
+          <div class="rh"><div class="ph" style="width:40px;height:40px;">룸</div><b>주니어 스위트</b><span class="muted2" style="font-size:12px;">45㎡ · 픽업</span><span class="del">삭제</span></div>
+          <div class="row"><div class="field">박당 ₩350,000</div><div class="field" style="flex:0 0 130px;">총 객실 4실</div></div>
+        </div>
+        <a class="btn line">＋ 룸타입 추가</a>
+      </div>
+
+      <div class="panel"><h3>취소 정책 · 이미지</h3>
+        <label>무료 취소 기준</label><div class="field">체크인 24시간 전까지 무료</div>
+        <label>이미지</label><div class="row"><div class="ph" style="width:72px;height:72px;">＋</div><div class="ph" style="width:72px;height:72px;">IMG</div></div>
+      </div>
+
+      <div class="save"><a class="btn ghost" href="biz-products.html">취소</a><a class="btn primary">저장 (승인 요청)</a></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

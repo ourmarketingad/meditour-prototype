@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditour — AI 전화 상담</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{--blue:#3182F6;--ink:#191F28;--gray:#4E5968;--gray2:#8B95A1;--line:#E5E8EB;--bg2:#F9FAFB;--bg3:#F2F4F6;--green:#15B886;--red:#E5484D;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Pretendard',-apple-system,sans-serif;color:#fff;background:#0B1A33;line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column;}
+  a{text-decoration:none;color:inherit;}
+  .top{padding:18px 24px;display:flex;align-items:center;} .logo{font-size:17px;font-weight:800;opacity:.7;} .min{margin-left:auto;opacity:.6;font-size:14px;}
+  .center{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;}
+  .ava{width:110px;height:110px;border-radius:50%;background:linear-gradient(135deg,#3182F6,#7C5CFC);display:flex;align-items:center;justify-content:center;font-size:48px;margin-bottom:18px;box-shadow:0 0 0 8px rgba(49,130,246,.15),0 0 0 18px rgba(49,130,246,.08);}
+  .nm{font-size:24px;font-weight:800;} .role{opacity:.7;font-size:14px;margin-top:4px;}
+  .timer{opacity:.6;font-size:14px;margin-top:10px;}
+  .lang{display:inline-flex;gap:8px;margin-top:16px;background:rgba(255,255,255,.08);border-radius:999px;padding:8px 16px;font-size:13px;font-weight:600;}
+  /* live caption */
+  .caption{background:rgba(255,255,255,.06);border-radius:18px;padding:18px;margin:24px 20px;max-width:520px;width:100%;}
+  .cap{margin-bottom:14px;text-align:left;} .cap .who{font-size:12px;opacity:.6;font-weight:700;margin-bottom:4px;} .cap .o{font-size:13px;opacity:.65;} .cap .tr{font-size:15px;font-weight:600;}
+  .cap.me .who{color:#9DC2FF;}
+  .controls{display:flex;gap:18px;justify-content:center;padding:24px 0 40px;}
+  .cbtn{width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:22px;cursor:pointer;}
+  .cbtn.end{background:var(--red);} .cbtn.end{width:72px;height:72px;}
+  .note{opacity:.5;font-size:12px;text-align:center;padding-bottom:20px;}
+</style>
+</head>
+<body>
+  <div class="top"><span class="logo">＋ Meditour</span><a class="min" href="detail.html">— 최소화</a></div>
+  <div class="center">
+    <div class="ava">🎧</div>
+    <div class="nm">메디투어 AI 상담</div>
+    <div class="role">OOO 클리닉 · 다국어 음성 응대</div>
+    <div class="timer">● 통화 중 02:14</div>
+    <div class="lang">🌐 내 언어: English ⇄ 응대: 한국어 (실시간 번역)</div>
+
+    <div class="caption">
+      <div class="cap"><div class="who">AI 상담원</div><div class="tr">네, 7월 10일 오후 2시 예약 가능합니다. 예약금이 필요해요.</div><div class="o">"July 10, 2 PM is available. A deposit is required."</div></div>
+      <div class="cap me"><div class="who">나 (말하는 중…)</div><div class="tr">Can you send me the estimate by chat?</div></div>
+    </div>
+  </div>
+  <div class="controls">
+    <div class="cbtn">🔇</div>
+    <div class="cbtn end" onclick="location.href='detail.html'">📞</div>
+    <div class="cbtn">⌨️</div>
+  </div>
+  <div class="note">통화 내용은 자동 번역·요약되어 채팅 내역에 저장됩니다 · ElevenLabs 음성</div>
+</body>
+</html>

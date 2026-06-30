@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditour 관리자 — CRM</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{--blue:#3182F6;--blue-bg:#EBF2FF;--ink:#191F28;--gray:#4E5968;--gray2:#8B95A1;--line:#E5E8EB;--bg2:#F9FAFB;--bg3:#F2F4F6;--green:#15B886;--orange:#F59E0B;--red:#E5484D;--purple:#7C5CFC;--purple-bg:#EFEBFF;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Pretendard',-apple-system,sans-serif;color:var(--ink);background:var(--bg2);line-height:1.5;-webkit-font-smoothing:antialiased;}
+  a{text-decoration:none;color:inherit;} .muted2{color:var(--gray2);}
+  .btn{display:inline-flex;align-items:center;justify-content:center;font-weight:600;border-radius:10px;padding:9px 16px;font-size:14px;cursor:pointer;border:none;} .btn.primary{background:var(--blue);color:#fff;} .btn.line{background:#fff;border:1px solid var(--line);color:var(--gray);} .btn.purple{background:var(--purple);color:#fff;}
+  .shell{display:grid;grid-template-columns:230px 1fr;min-height:100vh;}
+  .sidebar{background:#fff;border-right:1px solid var(--line);padding:18px 14px;position:sticky;top:0;height:100vh;}
+  .brand{font-size:18px;font-weight:800;letter-spacing:-.5px;padding:8px 10px 4px;} .brand small{display:block;font-size:11px;color:var(--purple);font-weight:700;}
+  .snav{margin-top:18px;display:flex;flex-direction:column;gap:2px;} .snav a{display:flex;align-items:center;gap:10px;padding:11px 12px;border-radius:10px;font-size:14px;font-weight:600;color:var(--gray);} .snav a.on{background:var(--purple-bg);color:var(--purple);} .snav a:hover{background:var(--bg2);} .snav .sec{font-size:11px;color:var(--gray2);font-weight:700;padding:14px 12px 6px;}
+  .main{display:flex;flex-direction:column;}
+  .topbar{background:#fff;border-bottom:1px solid var(--line);height:62px;display:flex;align-items:center;gap:12px;padding:0 26px;position:sticky;top:0;z-index:30;} .topbar .ttl{font-weight:800;font-size:15px;} .topbar .stt{font-size:11px;font-weight:700;background:var(--purple-bg);color:var(--purple);padding:3px 9px;border-radius:8px;} .topbar .right{margin-left:auto;display:flex;align-items:center;gap:16px;} .bell{font-size:18px;} .ava{width:32px;height:32px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;}
+  .content{padding:28px 26px 60px;}
+  h1{font-size:24px;font-weight:800;letter-spacing:-.6px;} .sub{color:var(--gray);font-size:14px;margin:4px 0 18px;}
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:18px;} .kpi{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;} .kpi .l{font-size:13px;color:var(--gray);font-weight:600;} .kpi .n{font-size:26px;font-weight:800;letter-spacing:-1px;margin-top:6px;} .kpi .d{font-size:12px;margin-top:4px;} .up{color:var(--green);}
+  .grid2{display:grid;grid-template-columns:1fr 1.4fr;gap:18px;}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;} .panel h3{font-size:16px;font-weight:800;margin-bottom:14px;}
+  .seg{display:flex;flex-direction:column;gap:8px;} .sg{display:flex;align-items:center;gap:10px;padding:12px;border:1px solid var(--line);border-radius:12px;cursor:pointer;} .sg.on{border-color:var(--purple);background:var(--purple-bg);} .sg .nm{font-weight:700;font-size:14px;} .sg .c{margin-left:auto;font-weight:800;}
+  .camp{display:flex;gap:12px;padding:14px;border:1px solid var(--line);border-radius:12px;margin-bottom:10px;align-items:center;} .camp .ic{width:40px;height:40px;border-radius:11px;background:var(--purple-bg);display:flex;align-items:center;justify-content:center;font-size:18px;} .camp .nm{font-weight:700;} .camp .ds{font-size:12px;color:var(--gray2);}
+  table{width:100%;border-collapse:collapse;font-size:13px;margin-top:6px;} th{text-align:left;color:var(--gray2);font-weight:700;padding:10px 8px;border-bottom:1px solid var(--line);} td{padding:11px 8px;border-bottom:1px solid var(--bg2);}
+  .tag{font-size:11px;font-weight:700;padding:2px 8px;border-radius:7px;} .t-vip{background:#FFF4E5;color:var(--orange);} .t-re{background:#E6F7F1;color:var(--green);} .t-risk{background:#FBE9EA;color:var(--red);} .t-new{background:var(--blue-bg);color:var(--blue);}
+  @media(max-width:980px){.shell{grid-template-columns:1fr;}.sidebar{display:none;}.kpis{grid-template-columns:repeat(2,1fr);}.grid2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand">＋ Meditour <small>관리자 콘솔</small></div>
+    <nav class="snav">
+      <a href="admin-dashboard.html">🏠 대시보드</a>
+      <div class="sec">관리</div>
+      <a href="admin-members.html">👥 회원 관리</a><a href="admin-businesses.html">🏥 업체 관리 · 입점 승인</a><a href="admin-products.html">🧾 상품 관리 · 승인</a>
+      <div class="sec">마케팅</div>
+      <a class="on">🎯 CRM</a><a href="admin-promotions.html">🔗 프로모션</a><a href="admin-banners.html">🖼 배너 관리</a>
+      <div class="sec">분석 · CS</div>
+      <a href="admin-stats.html">📊 사이트 통계</a><a href="admin-inquiries.html">📨 고객문의</a>
+      <a href="index.html">↩ 로그아웃</a>
+    </nav>
+  </aside>
+  <div class="main">
+    <div class="topbar"><span class="ttl">🛡 Meditour Admin</span><span class="stt">최고 관리자</span>
+      <div class="right"><span class="bell">🔔</span><span class="ava">🛡</span></div></div>
+    <div class="content">
+      <h1>CRM · 고객 관계 관리</h1>
+      <p class="sub">예약 완료/취소 이벤트 기반 세그먼트 · 재방문 캠페인. (고객 + 업체)</p>
+      <div class="kpis">
+        <div class="kpi"><div class="l">전체 고객</div><div class="n">38,210</div><div class="d up">▲ +12%</div></div>
+        <div class="kpi"><div class="l">재방문율</div><div class="n">31%</div><div class="d up">▲ +3%p</div></div>
+        <div class="kpi"><div class="l">휴면 고객</div><div class="n">4,120</div><div class="d">90일+ 미방문</div></div>
+        <div class="kpi"><div class="l">노쇼 위험</div><div class="n">86</div><div class="d" style="color:var(--red)">● 주의</div></div>
+      </div>
+      <div class="grid2">
+        <div class="panel"><h3>세그먼트</h3>
+          <div class="seg">
+            <div class="sg on"><span class="tag t-new">신규</span><span class="nm">최근 가입 미예약</span><span class="c">5,210</span></div>
+            <div class="sg"><span class="tag t-re">재방문</span><span class="nm">2회 이상 예약</span><span class="c">8,940</span></div>
+            <div class="sg"><span class="tag t-vip">VIP</span><span class="nm">누적 ₩300만+</span><span class="c">1,120</span></div>
+            <div class="sg"><span class="nm">휴면 (90일+)</span><span class="c">4,120</span></div>
+            <div class="sg"><span class="tag t-risk">노쇼위험</span><span class="nm">노쇼 2회</span><span class="c">86</span></div>
+          </div>
+        </div>
+        <div class="panel"><h3>캠페인 (자동/수동)</h3>
+          <div class="camp"><div class="ic">🔁</div><div style="flex:1;"><div class="nm">재방문 유도 (휴면 고객)</div><div class="ds">90일 미방문 → 쿠폰 발송 · 다국어 자동 번역</div></div><a class="btn purple">발송</a></div>
+          <div class="camp"><div class="ic">⭐</div><div style="flex:1;"><div class="nm">후기 요청 (방문 완료)</div><div class="ds">방문 D+1 자동 발송</div></div><a class="btn line">설정</a></div>
+          <div class="camp"><div class="ic">🔔</div><div style="flex:1;"><div class="nm">노쇼 방지 리마인드</div><div class="ds">D-3 / D-1 / 당일 AI 전화</div></div><a class="btn line">설정</a></div>
+          <table>
+            <tr><th>고객</th><th>세그먼트</th><th>최근 방문</th><th>누적</th></tr>
+            <tr><td>🇨🇳 Li Wei</td><td><span class="tag t-vip">VIP</span></td><td>06-20</td><td>₩4.2M</td></tr>
+            <tr><td>🇺🇸 Sarah K.</td><td><span class="tag t-re">재방문</span></td><td>06-20</td><td>₩1.1M</td></tr>
+            <tr><td>🇯🇵 Megumi I.</td><td><span class="tag t-new">신규</span></td><td>—</td><td>₩0</td></tr>
+            <tr><td>🇹🇼 Chen W.</td><td><span class="tag t-risk">노쇼위험</span></td><td>05-30</td><td>₩0.3M</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

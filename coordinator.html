@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditour — 의료 코디네이터</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{--blue:#3182F6;--blue-bg:#EBF2FF;--ink:#191F28;--gray:#4E5968;--gray2:#8B95A1;--line:#E5E8EB;--bg2:#F9FAFB;--bg3:#F2F4F6;--green:#15B886;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Pretendard',-apple-system,sans-serif;color:var(--ink);background:#fff;line-height:1.5;-webkit-font-smoothing:antialiased;}
+  a{text-decoration:none;color:inherit;} .muted2{color:var(--gray2);} .muted{color:var(--gray);}
+  .wrap{max-width:840px;margin:0 auto;padding:0 24px;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;font-weight:700;border-radius:12px;padding:13px 22px;font-size:15px;cursor:pointer;border:none;background:var(--blue);color:#fff;} .btn.line{background:#fff;border:1px solid var(--line);color:var(--gray);} .btn.sm{padding:9px 16px;font-size:14px;border-radius:10px;}
+  .top{height:60px;display:flex;align-items:center;gap:12px;padding:0 24px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:40;} .logo{font-size:18px;font-weight:800;} .top a.back{color:var(--gray);font-size:14px;font-weight:600;margin-left:auto;}
+  .hero{background:linear-gradient(135deg,#EBF2FF,#F4F8FF);border-radius:0 0 24px 24px;padding:40px 24px;text-align:center;}
+  .hero .tagn{color:var(--blue);font-weight:800;font-size:14px;} .hero h1{font-size:32px;font-weight:800;letter-spacing:-1px;margin:8px 0;} .hero p{color:var(--gray);font-size:16px;}
+  h2{font-size:22px;font-weight:800;letter-spacing:-.6px;margin:32px 0 16px;}
+  .mine{display:flex;gap:16px;align-items:center;border:1px solid var(--line);border-radius:18px;padding:20px;background:#fff;}
+  .mine .av{width:64px;height:64px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:28px;} .mine .nm{font-size:18px;font-weight:800;} .mine .sp{font-size:13px;color:var(--gray2);} .mine .acts{margin-left:auto;display:flex;gap:8px;}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .co{border:1px solid var(--line);border-radius:16px;padding:18px;text-align:center;} .co .av{width:60px;height:60px;border-radius:50%;background:var(--bg3);margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:26px;} .co .nm{font-weight:700;} .co .lg{font-size:12px;color:var(--gray2);margin-top:3px;} .co .badge{display:inline-block;font-size:11px;font-weight:700;background:#E6F7F1;color:var(--green);border-radius:7px;padding:2px 8px;margin-top:8px;}
+  .accom{display:flex;gap:12px;align-items:center;border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:10px;} .accom .ic{width:42px;height:42px;border-radius:12px;background:var(--blue-bg);display:flex;align-items:center;justify-content:center;font-size:18px;} .accom .nm{font-weight:700;} .accom .d{font-size:13px;color:var(--gray2);} .accom .when{margin-left:auto;text-align:right;font-size:13px;font-weight:700;}
+  .plan{background:var(--bg2);border-radius:14px;padding:14px 16px;font-size:13px;color:var(--gray);margin:14px 0 40px;}
+</style>
+</head>
+<body>
+  <div class="top"><a class="logo" href="index.html">＋ Meditour</a><a class="back" href="mypage.html">‹ 마이페이지</a></div>
+  <div class="hero"><div class="tagn">ENTERPRISE</div><h1>전담 의료 코디네이터</h1>
+    <p>언어별 전문 코디네이터가 상담부터 통역 동행까지 함께합니다.</p></div>
+  <div class="wrap">
+    <h2>내 담당 코디네이터</h2>
+    <div class="mine"><div class="av">👩‍⚕️</div>
+      <div><div class="nm">Sophie Chen · 中文 코디네이터</div><div class="sp">의료관광 5년 · 피부·성형 전문 · 평점 4.9</div></div>
+      <div class="acts"><a class="btn line sm" href="chat.html">💬 채팅</a><a class="btn sm" href="call.html">📞 통화</a></div>
+    </div>
+
+    <h2>통역 동행 일정</h2>
+    <div class="accom"><div class="ic">🏥</div><div><div class="nm">OOO 클리닉 방문 동행</div><div class="d">시술 상담·통역 동행</div></div><div class="when">07-10 14:00<br><span class="muted2" style="font-weight:600;">예정</span></div></div>
+    <div class="accom"><div class="ic">🚐</div><div><div class="nm">공항 픽업 동행</div><div class="d">인천공항 → 호텔</div></div><div class="when">07-09 18:00<br><span class="muted2" style="font-weight:600;">예정</span></div></div>
+
+    <h2>코디네이터 풀 (언어별)</h2>
+    <div class="grid">
+      <div class="co"><div class="av">👩‍⚕️</div><div class="nm">Sophie</div><div class="lg">🇨🇳 中文 · 🇬🇧 EN</div><div class="badge">담당중</div></div>
+      <div class="co"><div class="av">👨‍⚕️</div><div class="nm">Kenji</div><div class="lg">🇯🇵 日本語</div><div class="badge">가능</div></div>
+      <div class="co"><div class="av">👩‍⚕️</div><div class="nm">Aria</div><div class="lg">🇬🇧 EN · 🇹🇭 ไทย</div><div class="badge">가능</div></div>
+    </div>
+    <div class="plan">ℹ️ 전담 코디네이터·통역 동행은 <b>Enterprise 플랜</b>에 포함됩니다. 다른 플랜은 AI 번역 상담으로 제공됩니다.</div>
+  </div>
+</body>
+</html>
