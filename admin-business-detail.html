@@ -27,6 +27,9 @@
   .line{display:flex;justify-content:space-between;font-size:14px;padding:8px 0;border-bottom:1px solid var(--bg2);} .line:last-child{border-bottom:none;} .line span{color:var(--gray);}
   table{width:100%;border-collapse:collapse;font-size:13px;} th{text-align:left;color:var(--gray2);font-weight:700;padding:9px 6px;border-bottom:1px solid var(--line);} td{padding:10px 6px;border-bottom:1px solid var(--bg2);} .stt{font-size:11px;font-weight:700;padding:2px 8px;border-radius:7px;} .stt.ok{background:#E6F7F1;color:var(--green);} .stt.w{background:#FFF4E5;color:var(--orange);}
   .pname{display:flex;align-items:center;gap:8px;} .pname .ph{width:34px;height:34px;}
+
+/* QA: 모바일에서 헤더 버튼이 화면 밖으로 밀려 가로 스크롤 생기는 문제 수정 */
+@media (max-width:640px){ .nav{flex-wrap:wrap;height:auto;min-height:56px;padding:8px 16px;gap:10px 14px} }
 </style>
 </head>
 <body>

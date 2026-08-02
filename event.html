@@ -29,6 +29,9 @@
   .card{border:1px solid var(--line);border-radius:16px;overflow:hidden;} .card .t{height:110px;position:relative;} .card .off{position:absolute;top:8px;left:8px;background:var(--pink);color:#fff;font-size:11px;font-weight:800;padding:3px 9px;border-radius:7px;} .card .bd{padding:12px;} .card .c{font-size:12px;color:var(--gray2);} .card h4{font-size:15px;font-weight:700;margin-top:3px;}
   .cta{background:var(--bg2);text-align:center;padding:56px 24px;} .cta h2{font-size:30px;font-weight:800;letter-spacing:-1px;} .cta p{color:var(--gray);margin:12px 0 22px;} .cta .btn{background:var(--pink);color:#fff;}
   @media(max-width:780px){.hero h1{font-size:32px;}.benefits,.clinics{grid-template-columns:1fr 1fr;}}
+
+/* QA: 모바일에서 헤더 버튼이 화면 밖으로 밀려 가로 스크롤 생기는 문제 수정 */
+@media (max-width:640px){ .nav{flex-wrap:wrap;height:auto;min-height:56px;padding:8px 16px;gap:10px 14px} }
 </style>
 </head>
 <body>

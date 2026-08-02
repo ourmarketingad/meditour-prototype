@@ -85,6 +85,9 @@
   .bottombar .p{flex:1;font-weight:800;} .bottombar .p small{font-weight:600;color:var(--gray2);font-size:12px;display:block;}
 
   @media(max-width:880px){.body2{grid-template-columns:1fr;}.book{display:none;}.gallery{grid-template-columns:1fr;grid-template-rows:none;height:auto;}.gallery .ph{height:200px;}.gallery .big{grid-row:auto;}}
+
+/* QA: 모바일에서 헤더 버튼이 화면 밖으로 밀려 가로 스크롤 생기는 문제 수정 */
+@media (max-width:640px){ .nav{flex-wrap:wrap;height:auto;min-height:56px;padding:8px 16px;gap:10px 14px} }
 </style>
 </head>
 <body>

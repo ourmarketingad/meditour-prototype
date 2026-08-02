@@ -39,6 +39,9 @@
   .bar2{position:sticky;bottom:0;background:#fff;border-top:1px solid var(--line);padding:14px 20px;display:flex;align-items:center;gap:12px;}
   .bar2 .info{flex:1;} .bar2 .info b{font-size:18px;} .bar2 .info small{display:block;color:var(--gray2);font-size:12px;}
   .btn{display:inline-flex;align-items:center;justify-content:center;font-weight:700;border-radius:12px;padding:14px 28px;font-size:16px;border:none;cursor:pointer;background:var(--blue);color:#fff;}
+
+/* QA: 모바일에서 헤더 버튼이 화면 밖으로 밀려 가로 스크롤 생기는 문제 수정 */
+@media (max-width:640px){ .nav{flex-wrap:wrap;height:auto;min-height:56px;padding:8px 16px;gap:10px 14px} }
 </style>
 </head>
 <body>

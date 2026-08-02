@@ -23,6 +23,9 @@
   table{width:100%;border-collapse:collapse;font-size:13px;} th{text-align:left;color:var(--gray2);font-weight:700;padding:12px 10px;border-bottom:1px solid var(--line);} td{padding:12px 10px;border-bottom:1px solid var(--bg2);} th.c,td.c{text-align:center;}
   .perm td.c{font-size:16px;} .yes{color:var(--green);} .no{color:var(--line);}
   .roletag{font-size:11px;font-weight:700;padding:3px 9px;border-radius:8px;} .r-super{background:var(--purple-bg);color:var(--purple);} .r-sales{background:#FFF4E5;color:#F59E0B;} .r-cs{background:#E7F0FF;color:var(--blue);} .r-audit{background:#E6F7F1;color:var(--green);}
+
+/* QA: 모바일에서 헤더 버튼이 화면 밖으로 밀려 가로 스크롤 생기는 문제 수정 */
+@media (max-width:640px){ .nav{flex-wrap:wrap;height:auto;min-height:56px;padding:8px 16px;gap:10px 14px} }
 </style>
 </head>
 <body>

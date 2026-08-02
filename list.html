@@ -67,6 +67,9 @@
   .pg{width:38px;height:38px;border-radius:10px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-weight:600;color:var(--gray);}
   .pg.on{background:var(--ink);color:#fff;border-color:var(--ink);}
   @media(max-width:880px){.layout{grid-template-columns:1fr;}.filters{display:none;}.results{grid-template-columns:repeat(2,1fr);}}
+
+/* QA: 모바일에서 헤더 버튼이 화면 밖으로 밀려 가로 스크롤 생기는 문제 수정 */
+@media (max-width:640px){ .nav{flex-wrap:wrap;height:auto;min-height:56px;padding:8px 16px;gap:10px 14px} }
 </style>
 </head>
 <body>

@@ -24,6 +24,9 @@
   .line{display:flex;justify-content:space-between;font-size:14px;padding:8px 0;border-bottom:1px solid var(--bg2);} .line:last-child{border-bottom:none;} .line span{color:var(--gray);}
   .actcol{display:flex;flex-direction:column;gap:8px;} .actcol .btn{width:100%;}
   .note{width:100%;height:90px;border:1px solid var(--line);border-radius:12px;padding:12px;font-size:13px;color:var(--gray2);}
+
+/* QA: 모바일에서 헤더 버튼이 화면 밖으로 밀려 가로 스크롤 생기는 문제 수정 */
+@media (max-width:640px){ .nav{flex-wrap:wrap;height:auto;min-height:56px;padding:8px 16px;gap:10px 14px} }
 </style>
 </head>
 <body>

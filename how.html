@@ -32,6 +32,9 @@
   .cta h2{font-size:32px;font-weight:800;letter-spacing:-1px;} .cta p{color:var(--gray);font-size:17px;margin:12px 0 24px;}
   .faqlink{text-align:center;padding-bottom:80px;} .faqlink a{color:var(--blue);font-weight:700;}
   @media(max-width:880px){.step{flex-direction:column!important;gap:20px;}.hero h1{font-size:32px;}}
+
+/* QA: 모바일에서 헤더 버튼이 화면 밖으로 밀려 가로 스크롤 생기는 문제 수정 */
+@media (max-width:640px){ .nav{flex-wrap:wrap;height:auto;min-height:56px;padding:8px 16px;gap:10px 14px} }
 </style>
 </head>
 <body>

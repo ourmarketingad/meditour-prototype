@@ -43,6 +43,9 @@
   .planbox{display:flex;align-items:center;gap:14px;background:var(--blue-bg);border-radius:14px;padding:16px;}
   .planbox b{font-size:16px;} .planbox .btn{margin-left:auto;}
   @media(max-width:900px){.shell{grid-template-columns:1fr;}.sidebar{display:none;}}
+
+/* QA: 모바일에서 헤더 버튼이 화면 밖으로 밀려 가로 스크롤 생기는 문제 수정 */
+@media (max-width:640px){ .nav{flex-wrap:wrap;height:auto;min-height:56px;padding:8px 16px;gap:10px 14px} }
 </style>
 </head>
 <body>

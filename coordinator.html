@@ -22,6 +22,9 @@
   .co{border:1px solid var(--line);border-radius:16px;padding:18px;text-align:center;} .co .av{width:60px;height:60px;border-radius:50%;background:var(--bg3);margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:26px;} .co .nm{font-weight:700;} .co .lg{font-size:12px;color:var(--gray2);margin-top:3px;} .co .badge{display:inline-block;font-size:11px;font-weight:700;background:#E6F7F1;color:var(--green);border-radius:7px;padding:2px 8px;margin-top:8px;}
   .accom{display:flex;gap:12px;align-items:center;border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:10px;} .accom .ic{width:42px;height:42px;border-radius:12px;background:var(--blue-bg);display:flex;align-items:center;justify-content:center;font-size:18px;} .accom .nm{font-weight:700;} .accom .d{font-size:13px;color:var(--gray2);} .accom .when{margin-left:auto;text-align:right;font-size:13px;font-weight:700;}
   .plan{background:var(--bg2);border-radius:14px;padding:14px 16px;font-size:13px;color:var(--gray);margin:14px 0 40px;}
+
+/* QA: 모바일에서 헤더 버튼이 화면 밖으로 밀려 가로 스크롤 생기는 문제 수정 */
+@media (max-width:640px){ .nav{flex-wrap:wrap;height:auto;min-height:56px;padding:8px 16px;gap:10px 14px} }
 </style>
 </head>
 <body>

@@ -22,6 +22,9 @@
   .notice{background:#FFF7E6;border-radius:12px;padding:12px 14px;font-size:12px;color:#9A6B00;margin-top:12px;}
   .modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.4);display:none;align-items:center;justify-content:center;z-index:80;} .modal{background:#fff;border-radius:20px;padding:26px;width:380px;} .modal h3{font-size:18px;font-weight:800;margin-bottom:10px;} .modal .cal{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;text-align:center;margin:10px 0;} .modal .cd{padding:8px 0;border-radius:8px;font-size:13px;font-weight:600;background:var(--blue-bg);color:var(--blue);cursor:pointer;} .modal .cd.sel{background:var(--blue);color:#fff;} .modal .mb{display:flex;gap:8px;margin-top:14px;} .modal .mb a{flex:1;text-align:center;border-radius:10px;padding:12px;font-weight:700;} .modal .mb .g{background:var(--bg3);} .modal .mb .p{background:var(--blue);color:#fff;}
   .btn{display:inline-flex;align-items:center;justify-content:center;font-weight:700;border-radius:10px;padding:10px 16px;font-size:14px;background:var(--bg3);color:var(--ink);}
+
+/* QA: 모바일에서 헤더 버튼이 화면 밖으로 밀려 가로 스크롤 생기는 문제 수정 */
+@media (max-width:640px){ .nav{flex-wrap:wrap;height:auto;min-height:56px;padding:8px 16px;gap:10px 14px} }
 </style>
 </head>
 <body>

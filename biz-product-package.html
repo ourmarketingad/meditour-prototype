@@ -27,6 +27,9 @@
   .comp{display:flex;gap:10px;align-items:center;margin-bottom:8px;} .comp .ic{width:38px;height:38px;border-radius:11px;background:var(--blue-bg);display:flex;align-items:center;justify-content:center;flex:0 0 auto;} .comp .field{flex:1;}
   .depart{display:flex;gap:10px;align-items:center;margin-bottom:8px;} .depart .field{flex:1;}
   .save{display:flex;gap:10px;justify-content:flex-end;} .save .btn{height:48px;padding:0 26px;}
+
+/* QA: 모바일에서 헤더 버튼이 화면 밖으로 밀려 가로 스크롤 생기는 문제 수정 */
+@media (max-width:640px){ .nav{flex-wrap:wrap;height:auto;min-height:56px;padding:8px 16px;gap:10px 14px} }
 </style>
 </head>
 <body>

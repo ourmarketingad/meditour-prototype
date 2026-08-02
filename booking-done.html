@@ -28,6 +28,9 @@
   .remind .r{display:flex;gap:8px;margin-top:6px;flex-wrap:wrap;} .remind .r span{background:#fff;border-radius:8px;padding:4px 10px;font-weight:700;}
   .btns{display:flex;gap:10px;margin-top:6px;} .btns a{flex:1;text-align:center;font-weight:700;border-radius:12px;padding:15px;font-size:15px;}
   .btns .p{background:var(--blue);color:#fff;} .btns .g{background:var(--bg3);color:var(--ink);}
+
+/* QA: 모바일에서 헤더 버튼이 화면 밖으로 밀려 가로 스크롤 생기는 문제 수정 */
+@media (max-width:640px){ .nav{flex-wrap:wrap;height:auto;min-height:56px;padding:8px 16px;gap:10px 14px} }
 </style>
 </head>
 <body>

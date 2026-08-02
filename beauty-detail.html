@@ -36,6 +36,9 @@
   .bottombar{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);padding:12px 24px;display:flex;gap:10px;align-items:center;z-index:60;}
   .bottombar .p{flex:1;font-weight:800;} .bottombar .p small{font-weight:600;color:var(--gray2);font-size:12px;display:block;}
   @media(max-width:880px){.body2{grid-template-columns:1fr;}.buy{display:none;}.gallery .big{height:200px;}}
+
+/* QA: 모바일에서 헤더 버튼이 화면 밖으로 밀려 가로 스크롤 생기는 문제 수정 */
+@media (max-width:640px){ .nav{flex-wrap:wrap;height:auto;min-height:56px;padding:8px 16px;gap:10px 14px} }
 </style>
 </head>
 <body>

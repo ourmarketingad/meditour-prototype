@@ -21,6 +21,9 @@
   .noti .ic{width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:18px;flex:0 0 auto;background:var(--blue-bg);}
   .noti .ti{font-weight:700;font-size:14px;} .noti .ds{font-size:13px;color:var(--gray);margin-top:3px;} .noti .tm{font-size:11px;color:var(--gray2);margin-top:5px;}
   .dot{width:8px;height:8px;border-radius:50%;background:var(--blue);margin-left:auto;flex:0 0 auto;}
+
+/* QA: 모바일에서 헤더 버튼이 화면 밖으로 밀려 가로 스크롤 생기는 문제 수정 */
+@media (max-width:640px){ .nav{flex-wrap:wrap;height:auto;min-height:56px;padding:8px 16px;gap:10px 14px} }
 </style>
 </head>
 <body>
